@@ -14,6 +14,7 @@ function getLoggedIn() {
   });
 }
 
+// this is the navbar
 function NavBar() {
   const router = useRouter();
   const [navState, setNavState] = useState("load");
