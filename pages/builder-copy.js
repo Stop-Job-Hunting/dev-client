@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import LogoutButton from "../components/logoutButton";
 import NavBar from "../components/navBar";
+import SERVERURL from "../constants"
 
 function whoami() {
-  return fetch("http://localhost:3001/user-info", {
+  return fetch(`${SERVERURL}/user-info`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

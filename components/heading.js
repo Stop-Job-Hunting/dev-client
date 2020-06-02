@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import SERVERURL from "../constants"
 
 function Heading() {
   const router = useRouter();
@@ -14,7 +15,7 @@ function Heading() {
 
   function commitData(data) {
     console.log("going to put data in the database", data);
-    return fetch("http://localhost:3001/resumes", {
+    return fetch(`${SERVERURL}/resumes`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

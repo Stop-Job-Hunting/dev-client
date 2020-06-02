@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import LogoutButton from "../components/logoutButton";
 import NavBar from "../components/navBar";
+import SERVERURL from "../constants"
 
 
 function writeJSONFile() {
 
-  return fetch("http://localhost:3001/resumes/build-json", {
+  return fetch(`${SERVERURL}/resumes/build-json`, {
     method: "get",
     headers: {
       "Content-Type": "application/json",
@@ -16,7 +17,7 @@ function writeJSONFile() {
 
 function buildResume() {
 
-  return fetch("http://localhost:3001/resumes/build-resume", {
+  return fetch(`${SERVERURL}/resumes/build-resume`, {
     method: "get",
     headers: {
       "Content-Type": "application/json",

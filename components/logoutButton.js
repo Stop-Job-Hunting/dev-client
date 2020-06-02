@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
+import SERVERURL from "../constants"
 
 function logout() {
-  return fetch("http://localhost:3001/sessions/logout", {
+  return fetch(`${SERVERURL}/sessions/logout`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

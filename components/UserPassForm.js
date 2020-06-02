@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import SERVERURL from "../constants"
 
 export default function LoginForm() {
   const router = useRouter();
 
   function register(username, password) {
-    return fetch("http://localhost:3001/sessions/register", {
+    return fetch(`${SERVERURL}/sessions/register`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
