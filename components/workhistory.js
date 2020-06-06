@@ -13,17 +13,17 @@ function WorkHistory() {
     });
   }
 
-  // function commitData(data) {
-  //   console.log("going to put data in the database", data);
-  //   return fetch(`${SERVERURL}/resumes`, {
-  //     method: "post",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     credentials: "include",
-  //     body: JSON.stringify(data),
-  //   });
-  // }
+  function commitData(data) {
+    console.log("going to put data in the database", data);
+    return fetch(`${SERVERURL}/resumes/new-work`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(data),
+    });
+  }
 
   return (
     <div className="componentContainer">
@@ -38,7 +38,7 @@ function WorkHistory() {
               <div className="inputLabel">Job Title</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "job-title");
+                  return handleInput(event, "position");
                 }}
               ></textarea>
             </div>
@@ -47,7 +47,7 @@ function WorkHistory() {
               <div className="inputLabel">Employer</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "employer");
+                  return handleInput(event, "company");
                 }}
               ></textarea>
             </div>
@@ -74,7 +74,7 @@ function WorkHistory() {
               <div className="inputLabel">Start Date</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "start-date");
+                  return handleInput(event, "startDate");
                 }}
               ></textarea>
             </div>
@@ -83,7 +83,7 @@ function WorkHistory() {
               <div className="inputLabel">End Date</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "end-date");
+                  return handleInput(event, "endDate");
                 }}
               ></textarea>
             </div>
@@ -95,7 +95,7 @@ function WorkHistory() {
               onClick={() => {
                 console.log("state: ", state);
                 console.log("State as JSON: ", JSON.stringify(state));
-                // commitData(state);
+                commitData(state);
                 console.log(state);
                 router.push("/section/work-summary");
               }}

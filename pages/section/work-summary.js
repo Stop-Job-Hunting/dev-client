@@ -1,13 +1,20 @@
 import Heading from "../../components/heading";
 
 import NavBar from "../../components/navBar";
+import WorkSummary from "../../components/workSummary"
 
 export default () => {
+
   return (
     <div>
       <NavBar />
 
-      <div className="hero">Work summary lives here</div>
+      <div className="hero">
+        Work summary lives here get it?
+         <WorkSummary />
+
+      </div>
+
       <style jsx>{`
         .hero {
           width: 100%;
