@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../constants";
 
-function Heading() {
+function WorkHistory() {
   const router = useRouter();
   const [state, setState] = useState({});
 
@@ -13,44 +13,41 @@ function Heading() {
     });
   }
 
-  function commitData(data) {
-    console.log("going to put data in the database", data);
-    return fetch(`${SERVERURL}/resumes`, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(data),
-    });
-  }
+  // function commitData(data) {
+  //   console.log("going to put data in the database", data);
+  //   return fetch(`${SERVERURL}/resumes`, {
+  //     method: "post",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     credentials: "include",
+  //     body: JSON.stringify(data),
+  //   });
+  // }
 
   return (
     <div className="componentContainer">
       <div className="headingContainer">
-        <div className="header">
-          What’s the best way for employers to contact you?
-        </div>
-        <div className="subHeader">
-          We suggest including an email and phone number.
-        </div>
+        <div className="header">Tell us about your most recent job</div>
+        <div className="subHeader">We'll start there and work backward.</div>
+        <div className="subHeader">TODO: determine if first job, or 2nd+</div>
 
         <div className="inputBlockContainer">
           <div className="inputCenterContainer">
             <div className="inputContainer">
-              <div className="inputLabel">Name</div>
+              <div className="inputLabel">Job Title</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "name");
+                  return handleInput(event, "job-title");
                 }}
               ></textarea>
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Label</div>
+              <div className="inputLabel">Employer</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "label");
+                  return handleInput(event, "employer");
                 }}
               ></textarea>
             </div>
@@ -68,34 +65,25 @@ function Heading() {
               <div className="inputLabel">State</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "region");
+                  return handleInput(event, "state");
                 }}
               ></textarea>
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Zip Code</div>
+              <div className="inputLabel">Start Date</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "postalCode");
+                  return handleInput(event, "start-date");
                 }}
               ></textarea>
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Phone</div>
+              <div className="inputLabel">End Date</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "phone");
-                }}
-              ></textarea>
-            </div>
-
-            <div className="inputContainer">
-              <div className="inputLabel">Email Address</div>
-              <textarea
-                onChange={(event) => {
-                  return handleInput(event, "email");
+                  return handleInput(event, "end-date");
                 }}
               ></textarea>
             </div>
@@ -107,12 +95,21 @@ function Heading() {
               onClick={() => {
                 console.log("state: ", state);
                 console.log("State as JSON: ", JSON.stringify(state));
-                // commitData(JSON.stringify(state));
-                commitData(state);
-                router.push("/section/work");
+                // commitData(state);
+                console.log(state);
+                router.push("/section/work-summary");
               }}
             >
               Next
+            </div>
+            <div
+              className="buttonContainer"
+              onClick={() => {
+                router.push("/section/heading");
+              }}
+            >
+              {" "}
+              Back
             </div>
           </div>
         </div>
@@ -207,7 +204,8 @@ function Heading() {
         }
         .holdTheButtonContainer {
           display: flex;
-          justify-content: flex-end;
+          justify-content: space-between;
+          flex-direction: row-reverse;
           margin-top: 1em;
           min-width: 415px;
         }
@@ -216,4 +214,4 @@ function Heading() {
   );
 }
 
-export default Heading;
+export default WorkHistory;

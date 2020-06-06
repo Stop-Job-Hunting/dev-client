@@ -1,14 +1,13 @@
+import Heading from "../../components/heading";
+
 import NavBar from "../../components/navBar";
-import WorkHistory from "../../components/workhistory";
 
 export default () => {
   return (
     <div>
       <NavBar />
 
-      <div className="hero">
-        <WorkHistory />
-      </div>
+      <div className="hero">Work summary lives here</div>
       <style jsx>{`
         .hero {
           width: 100%;
