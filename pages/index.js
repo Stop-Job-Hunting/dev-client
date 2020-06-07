@@ -18,3 +18,5 @@ export default function Home() {
     </div>
   );
 }
+
+// https://coolors.co/gradient-maker/ffa600-ce9eec-3a7ff2

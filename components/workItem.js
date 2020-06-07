@@ -1,9 +1,23 @@
 import { Edit, Trash, Move } from "react-feather";
+import SERVERURL from "../constants";
+import { useRouter } from "next/router";
 
 function WorkItem(props) {
+  const router = useRouter();
+
+  function deleteItem() {
+    fetch(`${SERVERURL}/works/delete/${props.item._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+  }
+
   return (
     <>
-      <div className="workContainer">
+      <div className="workContainer" key={`${props.item._id}`}>
         <div className="indexContainer">1</div>
         <div className="contentContainer">
           <strong>
@@ -16,11 +30,14 @@ function WorkItem(props) {
           <div className="singleIconContainer">
             <Edit color="#444" size={18} />
           </div>
-          <div className="singleIconContainer">
+          <div
+            className="singleIconContainer"
+            onClick={() => {
+              deleteItem();
+              window.location.reload(false);
+            }}
+          >
             <Trash color="#444" size={18} />
-          </div>
-          <div className="singleIconContainer">
-            <Move color="#444" size={18} />
           </div>
         </div>
       </div>
@@ -44,7 +61,7 @@ function WorkItem(props) {
           cursor: default;
         }
         .iconContainer {
-          min-width: 80px;
+          min-width: 50px;
           padding: 20px 20px 20px 20px;
           display: flex;
           justify-content: space-between;
