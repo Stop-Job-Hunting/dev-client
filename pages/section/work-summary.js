@@ -9,7 +9,6 @@ export default () => {
       <NavBar />
 
       <div className="hero">
-        Work History Summary
         <WorkSummary />
       </div>
 

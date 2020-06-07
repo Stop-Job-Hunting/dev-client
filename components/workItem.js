@@ -1,3 +1,5 @@
+import { Edit, Trash, Move } from "react-feather";
+
 function WorkItem(props) {
   return (
     <>
@@ -10,7 +12,17 @@ function WorkItem(props) {
           &nbsp; |&nbsp; {props.item.city}, {props.item.state} &nbsp;|&nbsp;{" "}
           {props.item.startDate} - {props.item.endDate}
         </div>
-        <div className="iconContainer">X Edit !</div>
+        <div className="iconContainer">
+          <div className="singleIconContainer">
+            <Edit color="#444" size={18} />
+          </div>
+          <div className="singleIconContainer">
+            <Trash color="#444" size={18} />
+          </div>
+          <div className="singleIconContainer">
+            <Move color="#444" size={18} />
+          </div>
+        </div>
       </div>
       <style jsx>{`
         .workContainer {
@@ -29,18 +41,23 @@ function WorkItem(props) {
           justify-content: center;
           color: white;
           font-size: 16px;
+          cursor: default;
         }
         .iconContainer {
-          min-width: 100px;
-          padding: 20px 10px 20px 10px;
+          min-width: 80px;
+          padding: 20px 20px 20px 20px;
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
         }
         .contentContainer {
-          padding: 20px 10px 20px 10px;
+          padding: 20px 20px 20px 20px;
           width: 100%;
           display: flex;
           font-size: 16px;
+          cursor: default;
+        }
+        .singleIconContainer {
+          cursor: pointer;
         }
       `}</style>
     </>

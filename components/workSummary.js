@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import SERVERURL from "../constants";
 import WorkItem from "../components/workItem";
+import { useRouter } from "next/router";
 
 // let mappedWork;
 
 function WorkSummary() {
   const [state, setState] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     if (state.length < 1) {
@@ -29,21 +31,94 @@ function WorkSummary() {
 
   let mappedWork = state.map((item) => {
     if (item.company) {
-      return (
-        <WorkItem item={item} />
-        // <div key={item._id}>
-        //   <div> {item._id}</div>
-        //   <div> {item.company}</div>
-        //   <div> {item.position}</div>
-        //   <div> {item.city}</div>
-        //   <div> {item.state}</div>
-        //   <div> {item.startDate}</div>
-        //   <div> {item.endData}</div>
-        // </div>
-      );
+      return <WorkItem item={item} />;
     }
   });
 
-  return <>{mappedWork}</>;
+  return (
+    <>
+      <div className="title">
+        <h2>Work History Summary</h2>
+      </div>
+      {mappedWork}
+      <div
+        className="bottomButton"
+        onClick={() => {
+          router.push("/section/work");
+        }}
+      >
+        {" "}
+        ADD ANOTHER POSITION
+      </div>
+      <div className="navButtons">
+        <div
+          className="buttonContainer"
+          onClick={() => {
+            router.push("/section/education");
+          }}
+        >
+          Next
+        </div>
+        <div
+          className="buttonContainer"
+          onClick={() => {
+            router.push("/section/work");
+          }}
+        >
+          {" "}
+          Back
+        </div>
+      </div>
+      <style jsx>{`
+        .title {
+          display: flex;
+          width: 75%;
+          height: 50px;
+          align-items: center;
+          margin-bottom: 20px;
+          cursor: default;
+        }
+        .bottomButton {
+          border: 1px dashed #3a7ff2;
+          font-weight: 600;
+          width: 75%;
+          color: #3a7ff2;
+          background-color: #fefefe;
+          display: flex;
+          height: 60px;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+        .bottomButton:hover {
+          opacity: 0.7;
+        }
+        .navButtons {
+          width: 75%;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row-reverse;
+          margin-top: 20px;
+        }
+        .buttonContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 2.2em;
+          width: 5em;
+          padding-left: 0.5em;
+          padding-right: 0.5em;
+          border: 4px solid #ffa600;
+          background-color: #ffa600;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .buttonContainer:hover {
+          opacity: 0.7;
+        }
+      `}</style>
+    </>
+  );
 }
 export default WorkSummary;
