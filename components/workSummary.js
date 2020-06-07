@@ -4,14 +4,11 @@ import SERVERURL from "../constants";
 // let mappedWork;
 
 function WorkSummary() {
-  const [state, setState] = useState([{ key: 1 }])
-  const [effect, setEffectState] = useState(1)
+  const [state, setState] = useState([])
 
   useEffect(() => {
 
-    if (effect < 2) {
-      // console.log(effect);
-      setEffectState(2);
+    if (state.length < 1) {
       getAllWork()
     }
 
@@ -27,7 +24,6 @@ function WorkSummary() {
     }).then((res) => {
       res.text().then((text) => {
         setState(JSON.parse(text))
-
       })
     });
   }
