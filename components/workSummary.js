@@ -1,12 +1,20 @@
 import { useState, useEffect } from 'react';
 import SERVERURL from "../constants";
 
-let mappedWork;
+// let mappedWork;
+
 function WorkSummary() {
-  const [state, setState] = useState([{}])
+  const [state, setState] = useState([{ key: 1 }])
+  const [effect, setEffectState] = useState(1)
 
   useEffect(() => {
-    getAllWork()
+
+    if (effect < 2) {
+      // console.log(effect);
+      setEffectState(2);
+      getAllWork()
+    }
+
   })
 
   function getAllWork() {
@@ -19,30 +27,31 @@ function WorkSummary() {
     }).then((res) => {
       res.text().then((text) => {
         setState(JSON.parse(text))
-        mappedWork = state.map(item => {
-          if (item.company) {
-            return (
-              <div>
-                <div> {item._id}</div>
-                <div> {item.company}</div>
-                <div> {item.position}</div>
-                <div> {item.city}</div>
-                <div> {item.state}</div>
-                <div> {item.startDate}</div>
-                <div> {item.endData}</div>
-              </div>
-            )
-          }
 
-        })
-        // console.log(JSON.parse(text))
       })
     });
   }
 
+  let mappedWork = state.map(item => {
+    if (item.company) {
+      return (
+        <div key={item._id}>
+          <div> {item._id}</div>
+          <div> {item.company}</div>
+          <div> {item.position}</div>
+          <div> {item.city}</div>
+          <div> {item.state}</div>
+          <div> {item.startDate}</div>
+          <div> {item.endData}</div>
+        </div>
+      )
+    }
+  })
+
   return (
     <>
       {mappedWork}
+      <button onClick={() => console.log(mappedWork)}>log state</button>
     </>
   )
 }
