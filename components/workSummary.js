@@ -10,7 +10,7 @@ function WorkSummary() {
   })
 
   function getAllWork() {
-    return fetch(`${SERVERURL}/resumes/all-work`, {
+    return fetch(`${SERVERURL}/works/all-work`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",

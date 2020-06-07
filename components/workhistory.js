@@ -15,7 +15,7 @@ function WorkHistory() {
 
   function commitData(data) {
     console.log("going to put data in the database", data);
-    return fetch(`${SERVERURL}/resumes/new-work`, {
+    return fetch(`${SERVERURL}/works/new-work`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
