@@ -120,7 +120,6 @@ function NavBar() {
               padding-left: 0.5em;
               padding-right: 0.5em;
               border: 4px solid #ffa600;
-              border-radius: 4px;
               background-color: #ffa600;
               color: white;
               font-weight: bold;
@@ -145,12 +144,15 @@ function NavBar() {
           router.push("/");
         }}
       >
-        Stop Job Hunting
+        <img src="/assets/sjhlogo.png" width="280px"></img>
       </div>
-      <div>{loggedStatus}</div>
+      <div className="navBarContainer">{loggedStatus}</div>
       <style jsx>{`
         .navContainer {
+          width: 100%;
           display: flex;
+          color: #3a7ff2;
+          font-weight: bold;
           align-items: center;
           justify-content: space-between;
           padding-left: 1em;
@@ -160,13 +162,19 @@ function NavBar() {
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
         }
         .logoContainer {
+          margin-left: 10px;
           font-size: 2em;
           font-weight: bold;
           color: #444;
           cursor: pointer;
+          display: flex;
+          align-items: center;
         }
         .logocontainer: hover {
           opacity: 0.9;
+        }
+        .navBarContainer {
+          margin-right: 18px;
         }
       `}</style>
     </div>

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import SERVERURL from "../constants"
+import SERVERURL from "../constants";
 
 function logout() {
   return fetch(`${SERVERURL}/sessions/logout`, {
@@ -39,7 +39,6 @@ function LogoutButton() {
           padding-left: 0.5em;
           padding-right: 0.5em;
           border: 4px solid #ffa600;
-          border-radius: 4px;
           background-color: #ffa600;
           color: white;
           font-weight: bold;

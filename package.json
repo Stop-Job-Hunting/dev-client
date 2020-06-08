@@ -12,5 +12,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-feather": "^2.0.8"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0"
   }
 }
