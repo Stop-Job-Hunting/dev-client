@@ -50,6 +50,9 @@ function WorkItem(props) {
           flex-direction: row;
           border: 1px solid #e8ecf0;
         }
+        .workContainer:hover {
+          border: 1px solid #ffa600;
+        }
         .indexContainer {
           background-color: #ffa600;
           width: 35px;
