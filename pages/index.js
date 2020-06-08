@@ -11,7 +11,7 @@ export default function Home() {
       </div>
       <div className="overlayContainer">
         <div>
-          <div className="headerItem">Builder A Better Resume</div>
+          <div className="headerItem">Build A Better Resume</div>
           <div className="headerItem">Land More Interviews</div>
           <div className="headerItemLast">Make More Money</div>
           <div className="buttonContainer">BUILD MY RESUME</div>
