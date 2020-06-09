@@ -22,15 +22,14 @@ export default function Home() {
       </div>
 
       {/* Call to action */}
-      <div className="callToActionBarContainer">
-        Templates Proven To Help Get You Hired
-      </div>
+      <div className="callToActionBarContainer">Ready To Stop Job Hunting?</div>
 
       {/* How It Works */}
       <div className="howItWorksContainer">
-        <div className="hiwTitleContainer">How It Works</div>
+        <div className="hiwTitleContainer"></div>
         <div className="hiwSubItemsContainer">
           <div className="subItemIndividualContainer">
+            <img src="/assets/ione.png" width="120px"></img>
             <div className="subItemHeader">Pick Your Template</div>
             <div className="subItemDescription">
               <center>
@@ -40,6 +39,7 @@ export default function Home() {
             </div>
           </div>
           <div className="subItemIndividualContainer">
+            <img src="/assets/itwo.png" width="120px"></img>
             <div className="subItemHeader">Enter Your Information</div>
             <div className="subItemDescription">
               <center>
@@ -49,6 +49,7 @@ export default function Home() {
             </div>
           </div>
           <div className="subItemIndividualContainer">
+            <img src="/assets/ithree.png" width="120px"></img>
             <div className="subItemHeader">Get More Interviews</div>
             <div className="subItemDescription">
               <center>
@@ -65,7 +66,9 @@ export default function Home() {
         <div className="imgContainerReviews">
           <img className="heroImage" src="/assets/reviewbanner.png"></img>
         </div>
-        <div className="reviewHeaderContainer">What are our users saying?</div>
+        <div className="reviewHeaderContainer">
+          <center>What are our users saying?</center>
+        </div>
 
         <div className="reviewImageContainer">
           <img
@@ -167,10 +170,10 @@ export default function Home() {
         }
         .howItWorksContainer {
           width: 100%;
-          height: 400px;
+          min-height: 440px;
           display: flex;
           align-items: center;
-          padding-top: 30px;
+          justify-content: center;
           flex-direction: column;
         }
         .hiwTitleContainer {
@@ -180,12 +183,12 @@ export default function Home() {
         }
         .hiwSubItemsContainer {
           display: flex;
-          padding-top: 30px;
           width: 80%;
           justify-content: space-between;
           align-items: center;
         }
         .subItemHeader {
+          margin-top: 10px;
           font-size: 20px;
           font-weight: bold;
           color: #444;
@@ -289,6 +292,17 @@ export default function Home() {
         @media only screen and (max-width: 640px) {
           .reviewImageSecond {
             display: none;
+          }
+        }
+
+        @media only screen and (max-width: 830px) {
+          .hiwSubItemsContainer {
+            flex-direction: column;
+            margin-top: 30px;
+            margin-bottom: 30px;
+          }
+          .subItemIndividualContainer {
+            margin-bottom: 30px;
           }
         }
       `}</style>
