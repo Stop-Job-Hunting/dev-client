@@ -14,7 +14,7 @@ export default function Home() {
           <div className="headerItem">Build A Better Resume</div>
           <div className="headerItem">Land More Interviews</div>
           <div className="headerItemLast">Make More Money</div>
-          <div className="buttonContainer">BUILD MY RESUME</div>
+          <div className="buttonContainer">Build My Resume</div>
         </div>
         <div className="resumePhotoContainer">
           <img src="/assets/resume-example.png" width="320px"></img>
