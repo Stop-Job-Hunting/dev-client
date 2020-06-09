@@ -1,8 +1,11 @@
 import UserPassForm from "../components/UserPassForm";
 import LoginForm from "../components/LoginForm";
 import NavBar from "../components/navBar";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="indexContainer">
       <NavBar />
@@ -14,7 +17,14 @@ export default function Home() {
           <div className="headerItem">Build A Better Resume</div>
           <div className="headerItem">Land More Interviews</div>
           <div className="headerItemLast">Make More Money</div>
-          <div className="buttonContainer">Build My Resume</div>
+          <div
+            className="buttonContainer"
+            onClick={() => {
+              router.push("/section/app-index");
+            }}
+          >
+            Build My Resume
+          </div>
         </div>
         <div className="resumePhotoContainer">
           <img src="/assets/resume-example.png" width="320px"></img>
