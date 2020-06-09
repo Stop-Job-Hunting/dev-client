@@ -22,7 +22,9 @@ export default function Home() {
       </div>
 
       {/* Call to action */}
-      <div className="callToActionBarContainer">Ready To Stop Job Hunting?</div>
+      <div className="callToActionBarContainer">
+        Try Our FREE Premium Resume Builder
+      </div>
 
       {/* How It Works */}
       <div className="howItWorksContainer">
