@@ -155,20 +155,19 @@ function NavBar() {
           font-weight: bold;
           align-items: center;
           justify-content: space-between;
-          padding-left: 1em;
-          padding-right: 1em;
+
           height: 4.5em;
           background-color: #fbfcfd;
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
         }
         .logoContainer {
-          margin-left: 10px;
+          padding-left: 10px;
           font-size: 2em;
           font-weight: bold;
           color: #444;
           cursor: pointer;
           display: flex;
-          align-items: center;
+          1-items: center;
         }
         .logocontainer: hover {
           opacity: 0.9;
