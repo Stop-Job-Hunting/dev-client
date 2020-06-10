@@ -141,9 +141,11 @@ export default function Home() {
         }
         .headerItem {
           margin-bottom: 8px;
+          cursor: default;
         }
         .headerItemLast {
           color: #ffa600;
+          cursor: default;
         }
         .buttonContainer {
           background-color: #ce9eec;
@@ -181,6 +183,7 @@ export default function Home() {
           color: white;
           font-size: 22px;
           font-weight: bold;
+          cursor: default;
         }
         .howItWorksContainer {
           width: 100%;
@@ -189,6 +192,7 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          cursor: default;
         }
         .hiwTitleContainer {
           font-size: 40px;
@@ -223,6 +227,7 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          cursor: default;
         }
         .reviewImage {
           margin: 30px 10px 10px 10px;
@@ -238,6 +243,7 @@ export default function Home() {
           color: white;
           font-weight: bold;
           margin-top: 10px;
+          cursor: default;
         }
 
         .lastCallToActionContainer {
@@ -251,6 +257,7 @@ export default function Home() {
           font-size: 22px;
           font-weight: bold;
           flex-direction: column;
+          cursor: default;
         }
 
         .buttonContainerLastCTA {
