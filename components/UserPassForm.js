@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import SERVERURL from "../constants"
+import SERVERURL from "../constants";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -40,12 +40,15 @@ export default function LoginForm() {
 
   return (
     <div className="container">
-      <div className="headerContainer">Create Your Account</div>
+      <div className="headerContainer">
+        <center>Create an account to save your work!</center>
+      </div>
       <div className="formGuts">
         <div className="misc">
-          <h2>username</h2>
+          <div className="inputLabel">Email / Username</div>
+
           <textarea onChange={handleUsername} />
-          <h2>password</h2>
+          <div className="inputLabel">Password</div>
           <textarea onChange={handlePassword} />
           <div
             className="loginButton"
@@ -53,27 +56,32 @@ export default function LoginForm() {
               onRegister(username, password);
             }}
           >
-            Login
+            Create Account
+          </div>
+          <div className="loginLinkContainer">
+            Already have an account?&nbsp;
+            <div className="loginContainer">Login here.</div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
         .headerContainer {
-          font-size: 1.5em;
+          font-size: 28px;
           margin-bottom: 1em;
           font-weight: bold;
+          color: white;
+          cursor: default;
         }
         .loginButton {
           display: flex;
           align-items: center;
           justify-content: center;
           height: 2.2em;
-          width: 5em;
+          max-width: 250px;
           padding-left: 0.5em;
           padding-right: 0.5em;
           border: 4px solid #ffa600;
-          border-radius: 4px;
           background-color: #ffa600;
           color: white;
           font-weight: bold;
@@ -84,26 +92,20 @@ export default function LoginForm() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content; center;
           width: 400px;
-          padding: 1em;
-          margin: 5em;
         }
         .formGuts {
           width: 100%;
+          min-height: 280px;
           display: flex;
           justify-content: center;
           align-items: center;
           padding: 1em;
           flex-direction: column;
-          border: 2px solid #444;
-          border-radius: 4px;
+          background-color: white;
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
         }
-        button {
-          width: 200px;
-          margin-top: 20px;
-          height: 30px;
-        }
+
         textarea {
           resize: none;
           font-size: 18px;
@@ -112,9 +114,45 @@ export default function LoginForm() {
           padding: 5px;
           height: 20px;
           max-width: 250px;
+          border-radius: 0;
+        }
+        textarea:focus {
+          border: 1px solid #ffa600;
+          outline: 0px;
         }
         .loginButton:hover {
           opacity: 0.7;
+        }
+        .inputLabel {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+          color: #545454 !important;
+          margin-top: 10px;
+          cursor: default;
+        }
+        .loginLinkContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+          font-size: 11px;
+          font-weight: 600;
+          line-height: 24px;
+          color: #444;
+          margin-top: 10px;
+          width: 100%;
+          cursor: default;
+          margin-bottom: 5px;
+        }
+        .loginContainer {
+          cursor: pointer;
+          text-decoration: underline;
+          color: #3a7ff2;
+        }
+        .loginContainer:hover {
+          color: #444;
+          text-decoration: none;
         }
       `}</style>
     </div>

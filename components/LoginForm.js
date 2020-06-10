@@ -43,7 +43,7 @@ export default function LoginForm() {
       <div className="headerContainer">Welcome back! Login below.</div>
       <div className="formGuts">
         <div className="misc">
-          <div className="inputLabel">Username</div>
+          <div className="inputLabel">Email / Username</div>
           <textarea onChange={handleUsername} />
           <div className="inputLabel">Password</div>
 
