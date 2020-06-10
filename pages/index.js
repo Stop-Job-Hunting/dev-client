@@ -100,6 +100,8 @@ export default function Home() {
           ></img>
         </div>
       </div>
+
+      {/* ending call to action section */}
       <div className="lastCallToActionContainer">
         <div className="lastCallToActionHeader">Ready To Get Started?</div>
         <div className="buttonContainerLastCTA">Build My Resume</div>
@@ -123,7 +125,7 @@ export default function Home() {
         .imgContainerReviews {
           position: absolute;
           z-index: -1;
-          height: 400px;
+          height: 440px;
           width: 100%;
         }
         .overlayContainer {
@@ -216,7 +218,7 @@ export default function Home() {
         }
         .reviewContainer {
           width: 100%;
-          min-height: 400px;
+          min-height: 440px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -241,7 +243,7 @@ export default function Home() {
         .lastCallToActionContainer {
           width: 100%;
           background-color: #444;
-          height: 300px;
+          height: 380px;
           display: flex;
           align-items: center;
           justify-content: center;
