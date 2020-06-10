@@ -48,7 +48,7 @@ function NavBar() {
               router.push("/download");
             }}
           >
-            Download
+            <div className="menuListItem">Download</div>
           </div>
           <div
             className="builderContainer"
@@ -56,7 +56,7 @@ function NavBar() {
               router.push("/section/heading");
             }}
           >
-            Builder
+            <div className="menuListItem">Builder</div>
           </div>
           <LogoutButton />
           <style jsx>{`
@@ -70,7 +70,10 @@ function NavBar() {
               margin-right: 1em;
               cursor: pointer;
             }
-            .buildercontainer: hover {
+            .builderContainer:hover {
+              opacity: 0.7;
+            }
+            .menuListItem:hover {
               opacity: 0.7;
             }
           `}</style>
@@ -85,7 +88,7 @@ function NavBar() {
               router.push("/login");
             }}
           >
-            Log In
+            <div className="menuListItem">Log In</div>
           </div>
 
           <div
@@ -126,6 +129,9 @@ function NavBar() {
               cursor: pointer;
             }
             .buttonContainer:hover {
+              opacity: 0.7;
+            }
+            .menuListItem:hover {
               opacity: 0.7;
             }
           `}</style>

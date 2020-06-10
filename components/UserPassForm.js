@@ -115,13 +115,14 @@ export default function LoginForm() {
 
         textarea {
           resize: none;
-          font-size: 18px;
+          font-size: 16px;
+          line-height: 22px;
           display: flex;
-          justify-content: center;
           padding: 5px;
           height: 20px;
-          max-width: 250px;
+          width: 250px;
           border-radius: 0;
+          font-family: "Source Sans Pro", Arial, sans-serif !important;
         }
         textarea:focus {
           border: 1px solid #ffa600;
