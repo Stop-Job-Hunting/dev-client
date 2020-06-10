@@ -125,7 +125,7 @@ function NavBar() {
               font-weight: bold;
               cursor: pointer;
             }
-            .buttoncontainer: hover {
+            .buttonContainer:hover {
               opacity: 0.7;
             }
           `}</style>

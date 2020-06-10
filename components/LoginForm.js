@@ -102,7 +102,6 @@ export default function LoginForm() {
           align-items: center;
           width: 400px;
           padding: 1em;
-          margin: 5em;
         }
         .formGuts {
           width: 100%;
