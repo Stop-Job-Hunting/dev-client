@@ -47,7 +47,7 @@ export default function LoginForm() {
           <textarea onChange={handleUsername} />
           <div className="inputLabel">Password</div>
 
-          <textarea onChange={handlePassword} />
+          <input onChange={handlePassword} type="password" />
           <div className="forgotLabel">Forgot your username or password?</div>
           <div
             className="loginButton"
@@ -130,6 +130,24 @@ export default function LoginForm() {
           border: 1px solid #ffa600;
           outline: 0px;
         }
+
+        input {
+          resize: none;
+          font-size: 16px;
+          line-height: 22px;
+          display: flex;
+          padding: 5px;
+          height: 20px;
+          width: 250px;
+          border-radius: 0;
+          border: 1px solid rgb(118, 118, 118);
+          font-family: "Source Sans Pro", Arial, sans-serif !important;
+        }
+        input:focus {
+          border: 1px solid #ffa600;
+          outline: 0px;
+        }
+
         .loginButton:hover {
           opacity: 0.7;
         }
