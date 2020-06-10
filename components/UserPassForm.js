@@ -60,7 +60,14 @@ export default function LoginForm() {
           </div>
           <div className="loginLinkContainer">
             Already have an account?&nbsp;
-            <div className="loginContainer">Login here.</div>
+            <div
+              className="loginContainer"
+              onClick={() => {
+                router.push("/login");
+              }}
+            >
+              Login here.
+            </div>
           </div>
         </div>
       </div>
