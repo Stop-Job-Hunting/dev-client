@@ -47,9 +47,9 @@ export default function LoginForm() {
         <div className="misc">
           <div className="inputLabel">Email / Username</div>
 
-          <textarea onChange={handleUsername} />
+          <input onChange={handleUsername} type="email" />
           <div className="inputLabel">Password</div>
-          <textarea onChange={handlePassword} />
+          <input onChange={handlePassword} type="password" />
           <div
             className="loginButton"
             onClick={() => {
@@ -113,7 +113,7 @@ export default function LoginForm() {
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
         }
 
-        textarea {
+        input {
           resize: none;
           font-size: 16px;
           line-height: 22px;
@@ -122,9 +122,10 @@ export default function LoginForm() {
           height: 20px;
           width: 250px;
           border-radius: 0;
+          border: 1px solid rgb(118, 118, 118);
           font-family: "Source Sans Pro", Arial, sans-serif !important;
         }
-        textarea:focus {
+        input:focus {
           border: 1px solid #ffa600;
           outline: 0px;
         }

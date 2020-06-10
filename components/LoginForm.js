@@ -44,7 +44,7 @@ export default function LoginForm() {
       <div className="formGuts">
         <div className="misc">
           <div className="inputLabel">Email / Username</div>
-          <textarea onChange={handleUsername} />
+          <input onChange={handleUsername} type="email" />
           <div className="inputLabel">Password</div>
 
           <input onChange={handlePassword} type="password" />
@@ -113,22 +113,6 @@ export default function LoginForm() {
           flex-direction: column;
           background-color: white;
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
-        }
-
-        textarea {
-          resize: none;
-          font-size: 16px;
-          line-height: 22px;
-          display: flex;
-          padding: 5px;
-          height: 20px;
-          width: 250px;
-          border-radius: 0;
-          font-family: "Source Sans Pro", Arial, sans-serif !important;
-        }
-        textarea:focus {
-          border: 1px solid #ffa600;
-          outline: 0px;
         }
 
         input {
