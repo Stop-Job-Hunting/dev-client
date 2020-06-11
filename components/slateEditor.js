@@ -10,7 +10,7 @@ const HOTKEYS = {
   "mod+b": "bold",
   "mod+i": "italic",
   "mod+u": "underline",
-  "mod+`": "code",
+  // "mod+`": "code",
 };
 
 const LIST_TYPES = ["numbered-list", "bulleted-list"];
@@ -22,40 +22,51 @@ const SlateEditor = () => {
   const editor = useMemo(() => withHistory(withReact(createEditor())), []);
 
   return (
-    <Slate editor={editor} value={value} onChange={(value) => setValue(value)}>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      />
-      <link rel="stylesheet" href="/global.css" />
-      <Toolbar>
-        <MarkButton format="bold" icon="format_bold" />
-        <MarkButton format="italic" icon="format_italic" />
-        <MarkButton format="underline" icon="format_underlined" />
-        <MarkButton format="code" icon="code" />
-        <BlockButton format="heading-one" icon="looks_one" />
-        <BlockButton format="heading-two" icon="looks_two" />
-        <BlockButton format="block-quote" icon="format_quote" />
-        <BlockButton format="numbered-list" icon="format_list_numbered" />
-        <BlockButton format="bulleted-list" icon="format_list_bulleted" />
-      </Toolbar>
-      <Editable
-        renderElement={renderElement}
-        renderLeaf={renderLeaf}
-        placeholder="Enter some rich text…"
-        spellCheck
-        autoFocus
-        onKeyDown={(event) => {
-          for (const hotkey in HOTKEYS) {
-            if (isHotkey(hotkey, event)) {
-              event.preventDefault();
-              const mark = HOTKEYS[hotkey];
-              toggleMark(editor, mark);
+    <div>
+      <Slate
+        editor={editor}
+        value={value}
+        onChange={(value) => setValue(value)}
+      >
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
+        <link rel="stylesheet" href="/global.css" />
+        <Toolbar>
+          <MarkButton format="bold" icon="format_bold" />
+          <MarkButton format="italic" icon="format_italic" />
+          <MarkButton format="underline" icon="format_underlined" />
+          {/* <BlockButton format="heading-one" icon="looks_one" />
+          <BlockButton format="heading-two" icon="looks_two" /> */}
+          <BlockButton format="numbered-list" icon="format_list_numbered" />
+          <BlockButton format="bulleted-list" icon="format_list_bulleted" />
+        </Toolbar>
+        <Editable
+          renderElement={renderElement}
+          renderLeaf={renderLeaf}
+          placeholder="Enter some rich text…"
+          spellCheck
+          autoFocus
+          onKeyDown={(event) => {
+            for (const hotkey in HOTKEYS) {
+              if (isHotkey(hotkey, event)) {
+                event.preventDefault();
+                const mark = HOTKEYS[hotkey];
+                toggleMark(editor, mark);
+              }
             }
-          }
+          }}
+        />
+      </Slate>
+      {/* <button
+        onClick={() => {
+          console.log(value);
         }}
-      />
-    </Slate>
+      >
+        Log State
+      </button> */}
+    </div>
   );
 };
 
@@ -107,10 +118,10 @@ const Element = ({ attributes, children, element }) => {
       return <blockquote {...attributes}>{children}</blockquote>;
     case "bulleted-list":
       return <ul {...attributes}>{children}</ul>;
-    case "heading-one":
-      return <h1 {...attributes}>{children}</h1>;
-    case "heading-two":
-      return <h2 {...attributes}>{children}</h2>;
+    // case "heading-one":
+    //   return <h1 {...attributes}>{children}</h1>;
+    // case "heading-two":
+    //   return <h2 {...attributes}>{children}</h2>;
     case "list-item":
       return <li {...attributes}>{children}</li>;
     case "numbered-list":
@@ -125,9 +136,9 @@ const Leaf = ({ attributes, children, leaf }) => {
     children = <strong>{children}</strong>;
   }
 
-  if (leaf.code) {
-    children = <code>{children}</code>;
-  }
+  // if (leaf.code) {
+  //   children = <code>{children}</code>;
+  // }
 
   if (leaf.italic) {
     children = <em>{children}</em>;
@@ -172,39 +183,67 @@ const MarkButton = ({ format, icon }) => {
 
 const initialValue = [
   {
-    type: "paragraph",
-    children: [
-      { text: "This is editable " },
-      { text: "rich", bold: true },
-      { text: " text, " },
-      { text: "much", italic: true },
-      { text: " better than a " },
-      { text: "<textarea>", code: true },
-      { text: "!" },
-    ],
-  },
-  {
-    type: "paragraph",
+    type: "bulleted-list",
     children: [
       {
-        text:
-          "Since it's rich text, you can do things like turn a selection of text ",
+        type: "list-item",
+        children: [{ text: "[Example] Helped increase revenue by over 20%." }],
       },
-      { text: "bold", bold: true },
       {
-        text:
-          ", or add a semantically rendered block quote in the middle of the page, like this:",
+        type: "list-item",
+        children: [
+          {
+            text:
+              "Exceeded expectations by working with a team to accomplish weekly goals.",
+          },
+        ],
+      },
+      {
+        type: "list-item",
+        children: [
+          {
+            text:
+              "Directly increased retention by over 100% by implementing a customer loyalty program.",
+          },
+        ],
       },
     ],
-  },
-  {
-    type: "block-quote",
-    children: [{ text: "A wise quote." }],
-  },
-  {
-    type: "paragraph",
-    children: [{ text: "Try it out for yourself!" }],
   },
 ];
 
 export default SlateEditor;
+
+// {
+//   type: "paragraph",
+//   children: [
+//     { text: "This is editable " },
+//     { text: "rich", bold: true },
+//     { text: " text, " },
+//     { text: "much", italic: true },
+//     { text: " better than a " },
+//     { text: "<textarea>", code: true },
+//     { text: "!" },
+//   ],
+// },
+// {
+//   type: "paragraph",
+//   children: [
+//     {
+//       text:
+//         "Since it's rich text, you can do things like turn a selection of text ",
+//     },
+//     { text: "bold", bold: true },
+//     {
+//       text:
+//         ", or add a semantically rendered block quote in the middle of the page, like this:",
+//     },
+//   ],
+// },
+// {
+//   type: "block-quote",
+//   children: [{ text: "A wise quote." }],
+// },
+// {
+//   type: "paragraph",
+//   children: [{ text: "Try it out for yourself!" }],
+// },
