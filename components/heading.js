@@ -27,16 +27,12 @@ function Heading() {
 
   return (
     <div className="componentContainer">
-      <div className="headingContainer">
-        <div className="header">
-          What’s the best way for employers to contact you?
-        </div>
-        <div className="subHeader">
-          We suggest including an email and phone number.
-        </div>
-
-        <div className="inputBlockContainer">
-          <div className="inputCenterContainer">
+      <div className="headingTitleContainer">
+        How should employers contact you?
+      </div>
+      <div className="contentContainer">
+        <div className="inputListContainer">
+          <div className="insideInputsContainer">
             <div className="inputContainer">
               <div className="inputLabel">Name</div>
               <textarea
@@ -54,7 +50,14 @@ function Heading() {
                 }}
               ></textarea>
             </div>
-
+            <div className="inputContainer">
+              <div className="inputLabel">City</div>
+              <textarea
+                onChange={(event) => {
+                  return handleInput(event, "city");
+                }}
+              ></textarea>
+            </div>
             <div className="inputContainer">
               <div className="inputLabel">City</div>
               <textarea
@@ -100,93 +103,59 @@ function Heading() {
               ></textarea>
             </div>
           </div>
-
-          <div className="holdTheButtonContainer">
-            <div
-              className="buttonContainer"
-              onClick={() => {
-                console.log("state: ", state);
-                console.log("State as JSON: ", JSON.stringify(state));
-                // commitData(JSON.stringify(state));
-                commitData(state);
-                router.push("/section/work");
-              }}
-            >
-              Next
-            </div>
+        </div>
+        <div className="imageContainer">
+          <div>
+            <img src="/assets/templatePlaceholder.png" width="220px" />
           </div>
         </div>
       </div>
-
+      <div className="buttonBarContainer">
+        <div
+          className="buttonContainer"
+          onClick={() => {
+            console.log("back");
+          }}
+        >
+          Back
+        </div>
+        <div
+          className="buttonContainer"
+          onClick={() => {
+            console.log("next");
+          }}
+        >
+          Next
+        </div>
+      </div>
       <style jsx>{`
         .componentContainer {
-          width: 75%;
-          max-width: 600px;
-          min-height: 35em;
-          padding: 1em;
-        }
-        .header {
-          font-size: 25px;
-          color: #ffa600;
-          line-height: 1.5;
-          margin-bottom: 5px;
-          font-weight: 300;
-        }
-        .subHeader {
-          color: #666;
-          font-size: 18px;
-          line-height: 1.25;
-          font-weight: 400;
-          margin-bottom: 5px;
-        }
-        .inputBlockContainer {
           display: flex;
-          flex-wrap: wrap;
-          max-width: 100%;
-          margin-top: 1em;
+          flex-direction: column;
+          width: 90%;
+          padding: 10px;
+        }
+        .headingTitleContainer {
           display: flex;
-          justify-content: center;
-          margin-bottom: 1em;
+          align-items: center;
+          width: 100%;
+          font-size: 28px;
+          font-weight: bold;
+          color: #3a7ff2;
         }
-        .inputCenterContainer {
+        .contentContainer {
+          height: 400px;
+          width: 100%;
+          border: 1px solid grey;
+          margin-top: 20px;
           display: flex;
-          flex-wrap: wrap;
-          max-width: 440px;
-          margin-top: 1em;
+        }
+        .buttonBarContainer {
+          width: 100%;
+          margin-top: 20px;
           display: flex;
-          margin-bottom: 1em;
-        }
-        .inputContainer {
-          margin-top: 1em;
-          margin-right: 8px;
-          margin-left: 2px;
-        }
-        .inputLabel {
-          font-size: 13px;
-          font-weight: 600;
-          line-height: 24px;
-          color: #545454 !important;
-        }
-        textarea {
-          resize: none;
-          font-size: 18px;
-          display: block;
-          padding: 5px;
-          height: 28px;
-          max-width: 250px;
-          border: 1px solid #d7dde2;
-          line-height: 1.7;
-          font-family: Arial, Helvetica, sans-serif;
-          font-weight: regular;
-          overflow: hidden;
-          color: #444;
-        }
-        textarea:focus {
-          border: 1px solid #ffa600;
-          outline: 0px;
-        }
-        .lastItem {
-          align-self: flex-start;
+          justify-content: space-between;
+          align-items: center;
         }
         .buttonContainer {
           display: flex;
@@ -205,11 +174,54 @@ function Heading() {
         .buttonContainer:hover {
           opacity: 0.7;
         }
-        .holdTheButtonContainer {
+        .inputListContainer {
+          width: 100%;
           display: flex;
-          justify-content: flex-end;
-          margin-top: 1em;
-          min-width: 415px;
+          align-items: center;
+          justify-content: center;
+        }
+        .imageContainer {
+          min-width: 220px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .insideInputsContainer {
+          background-color: red;
+          padding: 10px;
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .inputLabel {
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 24px;
+          color: #545454 !important;
+        }
+
+        .inputContainer {
+          margin-right: 8px;
+          margin-left: 2px;
+          background-color: blue;
+        }
+
+        textarea {
+          resize: none;
+          font-size: 18px;
+          display: block;
+          padding: 5px;
+          height: 28px;
+          width: 100%;
+          max-width: 260px;
+          border: 1px solid #d7dde2;
+          line-height: 1.7;
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: regular;
+          overflow: hidden;
+          color: #444;
         }
       `}</style>
     </div>
