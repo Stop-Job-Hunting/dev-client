@@ -97,7 +97,7 @@ function WorkHistory() {
                 console.log("State as JSON: ", JSON.stringify(state));
                 commitData(state);
                 console.log(state);
-                router.push("/section/work-summary");
+                router.push("/section/work-highlights");
               }}
             >
               Next

@@ -62,7 +62,7 @@ function WorkSummary() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/work");
+            router.push("/section/work-highlights");
           }}
         >
           {" "}

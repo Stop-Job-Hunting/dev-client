@@ -1,5 +1,6 @@
 import NavBar from "../../components/navBar";
 import HighlightsEditor from "../../components/highlightsEditor";
+import Footer from "../../components/footer";
 
 export default () => {
   return (
@@ -9,6 +10,7 @@ export default () => {
       <div className="hero">
         <HighlightsEditor />
       </div>
+      <Footer />
       <style jsx>{`
         .hero {
           width: 100%;
@@ -16,7 +18,7 @@ export default () => {
           flex-direction: column;
           align-items: center;
           padding-top: 2em;
-          height: 45em;
+          min-height: 36em;
         }
       `}</style>
     </div>

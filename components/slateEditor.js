@@ -187,14 +187,10 @@ const initialValue = [
     children: [
       {
         type: "list-item",
-        children: [{ text: "[Example] Helped increase revenue by over 20%." }],
-      },
-      {
-        type: "list-item",
         children: [
           {
             text:
-              "Exceeded expectations by working with a team to accomplish weekly goals.",
+              "Write your work highlights here! Led a team of people, grew revenue, was a team player, etc..",
           },
         ],
       },
@@ -203,7 +199,7 @@ const initialValue = [
         children: [
           {
             text:
-              "Directly increased retention by over 100% by implementing a customer loyalty program.",
+              "Directly contributed to this goal. Never missed a day of work. Promoted after 6 months.",
           },
         ],
       },
