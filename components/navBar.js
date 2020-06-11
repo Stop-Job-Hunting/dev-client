@@ -48,7 +48,7 @@ function NavBar() {
               router.push("/download");
             }}
           >
-            Download
+            <div className="menuListItem">Download</div>
           </div>
           <div
             className="builderContainer"
@@ -56,7 +56,7 @@ function NavBar() {
               router.push("/section/heading");
             }}
           >
-            Builder
+            <div className="menuListItem">Builder</div>
           </div>
           <LogoutButton />
           <style jsx>{`
@@ -70,7 +70,10 @@ function NavBar() {
               margin-right: 1em;
               cursor: pointer;
             }
-            .buildercontainer: hover {
+            .builderContainer:hover {
+              opacity: 0.7;
+            }
+            .menuListItem:hover {
               opacity: 0.7;
             }
           `}</style>
@@ -85,7 +88,7 @@ function NavBar() {
               router.push("/login");
             }}
           >
-            Log In
+            <div className="menuListItem">Log In</div>
           </div>
 
           <div
@@ -125,7 +128,10 @@ function NavBar() {
               font-weight: bold;
               cursor: pointer;
             }
-            .buttoncontainer: hover {
+            .buttonContainer:hover {
+              opacity: 0.7;
+            }
+            .menuListItem:hover {
               opacity: 0.7;
             }
           `}</style>
@@ -144,7 +150,7 @@ function NavBar() {
           router.push("/");
         }}
       >
-        <img src="/assets/sjhlogo.png" width="280px"></img>
+        <img src="/assets/SJHlogo.png" width="280px"></img>
       </div>
       <div className="navBarContainer">{loggedStatus}</div>
       <style jsx>{`

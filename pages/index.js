@@ -1,8 +1,12 @@
 import UserPassForm from "../components/UserPassForm";
 import LoginForm from "../components/LoginForm";
 import NavBar from "../components/navBar";
+import { useRouter } from "next/router";
+import Footer from "../components/footer";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="indexContainer">
       <NavBar />
@@ -14,7 +18,14 @@ export default function Home() {
           <div className="headerItem">Build A Better Resume</div>
           <div className="headerItem">Land More Interviews</div>
           <div className="headerItemLast">Make More Money</div>
-          <div className="buttonContainer">Build My Resume</div>
+          <div
+            className="buttonContainer"
+            onClick={() => {
+              router.push("/section/app-index");
+            }}
+          >
+            Build My Resume
+          </div>
         </div>
         <div className="resumePhotoContainer">
           <img src="/assets/resume-example.png" width="320px"></img>
@@ -90,13 +101,16 @@ export default function Home() {
           ></img>
         </div>
       </div>
+
+      {/* ending call to action section */}
       <div className="lastCallToActionContainer">
         <div className="lastCallToActionHeader">Ready To Get Started?</div>
         <div className="buttonContainerLastCTA">Build My Resume</div>
       </div>
-      <div className="footerContainer">
+      <Footer />
+      {/* <div className="footerContainer">
         Contact | Privacy Policy | Terms Of Service
-      </div>
+      </div> */}
       <style jsx>{`
         .indexContainer {
           display: flex;
@@ -113,7 +127,7 @@ export default function Home() {
         .imgContainerReviews {
           position: absolute;
           z-index: -1;
-          height: 400px;
+          height: 440px;
           width: 100%;
         }
         .overlayContainer {
@@ -129,9 +143,11 @@ export default function Home() {
         }
         .headerItem {
           margin-bottom: 8px;
+          cursor: default;
         }
         .headerItemLast {
           color: #ffa600;
+          cursor: default;
         }
         .buttonContainer {
           background-color: #ce9eec;
@@ -169,6 +185,7 @@ export default function Home() {
           color: white;
           font-size: 22px;
           font-weight: bold;
+          cursor: default;
         }
         .howItWorksContainer {
           width: 100%;
@@ -177,6 +194,7 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          cursor: default;
         }
         .hiwTitleContainer {
           font-size: 40px;
@@ -206,11 +224,12 @@ export default function Home() {
         }
         .reviewContainer {
           width: 100%;
-          min-height: 400px;
+          min-height: 440px;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          cursor: default;
         }
         .reviewImage {
           margin: 30px 10px 10px 10px;
@@ -226,12 +245,13 @@ export default function Home() {
           color: white;
           font-weight: bold;
           margin-top: 10px;
+          cursor: default;
         }
 
         .lastCallToActionContainer {
           width: 100%;
           background-color: #444;
-          height: 300px;
+          height: 380px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -239,6 +259,7 @@ export default function Home() {
           font-size: 22px;
           font-weight: bold;
           flex-direction: column;
+          cursor: default;
         }
 
         .buttonContainerLastCTA {

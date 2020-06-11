@@ -8,10 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "emotion": "^10.0.27",
+    "is-hotkey": "^0.1.6",
     "next": "9.4.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-feather": "^2.0.8"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-feather": "^2.0.8",
+    "slate": "^0.58.3",
+    "slate-history": "^0.58.3",
+    "slate-react": "^0.58.3"
   },
   "devDependencies": {
     "webpack": "^4.43.0"
