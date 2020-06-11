@@ -1,7 +1,11 @@
 function Footer() {
   return (
     <div className="footerContainer">
-      <div>Contact | Privacy Policy | Terms Of Service</div>
+      <div className="linkItemContainer">
+        <div className="linkItem">Contact</div> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <div className="linkItem">Privacy Policy</div> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <div className="linkItem">Service Agreement</div>
+      </div>
 
       <style jsx>{`
         .footerContainer {
@@ -13,6 +17,15 @@ function Footer() {
           align-items: center;
           justify-content: center;
           min-height: 60px;
+        }
+        .linkItemContainer {
+          display: flex;
+        }
+        .linkItem {
+          cursor: pointer;
+        }
+        .linkItem:hover {
+          text-decoration: underline;
         }
       `}</style>
     </div>

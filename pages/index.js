@@ -2,6 +2,7 @@ import UserPassForm from "../components/UserPassForm";
 import LoginForm from "../components/LoginForm";
 import NavBar from "../components/navBar";
 import { useRouter } from "next/router";
+import Footer from "../components/footer";
 
 export default function Home() {
   const router = useRouter();
@@ -106,9 +107,10 @@ export default function Home() {
         <div className="lastCallToActionHeader">Ready To Get Started?</div>
         <div className="buttonContainerLastCTA">Build My Resume</div>
       </div>
-      <div className="footerContainer">
+      <Footer />
+      {/* <div className="footerContainer">
         Contact | Privacy Policy | Terms Of Service
-      </div>
+      </div> */}
       <style jsx>{`
         .indexContainer {
           display: flex;
