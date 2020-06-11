@@ -1,9 +1,9 @@
-import NavBar from "../../components/navBar";
+import ProgressBar from "../../components/progressBar";
 
 export default () => {
   return (
     <div>
-      <NavBar />
+      <ProgressBar />
 
       <div className="hero">Education Section</div>
       <style jsx>{`

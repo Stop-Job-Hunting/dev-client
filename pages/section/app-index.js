@@ -40,7 +40,7 @@ export default () => {
                 <div
                   className="createResumeButton"
                   onClick={() => {
-                    router.push("/builder");
+                    router.push("/section/work");
                   }}
                 >
                   Create My Resume

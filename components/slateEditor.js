@@ -59,13 +59,15 @@ const SlateEditor = () => {
           }}
         />
       </Slate>
-      {/* <button
-        onClick={() => {
-          console.log(value);
-        }}
-      >
-        Log State
-      </button> */}
+      <div>
+        <button
+          onClick={() => {
+            console.log(value);
+          }}
+        >
+          Log State
+      </button>
+      </div>
     </div>
   );
 };
