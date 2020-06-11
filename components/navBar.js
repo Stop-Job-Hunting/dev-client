@@ -150,7 +150,7 @@ function NavBar() {
           router.push("/");
         }}
       >
-        <img src="/assets/sjhlogo.png" width="280px"></img>
+        <img src="/assets/SJHlogo.png" width="280px"></img>
       </div>
       <div className="navBarContainer">{loggedStatus}</div>
       <style jsx>{`
