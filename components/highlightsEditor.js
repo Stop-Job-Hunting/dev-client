@@ -72,6 +72,7 @@ function highlightsEditor() {
           border: 1px solid #eee;
           padding: 20px 20px 20px 0;
           box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16);
+          margin-top: 15px;
         }
         .slateContainer {
           width: 340px;
@@ -155,7 +156,7 @@ function highlightsEditor() {
           font-weight: bold;
           cursor: pointer;
           margin-top: 20px;
-          margin-bottom: 20px;
+          margin-bottom: 45px;
         }
         .buttonContainer:hover {
           opacity: 0.7;

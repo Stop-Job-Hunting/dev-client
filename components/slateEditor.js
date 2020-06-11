@@ -199,7 +199,7 @@ const initialValue = [
         children: [
           {
             text:
-              "Directly contributed to this goal. Never missed a day of work. Promoted after 6 months.",
+              "Directly contributed to [this goal]. Never missed a day of work. Promoted after 6 months.",
           },
         ],
       },
