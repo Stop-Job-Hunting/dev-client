@@ -1,4 +1,4 @@
-import Heading from "../../components/heading";
+import Heading from "../../components/sections/heading";
 
 import NavBar from "../../components/navBar";
 

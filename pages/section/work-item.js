@@ -1,5 +1,6 @@
 import NavBar from "../../components/navBar";
 import WorkHistory from "../../components/workhistory";
+import WorkItem from "../../components/sections/workItem";
 
 export default () => {
   return (
@@ -7,7 +8,7 @@ export default () => {
       <NavBar />
 
       <div className="hero">
-        <WorkHistory />
+        <WorkItem />
       </div>
       <style jsx>{`
         .hero {

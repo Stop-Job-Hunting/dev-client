@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import SERVERURL from "../constants";
+import SERVERURL from "../../constants";
 
 function Heading() {
   const router = useRouter();
@@ -28,13 +28,13 @@ function Heading() {
   return (
     <div className="componentContainer">
       <div className="headingTitleContainer">
-        How should employers contact you?
+        Tell us about your most recent job
       </div>
       <div className="contentContainer">
         <div className="inputListContainer">
           <div className="insideInputsContainer">
             <div className="inputContainer">
-              <div className="inputLabel">Name</div>
+              <div className="inputLabel">First Name</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "name");
@@ -43,7 +43,7 @@ function Heading() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Label</div>
+              <div className="inputLabel">Last Name</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "label");
@@ -59,7 +59,7 @@ function Heading() {
               ></textarea>
             </div>
             <div className="inputContainer">
-              <div className="inputLabel">City</div>
+              <div className="inputLabel">State/Province</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "city");
@@ -68,7 +68,7 @@ function Heading() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">State</div>
+              <div className="inputLabel">Zip Code</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "region");
@@ -77,7 +77,7 @@ function Heading() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Zip Code</div>
+              <div className="inputLabel">Phone</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "postalCode");
@@ -86,7 +86,7 @@ function Heading() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Phone</div>
+              <div className="inputLabel">Email Address</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "phone");
@@ -94,13 +94,15 @@ function Heading() {
               ></textarea>
             </div>
 
-            <div className="inputContainer">
-              <div className="inputLabel">Email Address</div>
-              <textarea
-                onChange={(event) => {
-                  return handleInput(event, "email");
-                }}
-              ></textarea>
+            <div className="invisible">
+              <div className="inputContainer">
+                <div className="inputLabel">Email Address</div>
+                <textarea
+                  onChange={(event) => {
+                    return handleInput(event, "phone");
+                  }}
+                ></textarea>
+              </div>
             </div>
           </div>
         </div>
@@ -206,6 +208,9 @@ function Heading() {
           margin-right: 10px;
           margin-left: 10px;
         }
+        .invisible {
+          opacity: 0;
+        }
 
         textarea {
           resize: none;
@@ -239,6 +244,9 @@ function Heading() {
             margin-top: 10px;
             margin-bottom: 10px;
             margin-left: 10px;
+          }
+          .invisible {
+            display: none;
           }
         }
 
