@@ -11,19 +11,17 @@ export default () => {
           <div className="upperContainer">
             <div className="textContentContainer">
               <div className="headerTitle">
-                Now, let's fill out your work history.
+                Great, now let's work on your education section.
               </div>
               &nbsp;
               <div className="subHeader">
                 <strong>Here's what you need to know:</strong>
               </div>
               <div className="subHeader">
-                Employers scan your resume on average 6 seconds to determine if
-                you're a match.
+                Employers quickly scan to verify your education.
               </div>
               <div className="subHeader">
-                We'll offer expert suggestions to help you catch their
-                attention.
+                We'll take care of the formatting so it's easy to find.
               </div>
               <div className="templateContainer"></div>
             </div>
