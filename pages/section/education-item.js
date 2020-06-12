@@ -1,5 +1,6 @@
+import EducationItem from "../../components/sections/educationItem";
+
 import NavBar from "../../components/navBar";
-import WorkSummary from "../../components/sections/workSummary";
 
 export default () => {
   return (
@@ -7,9 +8,8 @@ export default () => {
       <NavBar />
 
       <div className="hero">
-        <WorkSummary />
+        <EducationItem />
       </div>
-
       <style jsx>{`
         .hero {
           width: 100%;

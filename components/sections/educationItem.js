@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../../constants";
 
-function Heading() {
+function EducationItem() {
   const router = useRouter();
   const [state, setState] = useState({});
 
@@ -27,14 +27,12 @@ function Heading() {
 
   return (
     <div className="componentContainer">
-      <div className="headingTitleContainer">
-        How should employers contact you?
-      </div>
+      <div className="headingTitleContainer">Tell us about your education</div>
       <div className="contentContainer">
         <div className="inputListContainer">
           <div className="insideInputsContainer">
             <div className="inputContainer">
-              <div className="inputLabel">First Name</div>
+              <div className="inputLabel">School Name</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "name");
@@ -43,7 +41,7 @@ function Heading() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Last Name</div>
+              <div className="inputLabel">School Location</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "label");
@@ -51,7 +49,7 @@ function Heading() {
               ></textarea>
             </div>
             <div className="inputContainer">
-              <div className="inputLabel">City</div>
+              <div className="inputLabel">Degree</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "city");
@@ -59,7 +57,7 @@ function Heading() {
               ></textarea>
             </div>
             <div className="inputContainer">
-              <div className="inputLabel">State/Province</div>
+              <div className="inputLabel">Field of Study</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "city");
@@ -68,32 +66,13 @@ function Heading() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Zip Code</div>
+              <div className="inputLabel">Graduation Date</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "region");
                 }}
               ></textarea>
             </div>
-
-            <div className="inputContainer">
-              <div className="inputLabel">Phone</div>
-              <textarea
-                onChange={(event) => {
-                  return handleInput(event, "postalCode");
-                }}
-              ></textarea>
-            </div>
-
-            <div className="inputContainer">
-              <div className="inputLabel">Email Address</div>
-              <textarea
-                onChange={(event) => {
-                  return handleInput(event, "phone");
-                }}
-              ></textarea>
-            </div>
-
             <div className="invisible">
               <div className="inputContainer">
                 <div className="inputLabel">Email Address</div>
@@ -272,4 +251,4 @@ function Heading() {
   );
 }
 
-export default Heading;
+export default EducationItem;

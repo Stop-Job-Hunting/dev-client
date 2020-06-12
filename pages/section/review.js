@@ -1,14 +1,11 @@
 import NavBar from "../../components/navBar";
-import WorkSummary from "../../components/sections/workSummary";
 
 export default () => {
   return (
     <div>
       <NavBar />
 
-      <div className="hero">
-        <WorkSummary />
-      </div>
+      <div className="hero">Ready to download your resume?</div>
 
       <style jsx>{`
         .hero {
@@ -16,8 +13,9 @@ export default () => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding-top: 2em;
-          height: 45em;
+          justify-content: center;
+          background-color: #f2f2f2;
+          height: 300px;
         }
       `}</style>
     </div>

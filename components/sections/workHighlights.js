@@ -1,7 +1,7 @@
-import SlateEditor from "./slateEditor";
+import SlateEditor from "../slateEditor";
 import { useRouter } from "next/router";
 
-function highlightsEditor() {
+function WorkHighlights() {
   const router = useRouter();
 
   return (
@@ -166,4 +166,4 @@ function highlightsEditor() {
   );
 }
 
-export default highlightsEditor;
+export default WorkHighlights;

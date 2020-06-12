@@ -1,5 +1,5 @@
 import NavBar from "../../components/navBar";
-import HighlightsEditor from "../../components/highlightsEditor";
+import WorkHighlights from "../../components/sections/workHighlights";
 import Footer from "../../components/footer";
 
 export default () => {
@@ -8,7 +8,7 @@ export default () => {
       <NavBar />
 
       <div className="hero">
-        <HighlightsEditor />
+        <WorkHighlights />
       </div>
       <Footer />
       <style jsx>{`

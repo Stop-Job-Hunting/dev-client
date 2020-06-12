@@ -1,5 +1,6 @@
 import NavBar from "../../components/navBar";
-import WorkSummary from "../../components/sections/workSummary";
+import Summary from "../../components/sections/summary";
+import Footer from "../../components/footer";
 
 export default () => {
   return (
@@ -7,9 +8,9 @@ export default () => {
       <NavBar />
 
       <div className="hero">
-        <WorkSummary />
+        <Summary />
       </div>
-
+      <Footer />
       <style jsx>{`
         .hero {
           width: 100%;
@@ -17,7 +18,7 @@ export default () => {
           flex-direction: column;
           align-items: center;
           padding-top: 2em;
-          height: 45em;
+          min-height: 36em;
         }
       `}</style>
     </div>

@@ -28,13 +28,13 @@ function WorkItem() {
   return (
     <div className="componentContainer">
       <div className="headingTitleContainer">
-        How should employers contact you?
+        Tell us about your most recent job.
       </div>
       <div className="contentContainer">
         <div className="inputListContainer">
           <div className="insideInputsContainer">
             <div className="inputContainer">
-              <div className="inputLabel">Name</div>
+              <div className="inputLabel">Job Title</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "name");
@@ -43,7 +43,7 @@ function WorkItem() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Label</div>
+              <div className="inputLabel">Employer</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "label");
@@ -59,7 +59,7 @@ function WorkItem() {
               ></textarea>
             </div>
             <div className="inputContainer">
-              <div className="inputLabel">City</div>
+              <div className="inputLabel">State</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "city");
@@ -68,7 +68,7 @@ function WorkItem() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">State</div>
+              <div className="inputLabel">Start Date</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "region");
@@ -77,28 +77,10 @@ function WorkItem() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Zip Code</div>
+              <div className="inputLabel">End Date</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "postalCode");
-                }}
-              ></textarea>
-            </div>
-
-            <div className="inputContainer">
-              <div className="inputLabel">Phone</div>
-              <textarea
-                onChange={(event) => {
-                  return handleInput(event, "phone");
-                }}
-              ></textarea>
-            </div>
-
-            <div className="inputContainer">
-              <div className="inputLabel">Email Address</div>
-              <textarea
-                onChange={(event) => {
-                  return handleInput(event, "email");
                 }}
               ></textarea>
             </div>
@@ -206,6 +188,9 @@ function WorkItem() {
           margin-right: 10px;
           margin-left: 10px;
         }
+        .invisible {
+          opacity: 0;
+        }
 
         textarea {
           resize: none;
@@ -239,6 +224,9 @@ function WorkItem() {
             margin-top: 10px;
             margin-bottom: 10px;
             margin-left: 10px;
+          }
+          .invisible {
+            display: none;
           }
         }
 

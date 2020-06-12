@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import SERVERURL from "../constants";
-import WorkItem from "../components/workItem";
+import SERVERURL from "../../constants";
+import WorkItem from "../workItem";
 import { useRouter } from "next/router";
 
 // let mappedWork;
 
-function WorkSummary() {
+function EduSummary() {
   const [state, setState] = useState([]);
   const router = useRouter();
 
@@ -38,7 +38,7 @@ function WorkSummary() {
   return (
     <>
       <div className="title">
-        <h2>Work History Summary</h2>
+        <h2>Education Summary</h2>
       </div>
       {mappedWork}
       <div
@@ -48,7 +48,7 @@ function WorkSummary() {
         }}
       >
         {" "}
-        ADD ANOTHER POSITION
+        ADD ANOTHER DEGREE
       </div>
       <div className="navButtons">
         <div
@@ -77,6 +77,7 @@ function WorkSummary() {
           align-items: center;
           margin-bottom: 20px;
           cursor: default;
+          color: #3a7ff2;
         }
         .bottomButton {
           border: 1px dashed #3a7ff2;
@@ -121,4 +122,4 @@ function WorkSummary() {
     </>
   );
 }
-export default WorkSummary;
+export default EduSummary;
