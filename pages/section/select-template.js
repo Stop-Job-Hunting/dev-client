@@ -40,10 +40,12 @@ export default () => {
           font-size: 28px;
           font-weight: bold;
           color: #3a7ff2;
+          cursor: default;
         }
         .subHeader {
           font-size: 18px;
           margin-top: 10px;
+          cursor: default;
         }
         .templateContainer {
           display: flex;
