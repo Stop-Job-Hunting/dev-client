@@ -133,7 +133,6 @@ function Heading() {
           display: flex;
           flex-direction: column;
           width: 90%;
-          padding: 10px;
         }
         .headingTitleContainer {
           display: flex;
@@ -144,9 +143,10 @@ function Heading() {
           color: #3a7ff2;
         }
         .contentContainer {
-          height: 400px;
+          min-height: 400px;
           width: 100%;
-          border: 1px solid grey;
+          border: 1px solid #eee;
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16);
           margin-top: 20px;
           display: flex;
         }
@@ -181,14 +181,13 @@ function Heading() {
           justify-content: center;
         }
         .imageContainer {
-          min-width: 220px;
+          min-width: 230px;
+          margin-right: 10px;
           display: flex;
           justify-content: center;
           align-items: center;
         }
         .insideInputsContainer {
-          background-color: red;
-          padding: 10px;
           width: 100%;
           display: flex;
           flex-wrap: wrap;
@@ -203,9 +202,9 @@ function Heading() {
         }
 
         .inputContainer {
-          margin-right: 8px;
-          margin-left: 2px;
-          background-color: blue;
+          margin-bottom: 10px;
+          margin-right: 10px;
+          margin-left: 10px;
         }
 
         textarea {
@@ -214,7 +213,6 @@ function Heading() {
           display: block;
           padding: 5px;
           height: 28px;
-          width: 100%;
           max-width: 260px;
           border: 1px solid #d7dde2;
           line-height: 1.7;
@@ -222,6 +220,44 @@ function Heading() {
           font-weight: regular;
           overflow: hidden;
           color: #444;
+        }
+        textarea:focus {
+          border: 1px solid #ffa600;
+          outline: 0px;
+        }
+
+        @media only screen and (max-width: 775px) {
+          textarea {
+            width: 90%;
+            max-width: 5000px;
+          }
+          .inputContainer {
+            width: 100%;
+          }
+          .insideInputsContainer {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+          }
+        }
+
+        @media only screen and (min-width: 920px) {
+          textarea {
+            width: 350px;
+          }
+        }
+
+        @media only screen and (min-width: 1100px) {
+          textarea {
+            width: 400px;
+          }
+        }
+
+        @media only screen and (min-width: 1200px) {
+          .componentContainer {
+            max-width: 1100px;
+          }
         }
       `}</style>
     </div>
