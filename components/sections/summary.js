@@ -52,7 +52,7 @@ function Summary() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/work");
+            router.push("/section/summary-index");
           }}
         >
           Back
@@ -60,7 +60,7 @@ function Summary() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/work-summary");
+            router.push("/section/review");
           }}
         >
           Next

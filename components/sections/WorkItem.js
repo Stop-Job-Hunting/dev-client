@@ -96,7 +96,7 @@ function WorkItem() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log("back");
+            router.push("/section/work-index");
           }}
         >
           Back
@@ -104,7 +104,7 @@ function WorkItem() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log("next");
+            router.push("/section/work-highlights");
           }}
         >
           Next

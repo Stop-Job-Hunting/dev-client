@@ -95,7 +95,7 @@ function EducationItem() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log("back");
+            router.push("/section/education-index");
           }}
         >
           Back
@@ -103,7 +103,7 @@ function EducationItem() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log("next");
+            router.push("/section/education-summary");
           }}
         >
           Next

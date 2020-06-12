@@ -116,7 +116,7 @@ function Heading() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log("back");
+            router.push("/section/select-template");
           }}
         >
           Back
@@ -124,7 +124,7 @@ function Heading() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log("next");
+            router.push("/section/work-index");
           }}
         >
           Next

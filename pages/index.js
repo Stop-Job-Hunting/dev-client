@@ -105,7 +105,14 @@ export default function Home() {
       {/* ending call to action section */}
       <div className="lastCallToActionContainer">
         <div className="lastCallToActionHeader">Ready To Get Started?</div>
-        <div className="buttonContainerLastCTA">Build My Resume</div>
+        <div
+          className="buttonContainerLastCTA"
+          onClick={() => {
+            router.push("/section/app-index");
+          }}
+        >
+          Build My Resume
+        </div>
       </div>
       <Footer />
       {/* <div className="footerContainer">

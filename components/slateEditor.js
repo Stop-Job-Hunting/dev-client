@@ -66,7 +66,7 @@ const SlateEditor = () => {
           }}
         >
           Log State
-      </button>
+        </button>
       </div>
     </div>
   );

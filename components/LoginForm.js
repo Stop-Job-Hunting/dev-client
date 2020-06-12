@@ -26,7 +26,7 @@ export default function LoginForm() {
       throw new Error("AHHH BAD GO AWAY");
     }
 
-    router.push("/builder");
+    router.push("/section/app-index");
   }
 
   const [username, setUsername] = useState("");

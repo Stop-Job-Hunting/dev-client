@@ -51,7 +51,7 @@ function WorkHighlights() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/work");
+            router.push("/section/work-item");
           }}
         >
           Back

@@ -1,7 +1,10 @@
 import NavBar from "../../components/navBar";
 import Footer from "../../components/footer";
+import { useRouter } from "next/router";
 
 export default () => {
+  const router = useRouter();
+
   return (
     <div>
       <NavBar />
@@ -33,7 +36,7 @@ export default () => {
             <div
               className="buttonContainer"
               onClick={() => {
-                router.push("/section/work");
+                router.push("/section/work-summary");
               }}
             >
               Back
@@ -41,7 +44,7 @@ export default () => {
             <div
               className="buttonContainer"
               onClick={() => {
-                router.push("/section/work-summary");
+                router.push("/section/education-item");
               }}
             >
               Next
@@ -61,7 +64,7 @@ export default () => {
         .componentContainer {
           display: flex;
           flex-direction: column;
-          margin: 20px;
+          margin: 40px;
         }
         .upperContainer {
           display: flex;

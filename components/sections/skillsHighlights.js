@@ -47,7 +47,7 @@ function WorkHighlights() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/work");
+            router.push("/section/skills-index");
           }}
         >
           Back
@@ -55,7 +55,7 @@ function WorkHighlights() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/work-summary");
+            router.push("/section/summary-index");
           }}
         >
           Next

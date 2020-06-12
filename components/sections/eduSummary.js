@@ -44,7 +44,7 @@ function EduSummary() {
       <div
         className="bottomButton"
         onClick={() => {
-          router.push("/section/work");
+          router.push("/section/education-item");
         }}
       >
         {" "}
@@ -54,7 +54,7 @@ function EduSummary() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/education");
+            router.push("/section/skills-index");
           }}
         >
           Next
@@ -62,7 +62,7 @@ function EduSummary() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/work-highlights");
+            router.push("/section/education-item");
           }}
         >
           {" "}
@@ -77,7 +77,7 @@ function EduSummary() {
           align-items: center;
           margin-bottom: 20px;
           cursor: default;
-          color: #3a7ff2;
+          color: #444;
         }
         .bottomButton {
           border: 1px dashed #3a7ff2;

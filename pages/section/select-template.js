@@ -1,7 +1,10 @@
 import NavBar from "../../components/navBar";
 import Footer from "../../components/footer";
+import { useRouter } from "next/router";
 
 export default () => {
+  const router = useRouter();
+
   return (
     <div>
       <NavBar />
@@ -14,13 +17,28 @@ export default () => {
           Proven to increase response rates by up to 200%.
         </div>
         <div className="templateContainer">
-          <div className="imageContainer">
+          <div
+            className="imageContainer"
+            onClick={() => {
+              router.push("/section/heading");
+            }}
+          >
             <img src="/assets/templatePlaceholder.png" width="220px" />
           </div>
-          <div className="imageContainer">
+          <div
+            className="imageContainer"
+            onClick={() => {
+              router.push("/section/heading");
+            }}
+          >
             <img src="/assets/templatePlaceholder.png" width="220px" />
           </div>
-          <div className="imageContainer">
+          <div
+            className="imageContainer"
+            onClick={() => {
+              router.push("/section/heading");
+            }}
+          >
             <img src="/assets/templatePlaceholder.png" width="220px" />
           </div>
         </div>

@@ -1,7 +1,10 @@
 import NavBar from "../../components/navBar";
 import Footer from "../../components/footer";
+import { useRouter } from "next/router";
 
 export default () => {
+  const router = useRouter();
+
   return (
     <div>
       <NavBar />
@@ -12,10 +15,38 @@ export default () => {
           We'll find the best template for your experience level.
         </div>
         <div className="expButtonContainer">
-          <div className="buttonItem">0-3 Years</div>
-          <div className="buttonItem">3-5 Years</div>
-          <div className="buttonItem">5-10 Years</div>
-          <div className="buttonItem">10+ Years</div>
+          <div
+            className="buttonItem"
+            onClick={() => {
+              router.push("/section/select-template");
+            }}
+          >
+            0-3 Years
+          </div>
+          <div
+            className="buttonItem"
+            onClick={() => {
+              router.push("/section/select-template");
+            }}
+          >
+            3-5 Years
+          </div>
+          <div
+            className="buttonItem"
+            onClick={() => {
+              router.push("/section/select-template");
+            }}
+          >
+            5-10 Years
+          </div>
+          <div
+            className="buttonItem"
+            onClick={() => {
+              router.push("/section/select-template");
+            }}
+          >
+            10+ Years
+          </div>
         </div>
       </div>
       <div className="fillSpace"></div>
@@ -51,15 +82,15 @@ export default () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #444;
+          color: #3a7ff2;
           font-weight: bold;
-          border: 5px solid #ffa600;
+          border: 5px solid #3a7ff2;
           font-size: 18px;
           cursor: pointer;
           margin: 5px;
         }
         .buttonItem:hover {
-          background-color: #ffa600;
+          background-color: #3a7ff2;
           color: white;
         }
         .fillSpace {
