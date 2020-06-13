@@ -42,22 +42,6 @@ function NavBar() {
     } else if (navState === "loggedIn") {
       return (
         <div className="builderLogoutContainer">
-          <div
-            className="builderContainer"
-            onClick={() => {
-              router.push("/download");
-            }}
-          >
-            <div className="menuListItem">Download</div>
-          </div>
-          <div
-            className="builderContainer"
-            onClick={() => {
-              router.push("/section/heading");
-            }}
-          >
-            <div className="menuListItem">Builder</div>
-          </div>
           <LogoutButton />
           <style jsx>{`
             .builderLogoutContainer {
@@ -97,7 +81,7 @@ function NavBar() {
               router.push("/register");
             }}
           >
-            Register
+            Sign Up
           </div>
 
           <style jsx>{`
