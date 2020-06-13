@@ -1,11 +1,12 @@
 import Heading from "../../components/sections/heading";
+import ProgressBar from "../../components/progressBar";
 
 import NavBar from "../../components/navBar";
 
 export default () => {
   return (
     <div>
-      <NavBar />
+      <ProgressBar progress={2} />
 
       <div className="hero">
         <Heading />
