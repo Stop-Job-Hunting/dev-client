@@ -19,6 +19,7 @@ export default () => {
           align-items: center;
           padding-top: 2em;
           height: 45em;
+      
         }
       `}</style>
     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import SERVERURL from "../../constants";
-import WorkItem from "../workItem";
+import WorkListItem from "../workListItem";
 import { useRouter } from "next/router";
 
 // let mappedWork;
@@ -31,7 +31,7 @@ function WorkSummary() {
 
   let mappedWork = state.map((item) => {
     if (item.company) {
-      return <WorkItem item={item} />;
+      return <WorkListItem item={item} />;
     }
   });
 
