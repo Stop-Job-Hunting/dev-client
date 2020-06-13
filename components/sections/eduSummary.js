@@ -4,7 +4,7 @@ import WorkListItem from "../workListItem";
 import { useRouter } from "next/router";
 
 // let mappedWork;
-
+// Do some stuff here to use education model
 function EduSummary() {
   const [state, setState] = useState([]);
   const router = useRouter();
