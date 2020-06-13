@@ -1,11 +1,11 @@
-import NavBar from "../../components/navBar";
+import ProgressBar from "../../components/progressBar";
 import WorkHighlights from "../../components/sections/workHighlights";
 import Footer from "../../components/footer";
 
 export default () => {
   return (
     <div>
-      <NavBar />
+      <ProgressBar progress={4} />
 
       <div className="hero">
         <WorkHighlights />

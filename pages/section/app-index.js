@@ -1,4 +1,4 @@
-import NavBar from "../../components/navBar";
+import ProgressBar from "../../components/progressBar";
 import Footer from "../../components/footer";
 import { Phone, Mail } from "react-feather";
 import { useRouter } from "next/router";
@@ -8,7 +8,7 @@ export default () => {
 
   return (
     <>
-      <NavBar />
+      <ProgressBar progress={-1} />
       <div className="appIndexContainer">
         <div className="body">
           <div className="leftContainer">

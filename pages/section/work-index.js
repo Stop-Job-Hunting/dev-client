@@ -1,13 +1,14 @@
 import NavBar from "../../components/navBar";
 import Footer from "../../components/footer";
 import { useRouter } from "next/router";
+import ProgressBar from "../../components/progressBar";
 
 export default () => {
   const router = useRouter();
 
   return (
     <div>
-      <NavBar />
+      <ProgressBar progress={4} />
 
       <div className="hero">
         <div className="componentContainer">

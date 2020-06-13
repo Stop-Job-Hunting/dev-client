@@ -1,11 +1,10 @@
-import NavBar from "../../components/navBar";
-import WorkHistory from "../../components/workhistory";
+import ProgressBar from "../../components/progressBar";
 import WorkItem from "../../components/sections/workItem";
 
 export default () => {
   return (
     <div>
-      <NavBar />
+      <ProgressBar progress={4} />
 
       <div className="hero">
         <WorkItem />

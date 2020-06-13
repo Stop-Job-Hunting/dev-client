@@ -103,7 +103,7 @@ function ProgressBar(props) {
           </div>
         );
       }
-    } else {
+    } else if (Math.sign(progressState) !== -1) {
       if (item.props.width) {
         return (
           <div>

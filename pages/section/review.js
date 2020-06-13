@@ -1,10 +1,10 @@
-import NavBar from "../../components/navBar";
+import ProgressBar from "../../components/progressBar";
 import Footer from "../../components/footer";
 
 export default () => {
   return (
     <div>
-      <NavBar />
+      <ProgressBar progress={12} />
 
       <div className="hero">
         <div className="headerText">Ready to download your resume?</div>

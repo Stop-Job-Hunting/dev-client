@@ -1,11 +1,11 @@
 import EducationItem from "../../components/sections/educationItem";
 
-import NavBar from "../../components/navBar";
+import ProgressBar from "../../components/progressBar";
 
 export default () => {
   return (
     <div>
-      <NavBar />
+      <ProgressBar progress={6} />
 
       <div className="hero">
         <EducationItem />

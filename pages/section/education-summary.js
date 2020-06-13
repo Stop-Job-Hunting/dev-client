@@ -1,10 +1,10 @@
-import NavBar from "../../components/navBar";
+import ProgressBar from "../../components/progressBar";
 import EduSummary from "../../components/sections/eduSummary";
 
 export default () => {
   return (
     <div>
-      <NavBar />
+      <ProgressBar progress={6} />
 
       <div className="hero">
         <EduSummary />

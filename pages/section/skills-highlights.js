@@ -1,11 +1,11 @@
-import NavBar from "../../components/navBar";
+import ProgressBar from "../../components/progressBar";
 import SkillsHighlights from "../../components/sections/skillsHighlights";
 import Footer from "../../components/footer";
 
 export default () => {
   return (
     <div>
-      <NavBar />
+      <ProgressBar progress={8} />
 
       <div className="hero">
         <SkillsHighlights />
