@@ -54,17 +54,59 @@ function ProgressBar(props) {
   // });
 
   const headingArray = [
-    <div className="navItemContainer">Heading </div>,
+    <div
+      className="navItemContainer"
+      onClick={() => {
+        router.push("/section/heading");
+      }}
+    >
+      Heading{" "}
+    </div>,
     <ArrowRightCircle width="16px" />,
-    <div className="navItemContainer">Work History</div>,
+    <div
+      className="navItemContainer"
+      onClick={() => {
+        router.push("/section/work-index");
+      }}
+    >
+      Work History
+    </div>,
     <ArrowRightCircle width="16px" />,
-    <div className="navItemContainer">Education</div>,
+    <div
+      className="navItemContainer"
+      onClick={() => {
+        router.push("/section/education-index");
+      }}
+    >
+      Education
+    </div>,
     <ArrowRightCircle width="16px" />,
-    <div className="navItemContainer">Skills</div>,
+    <div
+      className="navItemContainer"
+      onClick={() => {
+        router.push("/section/skills-index");
+      }}
+    >
+      Skills
+    </div>,
     <ArrowRightCircle width="16px" />,
-    <div className="navItemContainer">Summary</div>,
+    <div
+      className="navItemContainer"
+      onClick={() => {
+        router.push("/section/summary-index");
+      }}
+    >
+      Summary
+    </div>,
     <ArrowRightCircle width="16px" />,
-    <div className="navItemContainer">Download</div>,
+    <div
+      className="navItemContainer"
+      onClick={() => {
+        router.push("/section/review");
+      }}
+    >
+      Download
+    </div>,
   ];
 
   let counter = 0;
@@ -99,6 +141,21 @@ function ProgressBar(props) {
               .itemContainer:hover {
                 color: #3a7ff2;
               }
+              @media only screen and (max-width: 940px) {
+                .itemContainer {
+                  font-size: 12px;
+                }
+              }
+              @media only screen and (max-width: 810px) {
+                .itemContainer {
+                  font-size: 10px;
+                }
+              }
+              @media only screen and (max-width: 740px) {
+                .itemContainer {
+                  display: none;
+                }
+              }
             `}</style>
           </div>
         );
@@ -111,6 +168,11 @@ function ProgressBar(props) {
             <style jsx>{`
               div {
                 color: #bfbfbf;
+              }
+              @media only screen and (max-width: 740px) {
+                div {
+                  display: none;
+                }
               }
             `}</style>
           </div>
@@ -131,6 +193,21 @@ function ProgressBar(props) {
               }
               .itemContainerGrey:hover {
                 color: #3a7ff2;
+              }
+              @media only screen and (max-width: 940px) {
+                .itemContainerGrey {
+                  font-size: 12px;
+                }
+              }
+              @media only screen and (max-width: 810px) {
+                .itemContainerGrey {
+                  font-size: 10px;
+                }
+              }
+              @media only screen and (max-width: 740px) {
+                .itemContainerGrey {
+                  display: none;
+                }
               }
             `}</style>
           </div>
