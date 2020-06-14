@@ -76,11 +76,11 @@ function EducationItem() {
             <div className="invisible">
               <div className="inputContainer">
                 <div className="inputLabel">Place Holder</div>
-                {/* <textarea
+                <textarea
                   onChange={(event) => {
                     return handleInput(event, "phone");
                   }}
-                ></textarea> */}
+                ></textarea>
               </div>
             </div>
           </div>
