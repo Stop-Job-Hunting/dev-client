@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import SERVERURL from "../../constants";
-import WorkListItem from "../workListItem";
+import EducationListItem from "../educationListItem";
 import { useRouter } from "next/router";
 
 // let mappedWork;
@@ -11,12 +11,12 @@ function EduSummary() {
 
   useEffect(() => {
     if (state.length < 1) {
-      getAllWork();
+      getAllEducation();
     }
   });
 
-  function getAllWork() {
-    return fetch(`${SERVERURL}/works/all-work`, {
+  function getAllEducation() {
+    return fetch(`${SERVERURL}/educations/all-education`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -29,9 +29,10 @@ function EduSummary() {
     });
   }
 
+
   let mappedWork = state.map((item) => {
-    if (item.company) {
-      return <WorkListItem item={item} />;
+    if (item.institution) {
+      return <EducationListItem item={item} />;
     }
   });
 
