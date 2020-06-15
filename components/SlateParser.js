@@ -38,7 +38,10 @@ function SlateParser(slateArr) {
   // Loop through slateArr children
   for (let i = 0; i < slateArr.length; i++) {
     // check to see if bulleted list or paragraph
-    if (slateArr[i].type === "bulleted-list") {
+    if (
+      slateArr[i].type === "bulleted-list" ||
+      slateArr[i].type === "numbered-list"
+    ) {
       // loop through the <li> of the bulleted list
       for (let x = 0; x < slateArr[i].children.length; x++) {
         // make sure it's a list item
@@ -58,7 +61,7 @@ function SlateParser(slateArr) {
       for (let z = 0; z < slateArr[i].children.length; z++) {
         paragraphText = paragraphText + slateArr[i].children[z].text;
       }
-      answerObj.paragraph = paragraphText;
+      answerObj.paragraph = answerObj.paragraph + paragraphText;
     }
   }
 
