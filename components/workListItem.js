@@ -2,7 +2,7 @@ import { Edit, Trash, Move } from "react-feather";
 import SERVERURL from "../constants";
 import { useRouter } from "next/router";
 
-function WorkItem(props) {
+function WorkListItem(props) {
   const router = useRouter();
 
   function deleteItem() {
@@ -84,4 +84,4 @@ function WorkItem(props) {
   );
 }
 
-export default WorkItem;
+export default WorkListItem;

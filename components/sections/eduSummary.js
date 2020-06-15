@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
 import SERVERURL from "../../constants";
-import WorkItem from "../workItem";
+import EducationListItem from "../educationListItem";
 import { useRouter } from "next/router";
 
 // let mappedWork;
-
+// Do some stuff here to use education model
 function EduSummary() {
   const [state, setState] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
     if (state.length < 1) {
-      getAllWork();
+      getAllEducation();
     }
   });
 
-  function getAllWork() {
-    return fetch(`${SERVERURL}/works/all-work`, {
+  function getAllEducation() {
+    return fetch(`${SERVERURL}/educations/all-education`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -29,9 +29,10 @@ function EduSummary() {
     });
   }
 
+
   let mappedWork = state.map((item) => {
-    if (item.company) {
-      return <WorkItem item={item} />;
+    if (item.institution) {
+      return <EducationListItem item={item} />;
     }
   });
 

@@ -15,7 +15,7 @@ function WorkItem() {
 
   function commitData(data) {
     console.log("going to put data in the database", data);
-    return fetch(`${SERVERURL}/resumes`, {
+    return fetch(`${SERVERURL}/works/new-work`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ function WorkItem() {
               <div className="inputLabel">Job Title</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "name");
+                  return handleInput(event, "position");
                 }}
               ></textarea>
             </div>
@@ -46,7 +46,7 @@ function WorkItem() {
               <div className="inputLabel">Employer</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "label");
+                  return handleInput(event, "company");
                 }}
               ></textarea>
             </div>
@@ -62,7 +62,7 @@ function WorkItem() {
               <div className="inputLabel">State</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "city");
+                  return handleInput(event, "state");
                 }}
               ></textarea>
             </div>
@@ -71,7 +71,7 @@ function WorkItem() {
               <div className="inputLabel">Start Date</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "region");
+                  return handleInput(event, "startDate");
                 }}
               ></textarea>
             </div>
@@ -80,7 +80,7 @@ function WorkItem() {
               <div className="inputLabel">End Date</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "postalCode");
+                  return handleInput(event, "endDate");
                 }}
               ></textarea>
             </div>
@@ -104,6 +104,7 @@ function WorkItem() {
         <div
           className="buttonContainer"
           onClick={() => {
+            commitData(state)
             router.push("/section/work-highlights");
           }}
         >

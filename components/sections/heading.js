@@ -89,7 +89,7 @@ function Heading() {
               <div className="inputLabel">Email Address</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "phone");
+                  return handleInput(event, "email");
                 }}
               ></textarea>
             </div>
@@ -124,6 +124,8 @@ function Heading() {
         <div
           className="buttonContainer"
           onClick={() => {
+            console.log(state)
+            commitData(state)
             router.push("/section/work-index");
           }}
         >

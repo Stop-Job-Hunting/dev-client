@@ -15,7 +15,7 @@ function EducationItem() {
 
   function commitData(data) {
     console.log("going to put data in the database", data);
-    return fetch(`${SERVERURL}/resumes`, {
+    return fetch(`${SERVERURL}/educations/new-education`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function EducationItem() {
               <div className="inputLabel">School Name</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "name");
+                  return handleInput(event, "institution");
                 }}
               ></textarea>
             </div>
@@ -44,7 +44,7 @@ function EducationItem() {
               <div className="inputLabel">School Location</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "label");
+                  return handleInput(event, "location");
                 }}
               ></textarea>
             </div>
@@ -52,7 +52,7 @@ function EducationItem() {
               <div className="inputLabel">Degree</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "city");
+                  return handleInput(event, "studyType");
                 }}
               ></textarea>
             </div>
@@ -60,7 +60,7 @@ function EducationItem() {
               <div className="inputLabel">Field of Study</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "city");
+                  return handleInput(event, "area");
                 }}
               ></textarea>
             </div>
@@ -69,13 +69,13 @@ function EducationItem() {
               <div className="inputLabel">Graduation Date</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "region");
+                  return handleInput(event, "endDate");
                 }}
               ></textarea>
             </div>
             <div className="invisible">
               <div className="inputContainer">
-                <div className="inputLabel">Email Address</div>
+                <div className="inputLabel">Place Holder</div>
                 <textarea
                   onChange={(event) => {
                     return handleInput(event, "phone");
@@ -103,6 +103,7 @@ function EducationItem() {
         <div
           className="buttonContainer"
           onClick={() => {
+            commitData(state)
             router.push("/section/education-summary");
           }}
         >
