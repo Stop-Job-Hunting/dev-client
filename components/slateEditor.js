@@ -5,6 +5,7 @@ import { Editor, Transforms, createEditor } from "slate";
 import { withHistory } from "slate-history";
 
 import { Button, Icon, Toolbar } from "./slateComponents";
+import SlateParser from "./SlateParser";
 
 const HOTKEYS = {
   "mod+b": "bold",
@@ -62,7 +63,8 @@ const SlateEditor = () => {
       <div>
         <button
           onClick={() => {
-            console.log(value);
+            console.log("Slate Object", value);
+            console.log(SlateParser(value));
           }}
         >
           Log State

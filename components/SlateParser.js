@@ -58,6 +58,7 @@ function SlateParser(slateArr) {
       for (let z = 0; z < slateArr[i].children.length; z++) {
         paragraphText = paragraphText + slateArr[i].children[z].text;
       }
+      answerObj.paragraph = paragraphText;
     }
   }
 
