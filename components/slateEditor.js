@@ -5,7 +5,7 @@ import { Editor, Transforms, createEditor } from "slate";
 import { withHistory } from "slate-history";
 
 import { Button, Icon, Toolbar } from "./slateComponents";
-import SlateParser from "./SlateParser";
+import SlateButton from "./slateButton";
 
 const HOTKEYS = {
   "mod+b": "bold",
@@ -16,7 +16,7 @@ const HOTKEYS = {
 
 const LIST_TYPES = ["numbered-list", "bulleted-list"];
 
-const SlateEditor = () => {
+const SlateEditor = (props) => {
   const [value, setValue] = useState(initialValue);
   const renderElement = useCallback((props) => <Element {...props} />, []);
   const renderLeaf = useCallback((props) => <Leaf {...props} />, []);
@@ -24,51 +24,46 @@ const SlateEditor = () => {
 
   return (
     <div>
-      <Slate
-        editor={editor}
-        value={value}
-        onChange={(value) => setValue(value)}
-      >
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-        <link rel="stylesheet" href="/global.css" />
-        <Toolbar>
-          <MarkButton format="bold" icon="format_bold" />
-          <MarkButton format="italic" icon="format_italic" />
-          <MarkButton format="underline" icon="format_underlined" />
-          {/* <BlockButton format="heading-one" icon="looks_one" />
-          <BlockButton format="heading-two" icon="looks_two" /> */}
-          <BlockButton format="numbered-list" icon="format_list_numbered" />
-          <BlockButton format="bulleted-list" icon="format_list_bulleted" />
-        </Toolbar>
-        <Editable
-          renderElement={renderElement}
-          renderLeaf={renderLeaf}
-          placeholder="Enter some rich text…"
-          spellCheck
-          autoFocus
-          onKeyDown={(event) => {
-            for (const hotkey in HOTKEYS) {
-              if (isHotkey(hotkey, event)) {
-                event.preventDefault();
-                const mark = HOTKEYS[hotkey];
-                toggleMark(editor, mark);
-              }
-            }
-          }}
-        />
-      </Slate>
       <div>
-        <button
-          onClick={() => {
-            console.log("Slate Object", value);
-            console.log(SlateParser(value));
+        <Slate
+          editor={editor}
+          value={value}
+          onChange={(value) => {
+            setValue(value);
+            props.setValue(value);
           }}
         >
-          Log State
-        </button>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          />
+          <link rel="stylesheet" href="/global.css" />
+          <Toolbar>
+            <MarkButton format="bold" icon="format_bold" />
+            <MarkButton format="italic" icon="format_italic" />
+            <MarkButton format="underline" icon="format_underlined" />
+            {/* <BlockButton format="heading-one" icon="looks_one" />
+          <BlockButton format="heading-two" icon="looks_two" /> */}
+            <BlockButton format="numbered-list" icon="format_list_numbered" />
+            <BlockButton format="bulleted-list" icon="format_list_bulleted" />
+          </Toolbar>
+          <Editable
+            renderElement={renderElement}
+            renderLeaf={renderLeaf}
+            placeholder="Enter some rich text…"
+            spellCheck
+            autoFocus
+            onKeyDown={(event) => {
+              for (const hotkey in HOTKEYS) {
+                if (isHotkey(hotkey, event)) {
+                  event.preventDefault();
+                  const mark = HOTKEYS[hotkey];
+                  toggleMark(editor, mark);
+                }
+              }
+            }}
+          />
+        </Slate>
       </div>
     </div>
   );

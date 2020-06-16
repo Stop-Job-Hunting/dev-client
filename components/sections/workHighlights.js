@@ -1,8 +1,11 @@
 import SlateEditor from "../slateEditor";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import SlateParser from "../SlateParser";
 
 function WorkHighlights() {
   const router = useRouter();
+  const [state, setState] = useState();
 
   return (
     <div>
@@ -43,7 +46,7 @@ function WorkHighlights() {
           </div>
         </div>
         <div className="slateContainer">
-          <SlateEditor />
+          <SlateEditor setValue={setState} />
         </div>
       </div>
 
@@ -60,6 +63,7 @@ function WorkHighlights() {
           className="buttonContainer"
           onClick={() => {
             router.push("/section/work-summary");
+            console.log(SlateParser(state));
           }}
         >
           Next
