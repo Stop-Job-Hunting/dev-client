@@ -62,8 +62,9 @@ function WorkHighlights() {
         <div
           className="buttonContainer"
           onClick={() => {
+            console.log("this is the slate state:", state)
+            console.log("Parse state: ", SlateParser(state));
             router.push("/section/work-summary");
-            console.log(SlateParser(state));
           }}
         >
           Next

@@ -14,8 +14,8 @@ function Heading() {
   }
 
   function commitData(data) {
-    console.log("going to put data in the database", data);
-    return fetch(`${SERVERURL}/resumes`, {
+    console.log("going to put basic data in the database", data);
+    return fetch(`${SERVERURL}/basics/new-basic`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ function Heading() {
               <div className="inputLabel">First Name</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "name");
+                  return handleInput(event, "firstname");
                 }}
               ></textarea>
             </div>
@@ -46,7 +46,7 @@ function Heading() {
               <div className="inputLabel">Last Name</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "label");
+                  return handleInput(event, "lastname");
                 }}
               ></textarea>
             </div>
@@ -54,7 +54,7 @@ function Heading() {
               <div className="inputLabel">City</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "city");
+                  return handleInput(event, "location.city");
                 }}
               ></textarea>
             </div>
@@ -62,7 +62,7 @@ function Heading() {
               <div className="inputLabel">State/Province</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "city");
+                  return handleInput(event, "location.region");
                 }}
               ></textarea>
             </div>
@@ -71,7 +71,7 @@ function Heading() {
               <div className="inputLabel">Zip Code</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "region");
+                  return handleInput(event, "location.postalCode");
                 }}
               ></textarea>
             </div>
@@ -80,7 +80,7 @@ function Heading() {
               <div className="inputLabel">Phone</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "postalCode");
+                  return handleInput(event, "phone");
                 }}
               ></textarea>
             </div>
@@ -96,7 +96,7 @@ function Heading() {
 
             <div className="invisible">
               <div className="inputContainer">
-                <div className="inputLabel">Email Address</div>
+                <div className="inputLabel">Invisible</div>
                 <textarea
                   onChange={(event) => {
                     return handleInput(event, "phone");

@@ -1,8 +1,25 @@
 import SlateEditor from "../slateEditor";
 import { useRouter } from "next/router";
+import { useState } from 'react';
+import SlateParser from "../SlateParser"
 
 function Summary() {
   const router = useRouter();
+  const [state, setState] = useState()
+
+
+  function updateData(data) {
+
+    console.log("update data in the database", data);
+    return fetch(`${SERVERURL}/basics/update`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(data),
+    });
+  }
 
   return (
     <div>
@@ -44,7 +61,7 @@ function Summary() {
           </div>
         </div>
         <div className="slateContainer">
-          <SlateEditor />
+          <SlateEditor setValue={setState} />
         </div>
       </div>
 
@@ -60,6 +77,9 @@ function Summary() {
         <div
           className="buttonContainer"
           onClick={() => {
+            console.log(SlateParser(state))
+            console.log("this is the data in state now: ", state)
+            // updateData(state);
             router.push("/section/review");
           }}
         >
