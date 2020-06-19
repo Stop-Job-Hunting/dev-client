@@ -143,7 +143,7 @@ function WorkItem() {
           className="buttonContainer"
           onClick={() => {
             commitData(state);
-            router.push("/section/work-highlights");
+            router.push(`/section/work-highlights/${workid}`);
           }}
         >
           Next
