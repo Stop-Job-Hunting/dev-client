@@ -9,7 +9,6 @@ export default () => {
   return (
     <div>
       <ProgressBar progress={4} />
-      {workid}
 
       <div className="hero">
         <WorkItem />

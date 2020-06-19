@@ -7,6 +7,8 @@ function WorkItem() {
   const [state, setState] = useState({});
   const [currentItem, setCurrentItem] = useState("load");
 
+  const { workid } = router.query;
+
   useEffect(() => {
     console.log("built component");
 
@@ -34,7 +36,7 @@ function WorkItem() {
         const allWorkItems = JSON.parse(text);
 
         for (let i = 0; i < allWorkItems.length; i++) {
-          if (allWorkItems[i]._id === "5eecf38cdeae4e0162245cef") {
+          if (allWorkItems[i]._id === `${workid}`) {
             console.log(allWorkItems[i]);
             setCurrentItem(allWorkItems[i]);
           }
@@ -69,7 +71,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "position");
                 }}
-                value={currentItem.position || ""}
+                defaultValue={currentItem.position || ""}
               ></textarea>
             </div>
 
@@ -79,7 +81,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "company");
                 }}
-                value={currentItem.company || ""}
+                defaultValue={currentItem.company || ""}
               ></textarea>
             </div>
             <div className="inputContainer">
@@ -88,7 +90,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "city");
                 }}
-                value={currentItem.city || ""}
+                defaultValue={currentItem.city || ""}
               ></textarea>
             </div>
             <div className="inputContainer">
@@ -97,7 +99,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "state");
                 }}
-                value={currentItem.state || ""}
+                defaultValue={currentItem.state || ""}
               ></textarea>
             </div>
 
@@ -107,7 +109,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "startDate");
                 }}
-                value={currentItem.startDate || ""}
+                defaultValue={currentItem.startDate || ""}
               ></textarea>
             </div>
 
@@ -117,7 +119,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "endDate");
                 }}
-                value={currentItem.endDate || ""}
+                defaultValue={currentItem.endDate || ""}
               ></textarea>
             </div>
           </div>
