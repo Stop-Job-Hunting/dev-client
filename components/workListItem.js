@@ -27,7 +27,12 @@ function WorkListItem(props) {
           {props.item.startDate} - {props.item.endDate}
         </div>
         <div className="iconContainer">
-          <div className="singleIconContainer">
+          <div
+            className="singleIconContainer"
+            onClick={() => {
+              router.push(`/section/work-item/${props.item._id}`);
+            }}
+          >
             <Edit color="#444" size={18} />
           </div>
           <div

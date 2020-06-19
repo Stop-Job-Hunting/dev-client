@@ -1,15 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../../constants";
 
 function WorkItem() {
   const router = useRouter();
   const [state, setState] = useState({});
+  const [currentItem, setCurrentItem] = useState("load");
+
+  useEffect(() => {
+    console.log("built component");
+
+    if (currentItem === "load") {
+      getAllWork();
+    }
+  });
 
   function handleInput(event, field) {
     setState({
       ...state,
       [field]: event.target.value,
+    });
+  }
+
+  function getAllWork() {
+    return fetch(`${SERVERURL}/works/all-work`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }).then((res) => {
+      res.text().then((text) => {
+        const allWorkItems = JSON.parse(text);
+
+        for (let i = 0; i < allWorkItems.length; i++) {
+          if (allWorkItems[i]._id === "5eecf38cdeae4e0162245cef") {
+            console.log(allWorkItems[i]);
+            setCurrentItem(allWorkItems[i]);
+          }
+        }
+      });
     });
   }
 
@@ -39,6 +69,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "position");
                 }}
+                value={currentItem.position || ""}
               ></textarea>
             </div>
 
@@ -48,6 +79,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "company");
                 }}
+                value={currentItem.company || ""}
               ></textarea>
             </div>
             <div className="inputContainer">
@@ -56,6 +88,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "city");
                 }}
+                value={currentItem.city || ""}
               ></textarea>
             </div>
             <div className="inputContainer">
@@ -64,6 +97,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "state");
                 }}
+                value={currentItem.state || ""}
               ></textarea>
             </div>
 
@@ -73,6 +107,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "startDate");
                 }}
+                value={currentItem.startDate || ""}
               ></textarea>
             </div>
 
@@ -82,6 +117,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "endDate");
                 }}
+                value={currentItem.endDate || ""}
               ></textarea>
             </div>
           </div>
@@ -104,7 +140,7 @@ function WorkItem() {
         <div
           className="buttonContainer"
           onClick={() => {
-            commitData(state)
+            commitData(state);
             router.push("/section/work-highlights");
           }}
         >

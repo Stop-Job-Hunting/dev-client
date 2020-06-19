@@ -47,7 +47,7 @@ export default () => {
             <div
               className="buttonContainer"
               onClick={() => {
-                router.push("/section/work-item");
+                router.push("/section/work-item/new");
               }}
             >
               Next

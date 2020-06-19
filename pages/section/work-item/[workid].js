@@ -1,10 +1,15 @@
-import ProgressBar from "../../components/progressBar";
-import WorkItem from "../../components/sections/workItem";
+import ProgressBar from "../../../components/progressBar";
+import WorkItem from "../../../components/sections/workItem";
+import { useRouter } from "next/router";
 
 export default () => {
+  const router = useRouter();
+  const { workid } = router.query;
+
   return (
     <div>
       <ProgressBar progress={4} />
+      {workid}
 
       <div className="hero">
         <WorkItem />

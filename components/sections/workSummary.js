@@ -44,7 +44,7 @@ function WorkSummary() {
       <div
         className="bottomButton"
         onClick={() => {
-          router.push("/section/work-item");
+          router.push("/section/work-item/new");
         }}
       >
         {" "}
@@ -62,7 +62,7 @@ function WorkSummary() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/work-item");
+            router.push("/section/work-index");
           }}
         >
           {" "}
