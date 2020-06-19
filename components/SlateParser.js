@@ -36,6 +36,11 @@ function SlateParser(slateArr) {
   };
 
   // Loop through slateArr children
+
+  if (!slateArr) {
+    return;
+  }
+
   for (let i = 0; i < slateArr.length; i++) {
     // check to see if bulleted list or paragraph
     if (
