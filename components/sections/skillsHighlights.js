@@ -1,8 +1,25 @@
 import SlateEditor from "../slateEditor";
 import { useRouter } from "next/router";
+import { useState } from 'react';
+import SlateParser from "../SlateParser";
+import SERVERURL from "../../constants";
+
 
 function WorkHighlights() {
   const router = useRouter();
+  const [state, setState] = useState()
+
+  function updateData(data) {
+    console.log("update data in the database", data);
+    return fetch(`${SERVERURL}/basics/update`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(data),
+    });
+  }
 
   return (
     <div>
@@ -39,7 +56,7 @@ function WorkHighlights() {
           </div>
         </div>
         <div className="slateContainer">
-          <SlateEditor />
+          <SlateEditor setValue={setState} />
         </div>
       </div>
 
@@ -55,6 +72,11 @@ function WorkHighlights() {
         <div
           className="buttonContainer"
           onClick={() => {
+            let parsedObject = SlateParser(state)
+            let skillsArray = parsedObject.highlights
+            let data = { skills: skillsArray }
+
+            updateData(data);
             router.push("/section/summary-index");
           }}
         >

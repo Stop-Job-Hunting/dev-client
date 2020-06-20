@@ -57,6 +57,18 @@ function WorkItem() {
     });
   }
 
+  function updateData(data) {
+    console.log("going to put data in the database", data);
+    return fetch(`${SERVERURL}/works/update/${workid}`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(data),
+    });
+  }
+
   return (
     <div className="componentContainer">
       <div className="headingTitleContainer">
@@ -142,7 +154,12 @@ function WorkItem() {
         <div
           className="buttonContainer"
           onClick={() => {
-            commitData(state);
+            if (workid === "new") {
+              commitData(state);
+            } else {
+              updateData(state);
+            }
+
             router.push(`/section/work-highlights/${workid}`);
           }}
         >

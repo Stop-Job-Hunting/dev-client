@@ -2,18 +2,17 @@ import SlateEditor from "../slateEditor";
 import { useRouter } from "next/router";
 import { useState } from 'react';
 import SlateParser from "../SlateParser"
+import SERVERURL from "../../constants"
 
 function Summary() {
   const router = useRouter();
   const [state, setState] = useState()
-  const [summary, setSummary] = useState()
 
 
   function updateData(data) {
-
     console.log("update data in the database", data);
     return fetch(`${SERVERURL}/basics/update`, {
-      method: "post",
+      method: "put",
       headers: {
         "Content-Type": "application/json",
       },
@@ -78,12 +77,11 @@ function Summary() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log(SlateParser(state))
-            console.log("this is the data in state now: ", state)
-            setSummary({ state.paragraph })
-            // TODO: figure this out
+            let parsedObject = SlateParser(state)
+            let paragraph = parsedObject.paragraph
+            let data = { summary: paragraph }
 
-            // updateData();
+            updateData(data);
             router.push("/section/review");
           }}
         >
