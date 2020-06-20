@@ -6,6 +6,7 @@ import SlateParser from "../SlateParser"
 function Summary() {
   const router = useRouter();
   const [state, setState] = useState()
+  const [summary, setSummary] = useState()
 
 
   function updateData(data) {
@@ -79,7 +80,10 @@ function Summary() {
           onClick={() => {
             console.log(SlateParser(state))
             console.log("this is the data in state now: ", state)
-            // updateData(state);
+            setSummary({ state.paragraph })
+            // TODO: figure this out
+
+            // updateData();
             router.push("/section/review");
           }}
         >
