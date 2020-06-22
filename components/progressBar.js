@@ -55,6 +55,7 @@ function ProgressBar(props) {
 
   const headingArray = [
     <div
+      key={`${Math.random() * 100}`}
       className="navItemContainer"
       onClick={() => {
         router.push("/section/heading");
@@ -62,8 +63,9 @@ function ProgressBar(props) {
     >
       Heading{" "}
     </div>,
-    <ArrowRightCircle width="16px" />,
+    <ArrowRightCircle width="16px" key={`${Math.random() * 100}`} />,
     <div
+      key={`${Math.random() * 100}`}
       className="navItemContainer"
       onClick={() => {
         router.push("/section/work-index");
@@ -71,8 +73,9 @@ function ProgressBar(props) {
     >
       Work History
     </div>,
-    <ArrowRightCircle width="16px" />,
+    <ArrowRightCircle width="16px" key={`${Math.random() * 100}`} />,
     <div
+      key={`${Math.random() * 100}`}
       className="navItemContainer"
       onClick={() => {
         router.push("/section/education-index");
@@ -80,8 +83,9 @@ function ProgressBar(props) {
     >
       Education
     </div>,
-    <ArrowRightCircle width="16px" />,
+    <ArrowRightCircle width="16px" key={`${Math.random() * 100}`} />,
     <div
+      key={`${Math.random() * 100}`}
       className="navItemContainer"
       onClick={() => {
         router.push("/section/skills-index");
@@ -89,8 +93,9 @@ function ProgressBar(props) {
     >
       Skills
     </div>,
-    <ArrowRightCircle width="16px" />,
+    <ArrowRightCircle width="16px" key={`${Math.random() * 100}`} />,
     <div
+      key={`${Math.random() * 100}`}
       className="navItemContainer"
       onClick={() => {
         router.push("/section/summary-index");
@@ -98,8 +103,9 @@ function ProgressBar(props) {
     >
       Summary
     </div>,
-    <ArrowRightCircle width="16px" />,
+    <ArrowRightCircle width="16px" key={`${Math.random() * 100}`} />,
     <div
+      key={`${Math.random() * 100}`}
       className="navItemContainer"
       onClick={() => {
         router.push("/section/review");
@@ -115,7 +121,7 @@ function ProgressBar(props) {
     if (counter === progressState || counter === progressState - 1) {
       if (item.props.width) {
         return (
-          <div>
+          <div key={`${Math.random() * 100}`}>
             {item}
             <style jsx>{`
               div {
@@ -126,7 +132,7 @@ function ProgressBar(props) {
         );
       } else {
         return (
-          <div className="itemContainer">
+          <div className="itemContainer" key={`${Math.random() * 100}`}>
             {item}
             <style jsx>{`
               .itemContainer {
@@ -163,7 +169,7 @@ function ProgressBar(props) {
     } else if (Math.sign(progressState) !== -1) {
       if (item.props.width) {
         return (
-          <div>
+          <div key={`${Math.random() * 100}`}>
             {item}
             <style jsx>{`
               div {
@@ -179,7 +185,7 @@ function ProgressBar(props) {
         );
       } else {
         return (
-          <div className="itemContainerGrey">
+          <div className="itemContainerGrey" key={`${Math.random() * 100}`}>
             {item}
             <style jsx>{`
               .itemContainerGrey {
