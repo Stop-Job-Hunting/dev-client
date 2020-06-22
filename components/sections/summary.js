@@ -4,13 +4,26 @@ import { useState, useEffect } from "react";
 import SlateParser from "../SlateParser";
 import SERVERURL from "../../constants";
 
+const initialValue = [
+  {
+    type: "paragraph",
+    children: [
+      {
+        text: "new initial paragraph Write a 2-4 sentence summary here..",
+      },
+    ],
+  },
+];
+
 function Summary() {
   const router = useRouter();
   const [state, setState] = useState();
-  const [summary, setSummary] = useState("Write a 2-4 sentence summary here..");
+  const [summary, setSummary] = useState(initialValue);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (summary === "Write a 2-4 sentence summary here..") {
+    if (summary[0].children[0].text === initialValue[0].children[0].text) {
+      console.log("update the data");
       getBasicSchema();
     }
 
@@ -39,8 +52,22 @@ function Summary() {
     }).then((res) => {
       res.text().then((text) => {
         const data = JSON.parse(text);
-        setSummary(data[0].summary);
-        console.log(summary);
+
+        if (data[0].summary) {
+          const updatedValue = [
+            {
+              type: "paragraph",
+              children: [
+                {
+                  text: `${data[0].summary}`,
+                },
+              ],
+            },
+          ];
+          setSummary(updatedValue);
+        }
+
+        setIsLoading(false);
       });
     });
   }
@@ -85,7 +112,9 @@ function Summary() {
           </div>
         </div>
         <div className="slateContainer">
-          <SlateSummaryEditor setValue={setState} />
+          {!isLoading && (
+            <SlateSummaryEditor setValue={setState} initialData={summary} />
+          )}
         </div>
       </div>
 

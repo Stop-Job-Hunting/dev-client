@@ -17,7 +17,7 @@ const HOTKEYS = {
 const LIST_TYPES = ["numbered-list", "bulleted-list"];
 
 const SlateSummaryEditor = (props) => {
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState(props.initialData);
   const renderElement = useCallback((props) => <Element {...props} />, []);
   const renderLeaf = useCallback((props) => <Leaf {...props} />, []);
   const editor = useMemo(() => withHistory(withReact(createEditor())), []);
