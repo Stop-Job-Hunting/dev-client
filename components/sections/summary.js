@@ -1,13 +1,21 @@
-import SlateEditor from "../slateEditor";
+import SlateSummaryEditor from "../slateSummaryEditor";
 import { useRouter } from "next/router";
-import { useState } from 'react';
-import SlateParser from "../SlateParser"
-import SERVERURL from "../../constants"
+import { useState, useEffect } from "react";
+import SlateParser from "../SlateParser";
+import SERVERURL from "../../constants";
 
 function Summary() {
   const router = useRouter();
-  const [state, setState] = useState()
+  const [state, setState] = useState();
+  const [summary, setSummary] = useState("Write a 2-4 sentence summary here..");
 
+  useEffect(() => {
+    if (summary === "Write a 2-4 sentence summary here..") {
+      getBasicSchema();
+    }
+
+    console.log("component loaded");
+  });
 
   function updateData(data) {
     console.log("update data in the database", data);
@@ -18,6 +26,22 @@ function Summary() {
       },
       credentials: "include",
       body: JSON.stringify(data),
+    });
+  }
+
+  function getBasicSchema() {
+    return fetch(`${SERVERURL}/basics/all-basic`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }).then((res) => {
+      res.text().then((text) => {
+        const data = JSON.parse(text);
+        setSummary(data[0].summary);
+        console.log(summary);
+      });
     });
   }
 
@@ -61,7 +85,7 @@ function Summary() {
           </div>
         </div>
         <div className="slateContainer">
-          <SlateEditor setValue={setState} />
+          <SlateSummaryEditor setValue={setState} />
         </div>
       </div>
 
@@ -77,9 +101,9 @@ function Summary() {
         <div
           className="buttonContainer"
           onClick={() => {
-            let parsedObject = SlateParser(state)
-            let paragraph = parsedObject.paragraph
-            let data = { summary: paragraph }
+            let parsedObject = SlateParser(state);
+            let paragraph = parsedObject.paragraph;
+            let data = { summary: paragraph };
 
             updateData(data);
             router.push("/section/review");
