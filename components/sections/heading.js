@@ -124,8 +124,12 @@ function Heading() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log(state)
-            commitData(state)
+            console.log(state);
+            if (Object.keys(state).length > 0) {
+              console.log("commited data");
+              commitData(state);
+            }
+
             router.push("/section/work-index");
           }}
         >
