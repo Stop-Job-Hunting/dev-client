@@ -83,6 +83,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "position");
                 }}
+                // @ts-ignore
                 defaultValue={currentItem.position || ""}
               ></textarea>
             </div>
@@ -93,6 +94,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "company");
                 }}
+                // @ts-ignore
                 defaultValue={currentItem.company || ""}
               ></textarea>
             </div>
@@ -102,6 +104,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "city");
                 }}
+                // @ts-ignore
                 defaultValue={currentItem.city || ""}
               ></textarea>
             </div>
@@ -111,6 +114,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "state");
                 }}
+                // @ts-ignore
                 defaultValue={currentItem.state || ""}
               ></textarea>
             </div>
@@ -121,6 +125,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "startDate");
                 }}
+                // @ts-ignore
                 defaultValue={currentItem.startDate || ""}
               ></textarea>
             </div>
@@ -131,6 +136,7 @@ function WorkItem() {
                 onChange={(event) => {
                   return handleInput(event, "endDate");
                 }}
+                // @ts-ignore
                 defaultValue={currentItem.endDate || ""}
               ></textarea>
             </div>
