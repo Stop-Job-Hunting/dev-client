@@ -1,13 +1,79 @@
-import SlateEditor from "../slateEditor";
+import SlateSkillsEditor from "../slateSkillsEditor";
 import { useRouter } from "next/router";
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import SlateParser from "../SlateParser";
 import SERVERURL from "../../constants";
 
+const initialValue = [
+  {
+    type: "bulleted-list",
+    children: [
+      {
+        type: "list-item",
+        children: [
+          {
+            text: "Example: Facebook Advertising",
+          },
+        ],
+      },
+    ],
+  },
+];
 
 function WorkHighlights() {
   const router = useRouter();
-  const [state, setState] = useState()
+  const [state, setState] = useState();
+  const [skills, setSkills] = useState(initialValue);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (
+      skills[0].children[0].children[0].text ===
+      initialValue[0].children[0].children[0].text
+    ) {
+      console.log("update the data");
+      getBasicSchema();
+    }
+
+    console.log("component loaded");
+  });
+
+  function getBasicSchema() {
+    return fetch(`${SERVERURL}/basics/all-basic`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }).then((res) => {
+      res.text().then((text) => {
+        const data = JSON.parse(text);
+
+        console.log(data[0].skills);
+
+        let updatedValue = [
+          {
+            type: "bulleted-list",
+            children: [],
+          },
+        ];
+
+        for (let i = 0; i < data[0].skills.length; i++) {
+          updatedValue[0].children.push({
+            type: "list-item",
+            children: [
+              {
+                text: `${data[0].skills[i]}`,
+              },
+            ],
+          });
+        }
+
+        setSkills(updatedValue);
+        setIsLoading(false);
+      });
+    });
+  }
 
   function updateData(data) {
     console.log("update data in the database", data);
@@ -56,7 +122,9 @@ function WorkHighlights() {
           </div>
         </div>
         <div className="slateContainer">
-          <SlateEditor setValue={setState} />
+          {!isLoading && (
+            <SlateSkillsEditor setValue={setState} initialData={skills} />
+          )}
         </div>
       </div>
 
@@ -72,9 +140,9 @@ function WorkHighlights() {
         <div
           className="buttonContainer"
           onClick={() => {
-            let parsedObject = SlateParser(state)
-            let skillsArray = parsedObject.highlights
-            let data = { skills: skillsArray }
+            let parsedObject = SlateParser(state);
+            let skillsArray = parsedObject.highlights;
+            let data = { skills: skillsArray };
 
             updateData(data);
             router.push("/section/summary-index");
