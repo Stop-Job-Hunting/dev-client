@@ -48,7 +48,7 @@ export default () => {
       <ProgressBar progress={4} />
       ID of current work item: {state._id || ""}
       <div className="hero">
-        <WorkHighlights />
+        <WorkHighlights workId={state._id} />
       </div>
       <Footer />
       <style jsx>{`

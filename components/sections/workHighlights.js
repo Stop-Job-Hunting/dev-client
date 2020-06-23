@@ -2,10 +2,24 @@ import SlateEditor from "../slateEditor";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import SlateParser from "../SlateParser";
+import SERVERURL from "../../constants";
 
-function WorkHighlights() {
+function WorkHighlights(props) {
   const router = useRouter();
   const [state, setState] = useState();
+
+  function updateData(data) {
+    console.log("going to put data in the database", data);
+    return fetch(`${SERVERURL}/works/update/${props.workId}`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(data),
+    });
+  }
+
 
   return (
     <div>
@@ -63,7 +77,11 @@ function WorkHighlights() {
           className="buttonContainer"
           onClick={() => {
             console.log("this is the slate state:", state)
-            console.log("Parse state: ", SlateParser(state));
+            let parsedState = SlateParser(state);
+
+            console.log("Parse state: ", parsedState.highlights);
+            console.log("workId", props.workId)
+            updateData({ highlights: parsedState.highlights });
             router.push("/section/work-summary");
           }}
         >

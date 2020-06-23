@@ -27,12 +27,17 @@ function WorkHighlights() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (
-      skills[0].children[0].children[0].text ===
-      initialValue[0].children[0].children[0].text
-    ) {
-      console.log("update the data");
-      getBasicSchema();
+    console.log(skills)
+    if (skills[0].children.length > 0) {
+      console.log("Dont do me")
+      if (
+        skills[0].children[0].children[0].text ===
+        initialValue[0].children[0].children[0].text
+      ) {
+        console.log("update the data");
+        getBasicSchema();
+        // setIsLoading(false);
+      }
     }
 
     console.log("component loaded");
