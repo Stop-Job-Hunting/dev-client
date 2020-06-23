@@ -1,12 +1,44 @@
-import SlateEditor from "../slateEditor";
+import SlateWorkEditor from "../slateWorkEditor";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SlateParser from "../SlateParser";
 import SERVERURL from "../../constants";
+
+const initialValue = [
+  {
+    type: "bulleted-list",
+    children: [
+      {
+        type: "list-item",
+        children: [
+          {
+            text:
+              "Write your work highlights here! Led a team of people, grew revenue, was a team player, etc..",
+          },
+        ],
+      },
+    ],
+  },
+];
 
 function WorkHighlights(props) {
   const router = useRouter();
   const [state, setState] = useState();
+  const [currentItem, setCurrentItem] = useState(initialValue);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    console.log("built component");
+
+    if (currentItem[0] && isLoading) {
+      if (
+        currentItem[0].children[0].text === initialValue[0].children[0].text
+      ) {
+        console.log("go update data");
+        getAllWork();
+      }
+    }
+  });
 
   function updateData(data) {
     console.log("going to put data in the database", data);
@@ -20,6 +52,44 @@ function WorkHighlights(props) {
     });
   }
 
+  function getAllWork() {
+    return fetch(`${SERVERURL}/works/all-work`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }).then((res) => {
+      res.text().then((text) => {
+        const allWorkItems = JSON.parse(text);
+
+        for (let i = 0; i < allWorkItems.length; i++) {
+          if (allWorkItems[i]._id === `${props.workId}`) {
+            console.log(allWorkItems[i].highlights);
+
+            if (allWorkItems[i].highlights.length > 0) {
+              const currentValue = [
+                {
+                  type: "bulleted-list",
+                  children: [],
+                },
+              ];
+
+              for (let j = 0; j < allWorkItems[i].highlights.length; j++) {
+                currentValue[0].children.push({
+                  type: "list-item",
+                  children: [{ text: `${allWorkItems[i].highlights[j]}` }],
+                });
+              }
+              console.log("current val:", currentValue);
+              setCurrentItem(currentValue);
+              setIsLoading(false);
+            }
+          }
+        }
+      });
+    });
+  }
 
   return (
     <div>
@@ -60,7 +130,9 @@ function WorkHighlights(props) {
           </div>
         </div>
         <div className="slateContainer">
-          <SlateEditor setValue={setState} />
+          {!isLoading && (
+            <SlateWorkEditor setValue={setState} initialData={currentItem} />
+          )}
         </div>
       </div>
 
@@ -76,11 +148,11 @@ function WorkHighlights(props) {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log("this is the slate state:", state)
+            console.log("this is the slate state:", state);
             let parsedState = SlateParser(state);
 
             console.log("Parse state: ", parsedState.highlights);
-            console.log("workId", props.workId)
+            console.log("workId", props.workId);
             updateData({ highlights: parsedState.highlights });
             router.push("/section/work-summary");
           }}
