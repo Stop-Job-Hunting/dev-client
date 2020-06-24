@@ -29,18 +29,25 @@ function WorkSummary() {
     });
   }
 
-  let mappedWork = state.map((item) => {
-    if (item.company) {
-      return <WorkListItem item={item} />;
-    }
-  });
+  function createMappedWork() {
+    let index = 0;
+
+    let divs = state.map((item) => {
+      if (item.company) {
+        index = index + 1;
+        return <WorkListItem item={item} index={index} />;
+      }
+    });
+
+    return divs;
+  }
 
   return (
     <>
       <div className="title">
         <h2>Work History Summary</h2>
       </div>
-      {mappedWork}
+      {createMappedWork()}
       <div
         className="bottomButton"
         onClick={() => {

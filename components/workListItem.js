@@ -18,7 +18,7 @@ function WorkListItem(props) {
   return (
     <>
       <div className="workContainer" key={`${props.item._id}`}>
-        <div className="indexContainer">1</div>
+        <div className="indexContainer">{props.index}</div>
         <div className="contentContainer">
           <strong>
             {props.item.position}, {props.item.company}
