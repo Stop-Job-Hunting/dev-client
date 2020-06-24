@@ -28,7 +28,7 @@ function WorkHighlights(props) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log("built component");
+    console.log("built component, currentItem is: ", currentItem);
 
     if (currentItem[0] && isLoading) {
       if (
@@ -83,8 +83,8 @@ function WorkHighlights(props) {
               }
               console.log("current val:", currentValue);
               setCurrentItem(currentValue);
-              setIsLoading(false);
             }
+            setIsLoading(false);
           }
         }
       });
