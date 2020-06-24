@@ -2,14 +2,33 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../../constants";
 
+let initialValue = [
+  {
+    createdAt: "",
+    email: "",
+    firstname: "",
+    id: "",
+    isDeleted: false,
+    lastname: "",
+    location: { city: "", region: "", postalCode: "" },
+    phone: "",
+    skills: (3)[("", "", "")],
+    summary: "",
+    updatedAt: "",
+    username: "",
+    __v: 0,
+    _id: "",
+  },
+];
+
 function Heading() {
   const router = useRouter();
   const [state, setState] = useState({});
-  const [currentData, setCurrentData] = useState("load");
+  const [currentData, setCurrentData] = useState(initialValue);
 
   useEffect(() => {
     console.log("built component");
-    if (currentData === "load") {
+    if (currentData[0].username === "") {
       getData();
     }
   });
