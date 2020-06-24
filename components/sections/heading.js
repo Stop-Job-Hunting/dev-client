@@ -62,9 +62,17 @@ function Heading() {
     }).then((res) => {
       res.text().then((text) => {
         const data = JSON.parse(text);
-        // console.log(text);
-        setCurrentData(data);
-        console.log("this is data: ", data);
+        console.log("this is an empty doc data: ", data);
+        if (data.length < 1) {
+          return;
+        } else {
+          setCurrentData((prevDoc) => {
+            let first = data[0];
+            for (let key in first) {
+              prevDoc[0][key] = first[key];
+            }
+          });
+        }
       });
     });
   }
