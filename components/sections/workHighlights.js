@@ -140,7 +140,7 @@ function WorkHighlights(props) {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/work-item");
+            router.push(`/section/work-item/${props.workId}`);
           }}
         >
           Back
