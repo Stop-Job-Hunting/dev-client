@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../../constants";
 
 function Heading() {
   const router = useRouter();
   const [state, setState] = useState({});
+  const [currentData, setCurrentData] = useState("load");
+
+  useEffect(() => {
+    console.log("built component");
+    if (currentData === "load") {
+      getData();
+    }
+  });
 
   function handleInput(event, field) {
     setState({
@@ -25,6 +33,23 @@ function Heading() {
     });
   }
 
+  function getData() {
+    return fetch(`${SERVERURL}/basics/all-basic`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }).then((res) => {
+      res.text().then((text) => {
+        const data = JSON.parse(text);
+        // console.log(text);
+        setCurrentData(data);
+        console.log("this is data: ", data);
+      });
+    });
+  }
+
   return (
     <div className="componentContainer">
       <div className="headingTitleContainer">
@@ -39,6 +64,7 @@ function Heading() {
                 onChange={(event) => {
                   return handleInput(event, "firstname");
                 }}
+                defaultValue={currentData[0].firstname || ""}
               ></textarea>
             </div>
 
@@ -48,6 +74,7 @@ function Heading() {
                 onChange={(event) => {
                   return handleInput(event, "lastname");
                 }}
+                defaultValue={currentData[0].lastname || ""}
               ></textarea>
             </div>
             <div className="inputContainer">
@@ -56,6 +83,7 @@ function Heading() {
                 onChange={(event) => {
                   return handleInput(event, "location.city");
                 }}
+                defaultValue={currentData[0].location.city || ""}
               ></textarea>
             </div>
             <div className="inputContainer">
@@ -64,6 +92,7 @@ function Heading() {
                 onChange={(event) => {
                   return handleInput(event, "location.region");
                 }}
+                defaultValue={currentData[0].location.region || ""}
               ></textarea>
             </div>
 
@@ -73,6 +102,7 @@ function Heading() {
                 onChange={(event) => {
                   return handleInput(event, "location.postalCode");
                 }}
+                defaultValue={currentData[0].location.postalCode || ""}
               ></textarea>
             </div>
 
@@ -82,6 +112,7 @@ function Heading() {
                 onChange={(event) => {
                   return handleInput(event, "phone");
                 }}
+                defaultValue={currentData[0].phone || ""}
               ></textarea>
             </div>
 
@@ -91,6 +122,7 @@ function Heading() {
                 onChange={(event) => {
                   return handleInput(event, "email");
                 }}
+                defaultValue={currentData[0].email || ""}
               ></textarea>
             </div>
 
