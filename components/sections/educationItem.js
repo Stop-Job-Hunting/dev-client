@@ -1,15 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../../constants";
 
 function EducationItem() {
   const router = useRouter();
   const [state, setState] = useState({});
+  const [currentItem, setCurrentItem] = useState("load");
+  const { educationitem } = router.query;
+
+  useEffect(() => {
+    console.log("built component");
+
+    if (currentItem === "load") {
+      getAllEducation();
+    }
+  });
 
   function handleInput(event, field) {
     setState({
       ...state,
       [field]: event.target.value,
+    });
+  }
+
+  function getAllEducation() {
+    return fetch(`${SERVERURL}/educations/all-education`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }).then((res) => {
+      res.text().then((text) => {
+        const allEducationItems = JSON.parse(text);
+
+        for (let i = 0; i < allEducationItems.length; i++) {
+          if (allEducationItems[i]._id === `${educationitem}`) {
+            console.log(allEducationItems[i]);
+            setCurrentItem(allEducationItems[i]);
+          }
+        }
+      });
     });
   }
 
@@ -25,8 +56,21 @@ function EducationItem() {
     });
   }
 
+  function updateData(data) {
+    console.log("going to put data in the database", data);
+    return fetch(`${SERVERURL}/educations/update/${educationitem}`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(data),
+    });
+  }
+
   return (
     <div className="componentContainer">
+      hello: {educationitem}
       <div className="headingTitleContainer">Tell us about your education</div>
       <div className="contentContainer">
         <div className="inputListContainer">
@@ -37,6 +81,7 @@ function EducationItem() {
                 onChange={(event) => {
                   return handleInput(event, "institution");
                 }}
+                defaultValue={currentItem.institution || ""}
               ></textarea>
             </div>
 
@@ -46,6 +91,7 @@ function EducationItem() {
                 onChange={(event) => {
                   return handleInput(event, "location");
                 }}
+                defaultValue={currentItem.location || ""}
               ></textarea>
             </div>
             <div className="inputContainer">
@@ -54,6 +100,7 @@ function EducationItem() {
                 onChange={(event) => {
                   return handleInput(event, "studyType");
                 }}
+                defaultValue={currentItem.studyType || ""}
               ></textarea>
             </div>
             <div className="inputContainer">
@@ -62,6 +109,7 @@ function EducationItem() {
                 onChange={(event) => {
                   return handleInput(event, "area");
                 }}
+                defaultValue={currentItem.area || ""}
               ></textarea>
             </div>
 
@@ -71,6 +119,7 @@ function EducationItem() {
                 onChange={(event) => {
                   return handleInput(event, "endDate");
                 }}
+                defaultValue={currentItem.endDate || ""}
               ></textarea>
             </div>
             <div className="invisible">
@@ -103,7 +152,11 @@ function EducationItem() {
         <div
           className="buttonContainer"
           onClick={() => {
-            commitData(state)
+            if (educationitem === "new") {
+              commitData(state);
+            } else {
+              updateData(state);
+            }
             router.push("/section/education-summary");
           }}
         >

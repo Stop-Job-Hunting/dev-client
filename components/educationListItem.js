@@ -18,7 +18,7 @@ function EducationListItem(props) {
   return (
     <>
       <div className="educationContainer" key={`${props.item._id}`}>
-        <div className="indexContainer">1</div>
+        <div className="indexContainer">{props.index}</div>
         <div className="contentContainer">
           <strong>
             {props.item.institution}, {props.item.location}
@@ -27,7 +27,12 @@ function EducationListItem(props) {
           {props.item.endDate}
         </div>
         <div className="iconContainer">
-          <div className="singleIconContainer">
+          <div
+            className="singleIconContainer"
+            onClick={() => {
+              router.push(`/section/education-item/${props.item._id}`);
+            }}
+          >
             <Edit color="#444" size={18} />
           </div>
           <div

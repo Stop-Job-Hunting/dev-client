@@ -29,6 +29,18 @@ function EduSummary() {
     });
   }
 
+  function createMappedEducation() {
+    let index = 0;
+
+    let divs = state.map((item) => {
+      if (item.institution) {
+        index = index + 1;
+        return <EducationListItem item={item} index={index} />;
+      }
+    });
+
+    return divs;
+  }
 
   let mappedWork = state.map((item) => {
     if (item.institution) {
@@ -41,7 +53,7 @@ function EduSummary() {
       <div className="title">
         <h2>Education Summary</h2>
       </div>
-      {mappedWork}
+      {createMappedEducation()}
       <div
         className="bottomButton"
         onClick={() => {
@@ -63,7 +75,7 @@ function EduSummary() {
         <div
           className="buttonContainer"
           onClick={() => {
-            router.push("/section/education-item");
+            router.push("/section/education-index");
           }}
         >
           {" "}
