@@ -70,7 +70,6 @@ function EducationItem() {
 
   return (
     <div className="componentContainer">
-      hello: {educationitem}
       <div className="headingTitleContainer">Tell us about your education</div>
       <div className="contentContainer">
         <div className="inputListContainer">
