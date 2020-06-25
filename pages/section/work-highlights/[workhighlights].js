@@ -46,7 +46,6 @@ export default () => {
   return (
     <div>
       <ProgressBar progress={4} />
-      ID of current work item: {state._id || ""}
       <div className="hero">
         <WorkHighlights workId={state._id} />
       </div>
