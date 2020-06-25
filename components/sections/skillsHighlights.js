@@ -27,9 +27,9 @@ function WorkHighlights() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log(skills)
+    console.log(skills);
     if (skills[0].children.length > 0) {
-      console.log("Dont do me")
+      console.log("Dont do me");
       if (
         skills[0].children[0].children[0].text ===
         initialValue[0].children[0].children[0].text
@@ -41,7 +41,7 @@ function WorkHighlights() {
     }
 
     console.log("component loaded");
-  });
+  }, []);
 
   function getBasicSchema() {
     return fetch(`${SERVERURL}/basics/all-basic`, {
@@ -53,29 +53,32 @@ function WorkHighlights() {
     }).then((res) => {
       res.text().then((text) => {
         const data = JSON.parse(text);
+        console.log("fetched data: ", data);
 
-        console.log(data[0].skills);
+        if (data[0].skills.length > 0) {
+          let updatedValue = [
+            {
+              type: "bulleted-list",
+              children: [],
+            },
+          ];
 
-        let updatedValue = [
-          {
-            type: "bulleted-list",
-            children: [],
-          },
-        ];
+          for (let i = 0; i < data[0].skills.length; i++) {
+            updatedValue[0].children.push({
+              type: "list-item",
+              children: [
+                {
+                  text: `${data[0].skills[i]}`,
+                },
+              ],
+            });
+          }
 
-        for (let i = 0; i < data[0].skills.length; i++) {
-          updatedValue[0].children.push({
-            type: "list-item",
-            children: [
-              {
-                text: `${data[0].skills[i]}`,
-              },
-            ],
-          });
+          setSkills(updatedValue);
+          setIsLoading(false);
+        } else {
+          setIsLoading(false);
         }
-
-        setSkills(updatedValue);
-        setIsLoading(false);
       });
     });
   }
