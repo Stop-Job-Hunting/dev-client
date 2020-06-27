@@ -1,11 +1,19 @@
 import ProgressBar from "../../components/progressBar";
 import Footer from "../../components/footer";
 import SERVERURL from "../../constants";
+import { useEffect } from "react"
+import { Router } from "next/router";
 
 export default () => {
-  function triggerDownload() {
+
+  useEffect(() => {
+    console.log("rendered component")
+    buildJSON()
+  }, [])
+
+  function buildJSON() {
     console.log("triggered");
-    return fetch(`${SERVERURL}/downloads`, {
+    return fetch(`${SERVERURL}/downloads/build-json`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -17,6 +25,17 @@ export default () => {
       });
     });
   }
+
+  function triggerDownload() {
+    console.log("triggered");
+    return fetch(`${SERVERURL}/downloads/build-resume`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+  }
   return (
     <div>
       <ProgressBar progress={12} />
@@ -25,7 +44,10 @@ export default () => {
         <div className="headerText">Ready to download your resume?</div>
 
         <div className="overallButtonContainer">
-          <div className="buttonContainer" onClick={triggerDownload}>
+          <div className="buttonContainer" onClick={() => {
+            triggerDownload()
+            window.open("http://localhost:3001/downloads/download-resume")
+          }}>
             PDF Download
           </div>
           <div className="buttonContainer">Word Download</div>
