@@ -1,7 +1,22 @@
 import ProgressBar from "../../components/progressBar";
 import Footer from "../../components/footer";
+import SERVERURL from "../../constants";
 
 export default () => {
+  function triggerDownload() {
+    console.log("triggered");
+    return fetch(`${SERVERURL}/downloads`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }).then((res) => {
+      res.text().then((text) => {
+        console.log(text);
+      });
+    });
+  }
   return (
     <div>
       <ProgressBar progress={12} />
@@ -10,7 +25,9 @@ export default () => {
         <div className="headerText">Ready to download your resume?</div>
 
         <div className="overallButtonContainer">
-          <div className="buttonContainer">PDF Download</div>
+          <div className="buttonContainer" onClick={triggerDownload}>
+            PDF Download
+          </div>
           <div className="buttonContainer">Word Download</div>
         </div>
       </div>
