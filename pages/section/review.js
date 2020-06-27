@@ -46,6 +46,7 @@ export default () => {
         <div className="overallButtonContainer">
           <div className="buttonContainer" onClick={() => {
             triggerDownload()
+            //TODO: fix this
             window.open("http://localhost:3001/downloads/download-resume")
           }}>
             PDF Download
