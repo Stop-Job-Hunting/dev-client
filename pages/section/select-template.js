@@ -67,10 +67,10 @@ export default () => {
         }
         .templateContainer {
           display: flex;
-          margin-top: 25px;
+          margin-top: 34px;
         }
         .imageContainer {
-          margin: 5px;
+          margin: 10px;
         }
         img:hover {
           outline: 2px solid #3a7ff2;
