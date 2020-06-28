@@ -1,5 +1,5 @@
 import EducationItem from "../../components/sections/educationItem";
-
+import Footer from "../../components/footer";
 import ProgressBar from "../../components/progressBar";
 
 export default () => {
@@ -10,14 +10,14 @@ export default () => {
       <div className="hero">
         <EducationItem />
       </div>
+      <Footer />
       <style jsx>{`
         .hero {
           width: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding-top: 2em;
-          height: 45em;
+          min-height: calc(100vh - 132px);
         }
       `}</style>
     </div>

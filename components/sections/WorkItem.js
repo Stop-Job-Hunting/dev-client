@@ -185,6 +185,7 @@ function WorkItem() {
           font-size: 28px;
           font-weight: bold;
           color: #3a7ff2;
+          margin-top: 24px;
         }
         .contentContainer {
           min-height: 400px;

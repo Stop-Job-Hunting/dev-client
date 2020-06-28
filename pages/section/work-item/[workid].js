@@ -1,5 +1,6 @@
 import ProgressBar from "../../../components/progressBar";
 import WorkItem from "../../../components/sections/workItem";
+import Footer from "../../../components/footer";
 import { useRouter } from "next/router";
 
 export default () => {
@@ -13,14 +14,15 @@ export default () => {
       <div className="hero">
         <WorkItem />
       </div>
+      <Footer />
       <style jsx>{`
         .hero {
           width: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding-top: 2em;
-          height: 45em;
+          // padding-top: 2em;
+          min-height: calc(100vh - 132px);
         }
       `}</style>
     </div>

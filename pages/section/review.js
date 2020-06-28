@@ -55,7 +55,7 @@ export default () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          height: 600px;
+          min-height: calc(100vh - 132px);
         }
         .overallButtonContainer {
           display: flex;

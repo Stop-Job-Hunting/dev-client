@@ -57,7 +57,7 @@ export default () => {
           flex-direction: column;
           align-items: center;
           padding-top: 2em;
-          min-height: 36em;
+          min-height: calc(100vh - 132px);
         }
       `}</style>
     </div>
