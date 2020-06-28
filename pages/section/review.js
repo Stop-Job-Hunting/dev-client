@@ -1,15 +1,13 @@
 import ProgressBar from "../../components/progressBar";
 import Footer from "../../components/footer";
 import SERVERURL from "../../constants";
-import { useEffect } from "react"
-import { Router } from "next/router";
+import { useEffect } from "react";
 
 export default () => {
-
   useEffect(() => {
-    console.log("rendered component")
-    buildJSON()
-  }, [])
+    console.log("rendered component");
+    buildJSON();
+  }, []);
 
   function buildJSON() {
     console.log("triggered");
@@ -19,22 +17,12 @@ export default () => {
         "Content-Type": "application/json",
       },
       credentials: "include",
-    }).then((res) => {
-      res.text().then((text) => {
-        console.log(text);
-      });
     });
   }
 
   function triggerDownload() {
     console.log("triggered");
-    return fetch(`${SERVERURL}/downloads/build-resume`, {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    });
+    window.open(`${SERVERURL}/downloads/build-resume`);
   }
   return (
     <div>
@@ -44,11 +32,14 @@ export default () => {
         <div className="headerText">Ready to download your resume?</div>
 
         <div className="overallButtonContainer">
-          <div className="buttonContainer" onClick={() => {
-            triggerDownload()
-            //TODO: fix this
-            window.open("http://localhost:3001/downloads/download-resume")
-          }}>
+          <div
+            className="buttonContainer"
+            onClick={() => {
+              triggerDownload();
+              //TODO: fix this
+              // window.open("http://localhost:3001/downloads/download-resume");
+            }}
+          >
             PDF Download
           </div>
           <div className="buttonContainer">Word Download</div>
@@ -64,7 +55,7 @@ export default () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          height: 600px;
+          min-height: calc(100vh - 132px);
         }
         .overallButtonContainer {
           display: flex;

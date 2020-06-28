@@ -84,6 +84,7 @@ function WorkSummary() {
           align-items: center;
           margin-bottom: 20px;
           cursor: default;
+          margin-top: 20px;
         }
         .bottomButton {
           border: 1px dashed #3a7ff2;

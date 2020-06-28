@@ -52,8 +52,7 @@ export default () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          height: 610px;
-          margin-top: -25px;
+          min-height: calc(100vh - 132px);
         }
         .headerTitle {
           font-size: 28px;
@@ -68,10 +67,10 @@ export default () => {
         }
         .templateContainer {
           display: flex;
-          margin-top: 25px;
+          margin-top: 34px;
         }
         .imageContainer {
-          margin: 5px;
+          margin: 8px;
         }
         img:hover {
           outline: 2px solid #3a7ff2;

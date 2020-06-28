@@ -27,13 +27,13 @@ function Heading() {
   const [currentData, setCurrentData] = useState(initialValue);
 
   useEffect(() => {
-    console.log("built component");
     if (currentData[0].username === "") {
       getData();
     }
   }, []);
 
   function handleInput(event, field) {
+    console.log(event);
     setState({
       ...state,
       [field]: event.target.value,
@@ -41,7 +41,6 @@ function Heading() {
   }
 
   function commitData(data) {
-    console.log("going to put basic data in the database", data);
     return fetch(`${SERVERURL}/basics/new-basic`, {
       method: "post",
       headers: {
@@ -71,6 +70,7 @@ function Heading() {
           //     prevDoc[0][key] = first[key];
           //   }
           // });
+          setState(data[0]);
           setCurrentData(data);
         }
       });
@@ -144,7 +144,7 @@ function Heading() {
             </div>
 
             <div className="inputContainer">
-              <div className="inputLabel">Email Address</div>
+              <div className="inputLabel">Email Address (required)</div>
               <textarea
                 onChange={(event) => {
                   return handleInput(event, "email");
@@ -183,13 +183,16 @@ function Heading() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log(state);
-            if (Object.keys(state).length > 0) {
-              console.log("commited data");
-              commitData(state);
-            }
+            console.log("state: ", state);
 
-            router.push("/section/work-index");
+            if (state.email) {
+              console.log("email length: ", state.email.length);
+              if (state.email.length >= 1) {
+                console.log("commited data");
+                commitData(state);
+                router.push("/section/work-index");
+              }
+            }
           }}
         >
           Next

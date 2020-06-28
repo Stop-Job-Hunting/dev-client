@@ -1,17 +1,23 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../../constants";
+import DatePicker from "react-datepicker";
+// import DatePicker from "react-date-picker";
+
+// import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 function WorkItem() {
   const router = useRouter();
   const [state, setState] = useState({});
   const [currentItem, setCurrentItem] = useState("load");
+  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
 
   const { workid } = router.query;
 
   useEffect(() => {
     console.log("built component");
-
     if (currentItem === "load") {
       getAllWork();
     }
@@ -22,6 +28,14 @@ function WorkItem() {
       ...state,
       [field]: event.target.value,
     });
+  }
+
+  function handleDate(date, field) {
+    setState({
+      ...state,
+      [field]: date,
+    });
+    console.log(date);
   }
 
   function getAllWork() {
@@ -39,11 +53,23 @@ function WorkItem() {
           if (allWorkItems[i]._id === `${workid}`) {
             console.log(allWorkItems[i]);
             setCurrentItem(allWorkItems[i]);
+            if (allWorkItems[i].endDate) {
+              console.log(new Date(allWorkItems[i].endDate));
+              setEndDate(new Date(allWorkItems[i].endDate));
+            }
+            if (allWorkItems[i].startDate) {
+              console.log("start date: ", new Date(allWorkItems[i].startDate));
+              setStartDate(new Date(allWorkItems[i].startDate));
+            }
           }
         }
       });
     });
   }
+
+  const testStyles = `{
+    background-color: blue
+  }`;
 
   function commitData(data) {
     console.log("going to put data in the database", data);
@@ -58,6 +84,7 @@ function WorkItem() {
   }
 
   function updateData(data) {
+    console.log("update data: ", data);
     console.log("going to put data in the database", data);
     return fetch(`${SERVERURL}/works/update/${workid}`, {
       method: "put",
@@ -121,24 +148,43 @@ function WorkItem() {
 
             <div className="inputContainer">
               <div className="inputLabel">Start Date</div>
-              <textarea
+
+              <div>{/* <DatePicker /> */}</div>
+
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => {
+                  handleDate(date, "startDate");
+
+                  setStartDate(date);
+                }}
+              />
+
+              {/* <textarea
                 onChange={(event) => {
                   return handleInput(event, "startDate");
                 }}
                 // @ts-ignore
                 defaultValue={currentItem.startDate || ""}
-              ></textarea>
+              ></textarea> */}
             </div>
 
             <div className="inputContainer">
               <div className="inputLabel">End Date</div>
-              <textarea
+              <DatePicker
+                selected={endDate}
+                onChange={(date) => {
+                  handleDate(date, "endDate");
+                  setEndDate(date);
+                }}
+              />
+              {/* <textarea
                 onChange={(event) => {
                   return handleInput(event, "endDate");
                 }}
                 // @ts-ignore
                 defaultValue={currentItem.endDate || ""}
-              ></textarea>
+              ></textarea> */}
             </div>
           </div>
         </div>
@@ -185,6 +231,7 @@ function WorkItem() {
           font-size: 28px;
           font-weight: bold;
           color: #3a7ff2;
+          margin-top: 24px;
         }
         .contentContainer {
           min-height: 400px;

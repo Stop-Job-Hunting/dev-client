@@ -91,6 +91,7 @@ function EduSummary() {
           margin-bottom: 20px;
           cursor: default;
           color: #444;
+          margin-top: 24px;
         }
         .bottomButton {
           border: 1px dashed #3a7ff2;

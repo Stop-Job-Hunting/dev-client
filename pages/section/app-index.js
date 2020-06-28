@@ -75,11 +75,11 @@ export default () => {
             align-items: center;
             justify-content: space-between;
             flex-direction: row-reverse;
+            min-height: calc(100vh - 132px);
           }
           .appIndexContainer {
             display: flex;
             flex-flow: column;
-            height: 41em;
           }
           .leftContainer {
             display: flex;
@@ -87,7 +87,6 @@ export default () => {
             justify-content: center;
             flex-direction: column;
             width: 100%;
-            height: 38em;
           }
           .rightContainer {
             display: flex;
@@ -95,8 +94,8 @@ export default () => {
             justify-content: center;
             width: 100%;
             background-color: #f9f9f9;
-            height: 38em;
             z-index: -1;
+            min-height: calc(100vh - 132px);
           }
           .leftContentContainer {
             padding: 15px;

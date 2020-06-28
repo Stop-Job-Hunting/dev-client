@@ -49,7 +49,7 @@ export default () => {
           </div>
         </div>
       </div>
-      <div className="fillSpace"></div>
+      {/* <div className="fillSpace"></div> */}
       <Footer />
       <style jsx>{`
         .hero {
@@ -58,7 +58,7 @@ export default () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          height: 450px;
+          min-height: calc(100vh - 132px);
         }
         .headerTitle {
           font-size: 28px;

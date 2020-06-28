@@ -13,6 +13,8 @@
     "jsonresume-theme-macchiato": "^1.1.0",
     "next": "9.4.1",
     "react": "^16.13.1",
+    "react-date-picker": "^8.0.1",
+    "react-datepicker": "^3.0.0",
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
     "slate": "^0.58.3",

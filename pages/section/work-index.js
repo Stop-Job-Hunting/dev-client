@@ -61,7 +61,7 @@ export default () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 610px;
+          min-height: calc(100vh - 132px);
           flex-direction: column;
         }
         .componentContainer {
