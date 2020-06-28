@@ -52,8 +52,7 @@ export default () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          height: 610px;
-          margin-top: -25px;
+          min-height: calc(100vh - 132px);
         }
         .headerTitle {
           font-size: 28px;
