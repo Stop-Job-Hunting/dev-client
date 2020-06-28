@@ -11,14 +11,13 @@ function WorkItem() {
   const router = useRouter();
   const [state, setState] = useState({});
   const [currentItem, setCurrentItem] = useState("load");
+  const [endDate, setEndDate] = useState(new Date());
   const [startDate, setStartDate] = useState(new Date());
-  const [value, onChange] = useState(new Date());
 
   const { workid } = router.query;
 
   useEffect(() => {
     console.log("built component");
-
     if (currentItem === "load") {
       getAllWork();
     }
@@ -36,7 +35,7 @@ function WorkItem() {
       ...state,
       [field]: date,
     });
-    console.log(state);
+    console.log(date);
   }
 
   function getAllWork() {
@@ -54,6 +53,14 @@ function WorkItem() {
           if (allWorkItems[i]._id === `${workid}`) {
             console.log(allWorkItems[i]);
             setCurrentItem(allWorkItems[i]);
+            if (allWorkItems[i].endDate) {
+              console.log(new Date(allWorkItems[i].endDate));
+              setEndDate(new Date(allWorkItems[i].endDate));
+            }
+            if (allWorkItems[i].startDate) {
+              console.log("start date: ", new Date(allWorkItems[i].startDate));
+              setStartDate(new Date(allWorkItems[i].startDate));
+            }
           }
         }
       });
@@ -77,6 +84,7 @@ function WorkItem() {
   }
 
   function updateData(data) {
+    console.log("update data: ", data);
     console.log("going to put data in the database", data);
     return fetch(`${SERVERURL}/works/update/${workid}`, {
       method: "put",
@@ -164,10 +172,10 @@ function WorkItem() {
             <div className="inputContainer">
               <div className="inputLabel">End Date</div>
               <DatePicker
-                selected={startDate}
+                selected={endDate}
                 onChange={(date) => {
                   handleDate(date, "endDate");
-                  setStartDate(date);
+                  setEndDate(date);
                 }}
               />
               {/* <textarea
