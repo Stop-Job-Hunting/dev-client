@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../../constants";
+import DatePicker from "react-datepicker";
+// import DatePicker from "react-date-picker";
+
+// import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 function WorkItem() {
   const router = useRouter();
   const [state, setState] = useState({});
   const [currentItem, setCurrentItem] = useState("load");
+  const [startDate, setStartDate] = useState(new Date());
+  const [value, onChange] = useState(new Date());
 
   const { workid } = router.query;
 
@@ -44,6 +51,10 @@ function WorkItem() {
       });
     });
   }
+
+  const testStyles = `{
+    background-color: blue
+  }`;
 
   function commitData(data) {
     console.log("going to put data in the database", data);
@@ -121,24 +132,36 @@ function WorkItem() {
 
             <div className="inputContainer">
               <div className="inputLabel">Start Date</div>
-              <textarea
+
+              <div>{/* <DatePicker /> */}</div>
+
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+              />
+
+              {/* <textarea
                 onChange={(event) => {
                   return handleInput(event, "startDate");
                 }}
                 // @ts-ignore
                 defaultValue={currentItem.startDate || ""}
-              ></textarea>
+              ></textarea> */}
             </div>
 
             <div className="inputContainer">
               <div className="inputLabel">End Date</div>
-              <textarea
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+              />
+              {/* <textarea
                 onChange={(event) => {
                   return handleInput(event, "endDate");
                 }}
                 // @ts-ignore
                 defaultValue={currentItem.endDate || ""}
-              ></textarea>
+              ></textarea> */}
             </div>
           </div>
         </div>
