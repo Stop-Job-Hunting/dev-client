@@ -33,6 +33,7 @@ function Heading() {
   }, []);
 
   function handleInput(event, field) {
+    console.log(event);
     setState({
       ...state,
       [field]: event.target.value,
@@ -69,6 +70,7 @@ function Heading() {
           //     prevDoc[0][key] = first[key];
           //   }
           // });
+          setState(data[0]);
           setCurrentData(data);
         }
       });
