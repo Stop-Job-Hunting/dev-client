@@ -70,7 +70,7 @@ export default () => {
           margin-top: 34px;
         }
         .imageContainer {
-          margin: 10px;
+          margin: 8px;
         }
         img:hover {
           outline: 2px solid #3a7ff2;
