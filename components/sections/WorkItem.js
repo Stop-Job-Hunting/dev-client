@@ -31,6 +31,14 @@ function WorkItem() {
     });
   }
 
+  function handleDate(date, field) {
+    setState({
+      ...state,
+      [field]: date,
+    });
+    console.log(state);
+  }
+
   function getAllWork() {
     return fetch(`${SERVERURL}/works/all-work`, {
       method: "get",
@@ -137,7 +145,11 @@ function WorkItem() {
 
               <DatePicker
                 selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                onChange={(date) => {
+                  handleDate(date, "startDate");
+
+                  setStartDate(date);
+                }}
               />
 
               {/* <textarea
@@ -153,7 +165,10 @@ function WorkItem() {
               <div className="inputLabel">End Date</div>
               <DatePicker
                 selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                onChange={(date) => {
+                  handleDate(date, "endDate");
+                  setStartDate(date);
+                }}
               />
               {/* <textarea
                 onChange={(event) => {
