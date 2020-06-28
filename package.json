@@ -10,6 +10,7 @@
   "dependencies": {
     "emotion": "^10.0.27",
     "is-hotkey": "^0.1.6",
+    "jsonresume-theme-macchiato": "^1.1.0",
     "next": "9.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
