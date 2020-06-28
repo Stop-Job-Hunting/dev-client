@@ -33,6 +33,11 @@ body {
   display: flex;
 }
 
+.react-datepicker__input-container input:focus {
+  border: 1px solid #ffa600;
+  outline: 0px;
+}
+
 .react-datepicker-wrapper {
   width: 94%;
   margin-bottom: 8px;
