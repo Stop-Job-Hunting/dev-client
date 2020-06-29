@@ -2,10 +2,22 @@ import NavBar from "../../components/navBar";
 import Footer from "../../components/footer";
 import { useRouter } from "next/router";
 import ProgressBar from "../../components/progressBar";
+import SERVERURL from "../../constants";
 
 export default () => {
   const router = useRouter();
 
+  function addTemplate(template) {
+    console.log("going to put template", template);
+    return fetch(`${SERVERURL}/basics/update`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(template),
+    });
+  }
   return (
     <div>
       <ProgressBar progress={-1} />
@@ -21,6 +33,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
+              addTemplate({ template: `jsonresume-theme-macchiato` })
               router.push("/section/heading");
             }}
           >
@@ -29,6 +42,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
+              addTemplate({ template: `jsonresume-theme-orbit` })
               router.push("/section/heading");
             }}
           >
@@ -37,6 +51,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
+              addTemplate({ template: `jsonresume-theme-eloquent` })
               router.push("/section/heading");
             }}
           >
