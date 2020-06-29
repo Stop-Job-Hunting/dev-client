@@ -15,6 +15,17 @@ function EducationListItem(props) {
     });
   }
 
+  let formattedDate = function (dateString) {
+    let dateObj = new Date(dateString);
+    let month = dateObj.getUTCMonth() + 1; //months from 1-12
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+
+    let newdate = month + "/" + day + "/" + year;
+
+    return newdate;
+  };
+
   return (
     <>
       <div className="educationContainer" key={`${props.item._id}`}>
@@ -24,7 +35,7 @@ function EducationListItem(props) {
             {props.item.institution}, {props.item.location}
           </strong>
           &nbsp; |&nbsp; {props.item.area}, {props.item.studyType} &nbsp;|&nbsp;{" "}
-          {props.item.endDate}
+          {formattedDate(props.item.endDate)}
         </div>
         <div className="iconContainer">
           <div
