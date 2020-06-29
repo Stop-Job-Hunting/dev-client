@@ -1,20 +1,31 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../../constants";
+import DatePicker from "react-datepicker";
 
 function EducationItem() {
   const router = useRouter();
   const [state, setState] = useState({});
   const [currentItem, setCurrentItem] = useState("load");
+  const [endDate, setEndDate] = useState(new Date());
   const { educationitem } = router.query;
 
   useEffect(() => {
     console.log("built component");
 
     if (currentItem === "load") {
+      console.log("load");
       getAllEducation();
     }
   });
+
+  function handleDate(date, field) {
+    setState({
+      ...state,
+      [field]: date,
+    });
+    console.log(date);
+  }
 
   function handleInput(event, field) {
     setState({
@@ -33,11 +44,17 @@ function EducationItem() {
     }).then((res) => {
       res.text().then((text) => {
         const allEducationItems = JSON.parse(text);
+        console.log(allEducationItems);
 
         for (let i = 0; i < allEducationItems.length; i++) {
           if (allEducationItems[i]._id === `${educationitem}`) {
             console.log(allEducationItems[i]);
             setCurrentItem(allEducationItems[i]);
+          }
+
+          if (allEducationItems[i].endDate) {
+            console.log(new Date(allEducationItems[i].endDate));
+            setEndDate(new Date(allEducationItems[i].endDate));
           }
         }
       });
@@ -114,12 +131,19 @@ function EducationItem() {
 
             <div className="inputContainer">
               <div className="inputLabel">Graduation Date</div>
-              <textarea
+              <DatePicker
+                selected={endDate}
+                onChange={(date) => {
+                  handleDate(date, "endDate");
+                  setEndDate(date);
+                }}
+              />
+              {/* <textarea
                 onChange={(event) => {
                   return handleInput(event, "endDate");
                 }}
                 defaultValue={currentItem.endDate || ""}
-              ></textarea>
+              ></textarea> */}
             </div>
             <div className="invisible">
               <div className="inputContainer">
