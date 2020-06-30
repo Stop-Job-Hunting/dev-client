@@ -42,7 +42,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              addTemplate({ template: `jsonresume-theme-kendall` })
+              addTemplate({ template: `jsonresume-theme-print-flexbox` })
               router.push("/section/heading");
             }}
           >
