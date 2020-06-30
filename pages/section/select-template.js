@@ -2,7 +2,7 @@ import NavBar from "../../components/navBar";
 import Footer from "../../components/footer";
 import { useRouter } from "next/router";
 import ProgressBar from "../../components/progressBar";
-import SERVERURL from "../../constants";
+import SERVERURL from "../../components/constants";
 
 export default () => {
   const router = useRouter();
@@ -33,7 +33,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              addTemplate({ template: `jsonresume-theme-macchiato` })
+              addTemplate({ template: `jsonresume-theme-macchiato` });
               router.push("/section/heading");
             }}
           >
@@ -42,7 +42,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              addTemplate({ template: `jsonresume-theme-print-flexbox` })
+              addTemplate({ template: `jsonresume-theme-print-flexbox` });
               router.push("/section/heading");
             }}
           >
@@ -51,7 +51,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              addTemplate({ template: `jsonresume-theme-stackoverflow` })
+              addTemplate({ template: `jsonresume-theme-stackoverflow` });
               router.push("/section/heading");
             }}
           >

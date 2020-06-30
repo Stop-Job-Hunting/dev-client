@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import LogoutButton from "./logoutButton";
 import { useRouter } from "next/router";
-import SERVERURL from "../constants";
+import SERVERURL from "./constants";
 import { ArrowRightCircle } from "react-feather";
 
 // defines the fetch request to server to check if logged in

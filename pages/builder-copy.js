@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import LogoutButton from "../components/logoutButton";
 import NavBar from "../components/navBar";
-import SERVERURL from "../constants"
+import SERVERURL from "../components/constants";
 
 function whoami() {
   return fetch(`${SERVERURL}/user-info`, {

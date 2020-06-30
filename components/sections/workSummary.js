@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import SERVERURL from "../../constants";
+import SERVERURL from "../../components/constants";
 import WorkListItem from "../workListItem";
 import { useRouter } from "next/router";
 

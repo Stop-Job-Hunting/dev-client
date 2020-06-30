@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import SERVERURL from "../../constants";
+import SERVERURL from "../../components/constants";
 
 let initialValue = [
   {

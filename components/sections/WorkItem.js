@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import SERVERURL from "../constants";
+import SERVERURL from "../../components/constants";
 import DatePicker from "react-datepicker";
 import { urlObjectKeys } from "next/dist/next-server/lib/utils";
 // import DatePicker from "react-date-picker";

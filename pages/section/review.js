@@ -1,6 +1,6 @@
 import ProgressBar from "../../components/progressBar";
 import Footer from "../../components/footer";
-import SERVERURL from "../../constants";
+import SERVERURL from "../../components/constants";
 import { useEffect } from "react";
 
 export default () => {

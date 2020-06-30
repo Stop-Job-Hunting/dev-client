@@ -3,7 +3,7 @@ import WorkHighlights from "../../../components/sections/workHighlights";
 import Footer from "../../../components/footer";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import SERVERURL from "../../../constants";
+import SERVERURL from "../../../components/constants";
 
 export default () => {
   const router = useRouter();

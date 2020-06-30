@@ -2,7 +2,7 @@ import SlateWorkEditor from "../slateWorkEditor";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import SlateParser from "../SlateParser";
-import SERVERURL from "../../constants";
+import SERVERURL from "../../components/constants";
 
 const initialValue = [
   {
@@ -122,7 +122,8 @@ function WorkHighlights(props) {
                   Resume Builder.
                 </li>
                 <li>
-                  Scaled user acquisition to over 100,000 subscribers through SEM.
+                  Scaled user acquisition to over 100,000 subscribers through
+                  SEM.
                 </li>
                 <li>Sold the product after 3 years for a 5x EBIT.</li>
               </ul>

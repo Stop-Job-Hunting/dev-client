@@ -2,7 +2,7 @@ import SlateSummaryEditor from "../slateSummaryEditor";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import SlateParser from "../SlateParser";
-import SERVERURL from "../../constants";
+import SERVERURL from "../../components/constants";
 
 const initialValue = [
   {
