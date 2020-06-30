@@ -42,7 +42,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              addTemplate({ template: `jsonresume-theme-orbit` })
+              addTemplate({ template: `jsonresume-theme-kendall` })
               router.push("/section/heading");
             }}
           >
@@ -51,7 +51,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              addTemplate({ template: `jsonresume-theme-eloquent` })
+              addTemplate({ template: `jsonresume-theme-stackoverflow` })
               router.push("/section/heading");
             }}
           >

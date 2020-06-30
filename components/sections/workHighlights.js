@@ -122,7 +122,7 @@ function WorkHighlights(props) {
                   Resume Builder.
                 </li>
                 <li>
-                  Scaled user aqusition to over 100,000 subscribers through SEM.
+                  Scaled user acquisition to over 100,000 subscribers through SEM.
                 </li>
                 <li>Sold the product after 3 years for a 5x EBIT.</li>
               </ul>
