@@ -1,5 +1,5 @@
 import { Edit, Trash, Move } from "react-feather";
-import SERVERURL from "../constants";
+import SERVERURL from "./constants";
 import { useRouter } from "next/router";
 
 function EducationListItem(props) {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import LogoutButton from "../components/logoutButton";
 import { useRouter } from "next/router";
-import SERVERURL from "../constants";
+import SERVERURL from "./constants";
 
 // defines the fetch request to server to check if logged in
 function getLoggedIn() {

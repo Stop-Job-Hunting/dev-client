@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import SERVERURL from "../../constants";
+import SERVERURL from "../constants";
 import DatePicker from "react-datepicker";
 import { urlObjectKeys } from "next/dist/next-server/lib/utils";
 // import DatePicker from "react-date-picker";
@@ -207,8 +207,11 @@ function WorkItem() {
         <div
           className="buttonContainer"
           onClick={() => {
-            if (Object.keys(state).length !== 0 && Object.keys(state).includes("company")) {
-              console.log("excute logic ")
+            if (
+              Object.keys(state).length !== 0 &&
+              Object.keys(state).includes("company")
+            ) {
+              console.log("excute logic ");
               if (workid === "new") {
                 commitData(state);
               } else {

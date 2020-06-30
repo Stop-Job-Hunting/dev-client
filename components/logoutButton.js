@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import SERVERURL from "../constants";
+import SERVERURL from "./constants";
 
 function logout() {
   return fetch(`${SERVERURL}/sessions/logout`, {

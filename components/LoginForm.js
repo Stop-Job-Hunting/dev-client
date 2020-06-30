@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import SERVERURL from "../constants";
+import SERVERURL from "./constants";
 
 export default function LoginForm() {
   const router = useRouter();
