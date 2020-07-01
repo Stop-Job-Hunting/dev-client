@@ -29,6 +29,7 @@ export default () => {
     }).then((res) => {
       res.text().then((text) => {
         const allWorkItems = JSON.parse(text);
+        console.log("allworkitems: ", allWorkItems);
 
         if (workhighlights !== "new") {
           for (let i = 0; i < allWorkItems.length; i++) {
@@ -37,6 +38,7 @@ export default () => {
             }
           }
         } else {
+          console.log("current doc: ", allWorkItems[allWorkItems.length - 1]);
           setState(allWorkItems[allWorkItems.length - 1]);
         }
       });
