@@ -87,7 +87,7 @@ function EducationItem() {
 
   return (
     <div className="componentContainer">
-      <div className="headingTitleContainer">Tell us about your education</div>
+      <div className="headingTitleContainer">Enter Your Education History</div>
       <div className="contentContainer">
         <div className="inputListContainer">
           <div className="insideInputsContainer">

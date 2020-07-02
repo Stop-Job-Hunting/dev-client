@@ -99,9 +99,7 @@ function WorkItem() {
 
   return (
     <div className="componentContainer">
-      <div className="headingTitleContainer">
-        Tell us about your most recent job.
-      </div>
+      <div className="headingTitleContainer">Add Work Your Work History</div>
       <div className="contentContainer">
         <div className="inputListContainer">
           <div className="insideInputsContainer">

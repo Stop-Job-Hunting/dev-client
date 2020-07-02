@@ -14,20 +14,17 @@ export default () => {
         <div className="componentContainer">
           <div className="upperContainer">
             <div className="textContentContainer">
-              <div className="headerTitle">
-                Now, let's fill out your work history.
-              </div>
+              <div className="headerTitle">Next, enter your Work History.</div>
               &nbsp;
               <div className="subHeader">
-                <strong>Here's what you need to know:</strong>
+                <strong>Ready to get started?</strong>
               </div>
               <div className="subHeader">
-                Employers scan your resume on average 6 seconds to determine if
-                you're a match.
+                Employers use Work History to determine not only your experience
+                level but also your technical abilities.
               </div>
               <div className="subHeader">
-                We'll offer expert suggestions to help you catch their
-                attention.
+                We'll offer expert tips to help you stand out.
               </div>
               <div className="templateContainer"></div>
             </div>

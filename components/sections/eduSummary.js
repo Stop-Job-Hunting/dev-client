@@ -61,7 +61,7 @@ function EduSummary() {
         }}
       >
         {" "}
-        ADD ANOTHER DEGREE
+        ADD NEW DEGREE
       </div>
       <div className="navButtons">
         <div

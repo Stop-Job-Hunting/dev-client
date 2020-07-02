@@ -18,7 +18,7 @@ export default () => {
               </div>
               &nbsp;
               <div className="subHeader">
-                <strong>Here's what you need to know:</strong>
+                <strong>Ready to get started?</strong>
               </div>
               <div className="subHeader">
                 Employers and automated screening software scan skills for

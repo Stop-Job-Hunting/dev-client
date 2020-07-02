@@ -10,9 +10,11 @@ export default () => {
       <ProgressBar progress={-1} />
 
       <div className="hero">
-        <div className="headerTitle">How long have you been working?</div>
+        <div className="headerTitle">
+          How many years of work history do you have?
+        </div>
         <div className="subHeader">
-          We'll find the best template for your experience level.
+          Help us recommend the best templates for your experience level.
         </div>
         <div className="expButtonContainer">
           <div

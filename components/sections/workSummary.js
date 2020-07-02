@@ -55,7 +55,7 @@ function WorkSummary() {
         }}
       >
         {" "}
-        ADD ANOTHER POSITION
+        ADD NEW POSITION
       </div>
       <div className="navButtons">
         <div

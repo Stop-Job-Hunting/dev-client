@@ -14,11 +14,11 @@ export default () => {
           <div className="upperContainer">
             <div className="textContentContainer">
               <div className="headerTitle">
-                Finally, let's add a professional summary.
+                Next, add a Professional Summary.
               </div>
               &nbsp;
               <div className="subHeader">
-                <strong>Here's what you need to know:</strong>
+                <strong>You're almost done.</strong>
               </div>
               <div className="subHeader">
                 Your summary quickly explains why you are the correct person for

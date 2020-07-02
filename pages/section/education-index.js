@@ -13,18 +13,17 @@ export default () => {
         <div className="componentContainer">
           <div className="upperContainer">
             <div className="textContentContainer">
-              <div className="headerTitle">
-                Great, now let's work on your education section.
-              </div>
+              <div className="headerTitle">Next, enter your Education.</div>
               &nbsp;
               <div className="subHeader">
-                <strong>Here's what you need to know:</strong>
+                <strong>Ready to get started?</strong>
               </div>
               <div className="subHeader">
-                Employers quickly scan to verify your education.
+                Employers check education history to determine your
+                qualifications.
               </div>
               <div className="subHeader">
-                We'll take care of the formatting so it's easy to find.
+                Enter your information in the most recent order.
               </div>
               <div className="templateContainer"></div>
             </div>
