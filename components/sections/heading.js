@@ -71,7 +71,27 @@ function Heading() {
           //   }
           // });
           setState(data[0]);
-          setCurrentData(data);
+          let blankValue = {
+            createdAt: "",
+            email: "",
+            firstname: "",
+            id: "",
+            isDeleted: false,
+            lastname: "",
+            location: { city: "", region: "", postalCode: "" },
+            phone: "",
+            skills: (3)[("", "", "")],
+            summary: "",
+            updatedAt: "",
+            username: "",
+            __v: 0,
+            _id: "",
+          };
+          for (let key in data[0]) {
+            blankValue[key] = data[0][key];
+          }
+          console.log(blankValue);
+          setCurrentData([blankValue]);
         }
       });
     });

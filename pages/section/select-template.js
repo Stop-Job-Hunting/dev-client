@@ -18,6 +18,17 @@ export default () => {
       body: JSON.stringify(template),
     });
   }
+
+  function commitData(template) {
+    return fetch(`${SERVERURL}/basics/new-basic`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(template),
+    });
+  }
   return (
     <div>
       <ProgressBar progress={-1} />
@@ -33,7 +44,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              addTemplate({ template: `jsonresume-theme-macchiato` });
+              commitData({ template: `jsonresume-theme-macchiato` });
               router.push("/section/heading");
             }}
           >
@@ -42,7 +53,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              addTemplate({ template: `jsonresume-theme-print-flexbox` });
+              commitData({ template: `jsonresume-theme-print-flexbox` });
               router.push("/section/heading");
             }}
           >
@@ -51,7 +62,7 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              addTemplate({ template: `jsonresume-theme-stackoverflow` });
+              commitData({ template: `jsonresume-theme-stackoverflow` });
               router.push("/section/heading");
             }}
           >
