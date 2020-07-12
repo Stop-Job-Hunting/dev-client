@@ -35,7 +35,13 @@ function WorkSummary() {
     let divs = state.map((item) => {
       if (item.company) {
         index = index + 1;
-        return <WorkListItem item={item} index={index} />;
+        return (
+          <WorkListItem
+            item={item}
+            index={index}
+            key={`${Math.random() * 100}`}
+          />
+        );
       }
     });
 

@@ -2,18 +2,13 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import SERVERURL from "../../components/constants";
 import DatePicker from "react-datepicker";
-import { urlObjectKeys } from "next/dist/next-server/lib/utils";
-// import DatePicker from "react-date-picker";
-
-// import "react-datepicker/dist/react-datepicker.css";
-// import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 function WorkItem() {
   const router = useRouter();
   const [state, setState] = useState({});
   const [currentItem, setCurrentItem] = useState("load");
-  const [endDate, setEndDate] = useState(new Date());
-  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState();
+  const [startDate, setStartDate] = useState();
 
   const { workid } = router.query;
 
@@ -62,15 +57,13 @@ function WorkItem() {
               console.log("start date: ", new Date(allWorkItems[i].startDate));
               setStartDate(new Date(allWorkItems[i].startDate));
             }
+          } else {
+            setCurrentItem("loaded");
           }
         }
       });
     });
   }
-
-  const testStyles = `{
-    background-color: blue
-  }`;
 
   function commitData(data) {
     console.log("going to put data in the database", data);
@@ -154,7 +147,6 @@ function WorkItem() {
                 selected={startDate}
                 onChange={(date) => {
                   handleDate(date, "startDate");
-
                   setStartDate(date);
                 }}
               />

@@ -33,7 +33,7 @@ function Heading() {
   }, []);
 
   function handleInput(event, field) {
-    console.log(event);
+    console.log(state);
     setState({
       ...state,
       [field]: event.target.value,
