@@ -35,18 +35,18 @@ function EduSummary() {
     let divs = state.map((item) => {
       if (item.institution) {
         index = index + 1;
-        return <EducationListItem item={item} index={index} />;
+        return (
+          <EducationListItem
+            item={item}
+            index={index}
+            key={`${Math.random() * 100}`}
+          />
+        );
       }
     });
 
     return divs;
   }
-
-  let mappedWork = state.map((item) => {
-    if (item.institution) {
-      return <EducationListItem item={item} />;
-    }
-  });
 
   return (
     <>

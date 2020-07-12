@@ -7,7 +7,7 @@ function EducationItem() {
   const router = useRouter();
   const [state, setState] = useState({});
   const [currentItem, setCurrentItem] = useState("load");
-  const [endDate, setEndDate] = useState(new Date());
+  const [endDate, setEndDate] = useState();
   const { educationitem } = router.query;
 
   useEffect(() => {
@@ -50,11 +50,13 @@ function EducationItem() {
           if (allEducationItems[i]._id === `${educationitem}`) {
             console.log(allEducationItems[i]);
             setCurrentItem(allEducationItems[i]);
-          }
 
-          if (allEducationItems[i].endDate) {
-            console.log(new Date(allEducationItems[i].endDate));
-            setEndDate(new Date(allEducationItems[i].endDate));
+            if (allEducationItems[i].endDate) {
+              console.log(new Date(allEducationItems[i].endDate));
+              setEndDate(new Date(allEducationItems[i].endDate));
+            }
+          } else {
+            setCurrentItem("loaded");
           }
         }
       });
