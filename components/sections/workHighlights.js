@@ -28,8 +28,6 @@ function WorkHighlights(props) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log("built component, currentItem is: ", currentItem);
-
     if (currentItem[0] && isLoading) {
       if (
         currentItem[0].children[0].text === initialValue[0].children[0].text
