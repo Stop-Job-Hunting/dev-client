@@ -140,12 +140,6 @@ function EducationItem() {
                   setEndDate(date);
                 }}
               />
-              {/* <textarea
-                onChange={(event) => {
-                  return handleInput(event, "endDate");
-                }}
-                defaultValue={currentItem.endDate || ""}
-              ></textarea> */}
             </div>
             <div className="invisible">
               <div className="inputContainer">
@@ -177,7 +171,8 @@ function EducationItem() {
         <div
           className="buttonContainer"
           onClick={() => {
-            if (educationitem === "new") {
+            if (Object.keys(state).length === 0) {
+            } else if (educationitem === "new") {
               commitData(state);
             } else {
               updateData(state);

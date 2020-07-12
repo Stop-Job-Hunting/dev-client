@@ -57,7 +57,7 @@ function EduSummary() {
       <div
         className="bottomButton"
         onClick={() => {
-          router.push("/section/education-item");
+          router.push("/section/education-item/new");
         }}
       >
         {" "}
