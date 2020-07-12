@@ -49,6 +49,7 @@ function WorkItem() {
           if (allWorkItems[i]._id === `${workid}`) {
             console.log(allWorkItems[i]);
             setCurrentItem(allWorkItems[i]);
+            setState({ company: `${allWorkItems[i].company}` });
             if (allWorkItems[i].endDate) {
               console.log(new Date(allWorkItems[i].endDate));
               setEndDate(new Date(allWorkItems[i].endDate));
