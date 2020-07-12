@@ -26,8 +26,6 @@ function Summary() {
       console.log("update the data");
       getBasicSchema();
     }
-
-    console.log("component loaded");
   });
 
   function updateData(data) {
