@@ -33,7 +33,7 @@ function Heading() {
   }, []);
 
   function handleInput(event, field) {
-    console.log(state);
+
     setState({
       ...state,
       [field]: event.target.value,
@@ -61,7 +61,6 @@ function Heading() {
     }).then((res) => {
       res.text().then((text) => {
         const data = JSON.parse(text);
-        console.log("this is an empty doc data: ", data);
         if (data.length < 1) {
         } else {
           // setCurrentData((prevDoc) => {
@@ -70,7 +69,12 @@ function Heading() {
           //     prevDoc[0][key] = first[key];
           //   }
           // });
-          setState(data[0]);
+          let currentData = data[0]
+          if (currentData.template || currentData.template === "") {
+            delete currentData.template
+          }
+          setState(currentData);
+
           let blankValue = {
             createdAt: "",
             email: "",
@@ -90,7 +94,6 @@ function Heading() {
           for (let key in data[0]) {
             blankValue[key] = data[0][key];
           }
-          console.log(blankValue);
           setCurrentData([blankValue]);
         }
       });
@@ -203,12 +206,9 @@ function Heading() {
         <div
           className="buttonContainer"
           onClick={() => {
-            console.log("state: ", state);
 
             if (state.email) {
-              console.log("email length: ", state.email.length);
               if (state.email.length >= 1) {
-                console.log("commited data");
                 commitData(state);
                 router.push("/section/work-index");
               }
