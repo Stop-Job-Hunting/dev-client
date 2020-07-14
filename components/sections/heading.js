@@ -39,6 +39,14 @@ function Heading() {
     });
   }
 
+  function handleLocation(event, field) {
+    let value = event.target.value;
+    setState((prevState) => {
+      prevState.location[field] = `${value}`;
+      return prevState;
+    });
+  }
+
   function commitData(data) {
     return fetch(`${SERVERURL}/basics/new-basic`, {
       method: "post",
@@ -130,7 +138,7 @@ function Heading() {
               <div className="inputLabel">City</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "location.city");
+                  return handleLocation(event, "city");
                 }}
                 defaultValue={currentData[0].location.city || ""}
               ></textarea>
@@ -139,7 +147,7 @@ function Heading() {
               <div className="inputLabel">State/Province</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "location.region");
+                  return handleLocation(event, "region");
                 }}
                 defaultValue={currentData[0].location.region || ""}
               ></textarea>
@@ -149,7 +157,7 @@ function Heading() {
               <div className="inputLabel">Zip Code</div>
               <textarea
                 onChange={(event) => {
-                  return handleInput(event, "location.postalCode");
+                  return handleLocation(event, "postalCode");
                 }}
                 defaultValue={currentData[0].location.postalCode || ""}
               ></textarea>
@@ -205,6 +213,7 @@ function Heading() {
         <div
           className="buttonContainer"
           onClick={() => {
+            console.log(state);
             if (state.email) {
               if (state.email.length >= 1) {
                 commitData(state);
