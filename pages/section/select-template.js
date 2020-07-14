@@ -44,7 +44,8 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              commitData({ template: `jsonresume-theme-macchiato` });
+              commitData({ template: `-t node_modules/jsonresume-theme-macchiato` });
+              console.log("template: jsonresume-theme-macchiato")
               router.push("/section/heading");
             }}
           >
@@ -53,7 +54,9 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              commitData({ template: `jsonresume-theme-print-flexbox` });
+              commitData({ template: "" });
+              console.log("template: jsonresume-theme-modern")
+              // commitData({ template: `jsonresume-theme-print-flexbox` });
               router.push("/section/heading");
             }}
           >
@@ -62,7 +65,8 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              commitData({ template: `jsonresume-theme-stackoverflow` });
+              commitData({ template: `-t node_modules/jsonresume-theme-stackoverflow` });
+              console.log("template: -t node_modules/jsonresume-theme-stackoverflow")
               router.push("/section/heading");
             }}
           >
