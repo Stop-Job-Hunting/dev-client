@@ -64,12 +64,6 @@ function Heading() {
         console.log("this is an empty doc data: ", data);
         if (data.length < 1) {
         } else {
-          // setCurrentData((prevDoc) => {
-          //   let first = data[0];
-          //   for (let key in first) {
-          //     prevDoc[0][key] = first[key];
-          //   }
-          // });
           setState(data[0]);
           let blankValue = {
             createdAt: "",
