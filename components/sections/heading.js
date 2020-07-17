@@ -42,6 +42,9 @@ function Heading() {
   function handleLocation(event, field) {
     let value = event.target.value;
     setState((prevState) => {
+      if (!prevState.location) {
+        prevState.location = {};
+      }
       prevState.location[field] = `${value}`;
       return prevState;
     });
