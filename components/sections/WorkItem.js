@@ -13,7 +13,7 @@ function WorkItem() {
   const { workid } = router.query;
 
   useEffect(() => {
-    console.log("built component");
+    console.log("built component, state is: ", currentItem);
     if (currentItem === "load") {
       getAllWork();
     }
@@ -45,22 +45,28 @@ function WorkItem() {
       res.text().then((text) => {
         const allWorkItems = JSON.parse(text);
 
+        let resetCurrent = true;
+
         for (let i = 0; i < allWorkItems.length; i++) {
           if (allWorkItems[i]._id === `${workid}`) {
-            console.log(allWorkItems[i]);
+            resetCurrent = false;
             setCurrentItem(allWorkItems[i]);
             setState({ company: `${allWorkItems[i].company}` });
+
             if (allWorkItems[i].endDate) {
               console.log(new Date(allWorkItems[i].endDate));
               setEndDate(new Date(allWorkItems[i].endDate));
             }
+
             if (allWorkItems[i].startDate) {
               console.log("start date: ", new Date(allWorkItems[i].startDate));
               setStartDate(new Date(allWorkItems[i].startDate));
             }
-          } else {
-            setCurrentItem("loaded");
           }
+        }
+
+        if (resetCurrent) {
+          setCurrentItem("loaded");
         }
       });
     });
@@ -209,9 +215,9 @@ function WorkItem() {
                 updateData(state);
               }
               router.push(`/section/work-highlights/${workid}`);
+            } else {
+              router.push(`/section/work-summary`);
             }
-
-            router.push(`/section/work-summary`);
           }}
         >
           Next
