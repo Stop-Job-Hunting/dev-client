@@ -46,8 +46,11 @@ function EducationItem() {
         const allEducationItems = JSON.parse(text);
         console.log(allEducationItems);
 
+        let resetCurrent = true;
+
         for (let i = 0; i < allEducationItems.length; i++) {
           if (allEducationItems[i]._id === `${educationitem}`) {
+            resetCurrent = false;
             console.log(allEducationItems[i]);
             setCurrentItem(allEducationItems[i]);
 
@@ -55,9 +58,11 @@ function EducationItem() {
               console.log(new Date(allEducationItems[i].endDate));
               setEndDate(new Date(allEducationItems[i].endDate));
             }
-          } else {
-            setCurrentItem("loaded");
           }
+        }
+
+        if (resetCurrent) {
+          setCurrentItem("loaded");
         }
       });
     });
