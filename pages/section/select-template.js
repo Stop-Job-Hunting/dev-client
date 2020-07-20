@@ -34,9 +34,7 @@ export default () => {
       <ProgressBar progress={-1} />
 
       <div className="hero">
-        <div className="headerTitle">
-          Top Templates For Your Experience Level!
-        </div>
+        <div className="headerTitle">Select One Of Our Top Templates!</div>
         <div className="subHeader">
           Proven to increase response rates by up to 200%.
         </div>
@@ -44,8 +42,10 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              commitData({ template: `-t node_modules/jsonresume-theme-macchiato` });
-              console.log("template: jsonresume-theme-macchiato")
+              commitData({
+                template: `-t node_modules/jsonresume-theme-macchiato`,
+              });
+              console.log("template: jsonresume-theme-macchiato");
               router.push("/section/heading");
             }}
           >
@@ -55,8 +55,10 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              commitData({ template: `-t node_modules/jsonresume-theme-paper` });
-              console.log("template: jsonresume-theme-paper")
+              commitData({
+                template: `-t node_modules/jsonresume-theme-paper`,
+              });
+              console.log("template: jsonresume-theme-paper");
               // commitData({ template: `jsonresume-theme-print-flexbox` });
               router.push("/section/heading");
             }}
@@ -66,8 +68,12 @@ export default () => {
           <div
             className="imageContainer"
             onClick={() => {
-              commitData({ template: `-t node_modules/jsonresume-theme-stackoverflow` });
-              console.log("template: -t node_modules/jsonresume-theme-stackoverflow")
+              commitData({
+                template: `-t node_modules/jsonresume-theme-stackoverflow`,
+              });
+              console.log(
+                "template: -t node_modules/jsonresume-theme-stackoverflow"
+              );
               router.push("/section/heading");
             }}
           >
