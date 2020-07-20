@@ -146,7 +146,7 @@ export default function Home() {
         <div
           className="buttonContainerLastCTA"
           onClick={() => {
-            router.push("/section/app-index");
+            router.push(`${getLinkString()}`);
           }}
         >
           Build My Resume

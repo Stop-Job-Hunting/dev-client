@@ -34,7 +34,9 @@ export default () => {
       <ProgressBar progress={2} />
 
       <div className="hero">
-        <div className="headerTitle">Select One Of Our Top Templates!</div>
+        <div className="headerTitle">
+          Select A Recruiter Recommended Template!
+        </div>
         <div className="subHeader">
           Proven to increase response rates by up to 200%.
         </div>
