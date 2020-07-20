@@ -58,6 +58,16 @@ function ProgressBar(props) {
       key={`${Math.random() * 100}`}
       className="navItemContainer"
       onClick={() => {
+        router.push("/section/select-template");
+      }}
+    >
+      Template{" "}
+    </div>,
+    <ArrowRightCircle width="16px" key={`${Math.random() * 100}`} />,
+    <div
+      key={`${Math.random() * 100}`}
+      className="navItemContainer"
+      onClick={() => {
         router.push("/section/heading");
       }}
     >

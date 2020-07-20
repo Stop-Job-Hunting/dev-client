@@ -5,7 +5,7 @@ import Footer from "../../components/footer";
 export default () => {
   return (
     <div>
-      <ProgressBar progress={10} />
+      <ProgressBar progress={12} />
 
       <div className="hero">
         <Summary />

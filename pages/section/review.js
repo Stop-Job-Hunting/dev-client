@@ -26,7 +26,7 @@ export default () => {
   }
   return (
     <div>
-      <ProgressBar progress={12} />
+      <ProgressBar progress={14} />
 
       <div className="hero">
         <div className="headerText">Ready to download your resume?</div>

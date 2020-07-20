@@ -7,7 +7,7 @@ export default () => {
 
   return (
     <div>
-      <ProgressBar progress={8} />
+      <ProgressBar progress={10} />
 
       <div className="hero">
         <div className="componentContainer">

@@ -31,7 +31,7 @@ export default () => {
   }
   return (
     <div>
-      <ProgressBar progress={-1} />
+      <ProgressBar progress={2} />
 
       <div className="hero">
         <div className="headerTitle">Select One Of Our Top Templates!</div>
