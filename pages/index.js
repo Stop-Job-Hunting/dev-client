@@ -48,10 +48,6 @@ export default function Home() {
 
   return (
     <div className="indexContainer">
-      <Head>
-        <title>Stop Job Hunting</title>
-        <meta property="og:title" content="Free Resume Builder" key="title" />
-      </Head>
       <NavBar />
       <div className="imgContainer">
         <img className="heroImage" src="/assets/heroimage900wsmall.jpg"></img>

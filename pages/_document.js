@@ -24,6 +24,8 @@ export default class MyDocument extends Document {
           `,
             }}
           />
+          <title>Stop Job Hunting</title>
+          <meta property="og:title" content="Free Resume Builder" key="title" />
         </Head>
         <body>
           <Main />
