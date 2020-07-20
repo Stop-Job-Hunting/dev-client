@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Footer from "../components/footer";
 import { useEffect, useState } from "react";
 import SERVERURL from "../components/constants";
+import Head from "next/head";
 
 function getLoggedIn() {
   return fetch(`${SERVERURL}/sessions/am-i-logged-in`, {
@@ -47,6 +48,10 @@ export default function Home() {
 
   return (
     <div className="indexContainer">
+      <Head>
+        <title>Stop Job Hunting</title>
+        <meta property="og:title" content="Free Resume Builder" key="title" />
+      </Head>
       <NavBar />
       <div className="imgContainer">
         <img className="heroImage" src="/assets/heroimage900wsmall.jpg"></img>
