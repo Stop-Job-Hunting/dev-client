@@ -51,11 +51,12 @@ export default () => {
           >
             <img src="/assets/templatePlaceholder.png" width="220px" />
           </div>
+          {/* jsonresume-theme-macchiato, jsonresume-theme-paper is good */}
           <div
             className="imageContainer"
             onClick={() => {
-              commitData({ template: "" });
-              console.log("template: jsonresume-theme-modern")
+              commitData({ template: `-t node_modules/jsonresume-theme-paper` });
+              console.log("template: jsonresume-theme-paper")
               // commitData({ template: `jsonresume-theme-print-flexbox` });
               router.push("/section/heading");
             }}
