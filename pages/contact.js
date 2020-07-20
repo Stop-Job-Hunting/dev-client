@@ -1,7 +1,9 @@
 import NavBar from "../components/navBar";
 import Footer from "../components/footer";
+import { useEffect } from "react";
 
-function PrivacyPolicy() {
+function Contact() {
+  useEffect(() => {}, []);
   return (
     <div>
       <NavBar />
@@ -38,4 +40,4 @@ function PrivacyPolicy() {
   );
 }
 
-export default PrivacyPolicy;
+export default Contact;

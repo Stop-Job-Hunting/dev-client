@@ -16,14 +16,16 @@ function Footer() {
           Privacy Policy
         </div>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <div
-          className="linkItem"
-          onClick={() => {
-            router.push("/contact");
-          }}
-        >
-          Contact
-        </div>
+        <a href="https://stopjobhunting.com/contact">
+          <div
+            className="linkItem"
+            // onClick={() => {
+            //   router.push("/contact");
+            // }}
+          >
+            Contact
+          </div>
+        </a>
       </div>
 
       <style jsx>{`
@@ -44,6 +46,13 @@ function Footer() {
           cursor: pointer;
         }
         .linkItem:hover {
+          text-decoration: underline;
+        }
+        a {
+          color: white;
+          text-decoration: none;
+        }
+        a:hover {
           text-decoration: underline;
         }
       `}</style>
