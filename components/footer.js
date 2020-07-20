@@ -1,9 +1,21 @@
+import { useRouter } from "next/router";
+
 function Footer() {
+  const router = useRouter();
+
   return (
     <div className="footerContainer">
       <div className="linkItemContainer">
         <div className="linkItem">Contact</div> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <div className="linkItem">Privacy Policy</div> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <div
+          className="linkItem"
+          onClick={() => {
+            router.push("/privacy-policy");
+          }}
+        >
+          Privacy Policy
+        </div>{" "}
+        &nbsp;&nbsp;|&nbsp;&nbsp;
         <div className="linkItem">Service Agreement</div>
       </div>
 
