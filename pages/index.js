@@ -49,7 +49,7 @@ export default function Home() {
     <div className="indexContainer">
       <NavBar />
       <div className="imgContainer">
-        <img className="heroImage" src="/assets/heroimage900w.png"></img>
+        <img className="heroImage" src="/assets/heroimage900wsmall.jpg"></img>
       </div>
       <div className="overlayContainer">
         <div>
@@ -115,7 +115,7 @@ export default function Home() {
       {/* Review Section */}
       <div className="reviewContainer">
         <div className="imgContainerReviews">
-          <img className="heroImage" src="/assets/reviewbanner.png"></img>
+          <img className="heroImage" src="/assets/reviewbannersmall.jpg"></img>
         </div>
         <div className="reviewHeaderContainer">
           <center>What are our users saying?</center>
