@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="footerContainer">
       <div className="linkItemContainer">
-        <div className="linkItem">Contact</div> &nbsp;&nbsp;|&nbsp;&nbsp;
+        Copyright © 2020 StopJobHunting.com &nbsp;| &nbsp;
         <div
           className="linkItem"
           onClick={() => {
@@ -14,9 +14,16 @@ function Footer() {
           }}
         >
           Privacy Policy
-        </div>{" "}
+        </div>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <div className="linkItem">Service Agreement</div>
+        <div
+          className="linkItem"
+          onClick={() => {
+            router.push("/contact");
+          }}
+        >
+          Contact
+        </div>
       </div>
 
       <style jsx>{`
