@@ -17,7 +17,7 @@ function Register() {
           align-items: center;
           justify-content: center;
           background-color: #3a7ff2;
-          height: 37em;
+          min-height: calc(100vh - 132px);
         }
       `}</style>
     </div>
