@@ -3,9 +3,47 @@ import LoginForm from "../components/LoginForm";
 import NavBar from "../components/navBar";
 import { useRouter } from "next/router";
 import Footer from "../components/footer";
+import { useEffect, useState } from "react";
+import SERVERURL from "../components/constants";
+
+function getLoggedIn() {
+  return fetch(`${SERVERURL}/sessions/am-i-logged-in`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+}
 
 export default function Home() {
   const router = useRouter();
+  const [navState, setNavState] = useState("load");
+
+  //Calls the request to server, then sets the appropriate state
+  async function checkLoggedIn() {
+    const result = await getLoggedIn();
+    const data = await result.json();
+
+    if (data) {
+      setNavState("loggedIn");
+    } else {
+      setNavState("loggedOut");
+    }
+  }
+
+  useEffect(() => {
+    checkLoggedIn();
+    console.log("am i logged in? ", navState);
+  });
+
+  function getLinkString() {
+    if (navState === "loggedIn") {
+      return "/section/app-index";
+    } else {
+      return "/register";
+    }
+  }
 
   return (
     <div className="indexContainer">
@@ -21,7 +59,7 @@ export default function Home() {
           <div
             className="buttonContainer"
             onClick={() => {
-              router.push("/section/app-index");
+              router.push(`${getLinkString()}`);
             }}
           >
             Build My Resume
