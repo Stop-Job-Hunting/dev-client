@@ -58,9 +58,9 @@ export default () => {
             className="imageContainer"
             onClick={() => {
               commitData({
-                template: `-t node_modules/jsonresume-theme-paper`,
+                template: `-t node_modules/jsonresume-theme-print-flexbox`,
               });
-              console.log("template: jsonresume-theme-paper");
+              console.log("template: jsonresume-theme-print-flexbox");
               // commitData({ template: `jsonresume-theme-print-flexbox` });
               router.push("/section/heading");
             }}
