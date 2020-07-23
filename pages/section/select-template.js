@@ -51,7 +51,7 @@ export default () => {
               router.push("/section/heading");
             }}
           >
-            <img src="/assets/templatePlaceholder.png" width="220px" />
+            <img src="/assets/machiatooutline2.jpg" width="220px" />
           </div>
           {/* jsonresume-theme-macchiato, jsonresume-theme-paper is good */}
           <div
@@ -65,7 +65,7 @@ export default () => {
               router.push("/section/heading");
             }}
           >
-            <img src="/assets/templatePlaceholder.png" width="220px" />
+            <img src="/assets/flexboxoutline1.jpg" width="220px" />
           </div>
           <div
             className="imageContainer"
@@ -79,7 +79,7 @@ export default () => {
               router.push("/section/heading");
             }}
           >
-            <img src="/assets/templatePlaceholder.png" width="220px" />
+            <img src="/assets/stackoutline3.jpg" width="220px" />
           </div>
         </div>
       </div>
