@@ -200,7 +200,7 @@ function Heading() {
         </div>
         <div className="imageContainer">
           <div>
-            <img src="/assets/templatePlaceholder.png" width="220px" />
+            <img src="/assets/headingicon.png" width="220px" />
           </div>
         </div>
       </div>
@@ -282,7 +282,7 @@ function Heading() {
         }
         .imageContainer {
           min-width: 230px;
-          margin-right: 10px;
+          margin-right: 30px;
           display: flex;
           justify-content: center;
           align-items: center;
