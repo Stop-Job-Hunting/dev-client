@@ -77,7 +77,7 @@ export default function Home() {
           </div>
         </div>
         <div className="resumePhotoContainer">
-          <img src="/assets/resume-example.png" width="320px"></img>
+          <img src="/assets/homepagestackoverflow.png" width="320px"></img>
         </div>
       </div>
 
