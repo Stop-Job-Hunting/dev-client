@@ -81,7 +81,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Call to action */}
+      {/* Call to action  comment*/}
       <div className="callToActionBarContainer">
         Try Our FREE Premium Resume Builder
       </div>
