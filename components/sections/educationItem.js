@@ -160,7 +160,7 @@ function EducationItem() {
         </div>
         <div className="imageContainer">
           <div>
-            <img src="/assets/templatePlaceholder.png" width="220px" />
+            <img src="/assets/education.png" width="220px" />
           </div>
         </div>
       </div>

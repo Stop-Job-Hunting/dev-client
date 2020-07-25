@@ -200,7 +200,7 @@ function Heading() {
         </div>
         <div className="imageContainer">
           <div>
-            <img src="/assets/headingicon.png" width="220px" />
+            <img src="/assets/heading.png" width="220px" />
           </div>
         </div>
       </div>
