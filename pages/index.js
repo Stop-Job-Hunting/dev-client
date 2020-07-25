@@ -17,6 +17,16 @@ function getLoggedIn() {
   });
 }
 
+const IframeString = `<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://app.tella.tv/embed/ckd29824f000008ml057h0n2d"></iframe>`;
+
+function Iframe(props) {
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: props.iframe ? props.iframe : "" }}
+    />
+  );
+}
+
 export default function Home() {
   const router = useRouter();
   const [navState, setNavState] = useState("load");
@@ -139,6 +149,11 @@ export default function Home() {
             width="300px"
           ></img>
         </div>
+      </div>
+
+      {/* Video Intro Section */}
+      <div className="videoSection">
+        <Iframe iframe={IframeString} />
       </div>
 
       {/* ending call to action section */}
@@ -341,6 +356,11 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           height: 40px;
+        }
+
+        .videoSection {
+          margin-top: 80px;
+          margin-bottom: 80px;
         }
 
         @media only screen and (max-width: 820px) {
