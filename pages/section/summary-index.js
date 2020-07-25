@@ -31,7 +31,7 @@ export default () => {
               <div className="templateContainer"></div>
             </div>
             <div className="imageContainer">
-              <img src="/assets/summary.png" width="220px" />
+              <img src="/assets/summaryworkplz.png" width="220px" />
             </div>
           </div>
           <div className="footerContainer">
